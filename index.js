@@ -184,7 +184,8 @@
     );*/
 
 
-    function fetchData() {
+    // RADI
+ function fetchData() {
       fetch("FishEyeData.json")
       .then(response => {
         return response.json();
@@ -194,8 +195,9 @@
         const html = data.photographers.map(user => {
           return `
           <div class = "user">
-               <img id="profile" class="profile" src="${user.portrait}" alt=""/>
-                <p class="name">${user.name}</p>
+               <img id="profile" src= class="profile"  alt=""/>
+               <p class="id">${user.id}</p>
+                <h2 class="name">${user.name}</h2>
                 <p>${user.country}</p>
                 <p>${user.tagline}</p>
                 <p>${user.price}</p>
@@ -215,9 +217,5 @@
 
    fetchData();
 
+
   
-  let elem = document.createElement("img");
-      elem.setAttribute("src", "/Users/ivanaradic/Documents/GitHub/P6_Fisheye/Documents/Sample Photos/Photographers ID Photos/MimiKeel.jpg");
-      elem.setAttribute("height", "30");
-      elem.setAttribute("width", "30");
-      document.getElementById("profile").appendChild(elem);

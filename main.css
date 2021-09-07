@@ -181,7 +181,7 @@ justify-content: space-between;
   display: flex;
 flex-direction: column;
 align-items: center;
-  background-color: #757575;
+  background-color: #ffffff;
   padding: 1em;
   margin: 10px;
   width: 23%
@@ -193,4 +193,8 @@ align-items: center;
  height: 200px;
  color:red;
 
+}
+
+.id{
+  display:none;
 }
