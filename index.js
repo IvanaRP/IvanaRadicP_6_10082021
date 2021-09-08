@@ -185,6 +185,10 @@
 
 
     // RADI
+
+let photographers
+
+
  function fetchData() {
       fetch("FishEyeData.json")
       .then(response => {
@@ -195,13 +199,13 @@
         const html = data.photographers.map(user => {
           return `
           <div class = "user">
-               <img id="profile" src= class="profile"  alt=""/>
+             <a href="photographer-page.html"> <img id="profile" src="/Documents/Sample Photos/Photographers ID Photos/${user.portrait}" class="profile"  alt=""/> </a>
                <p class="id">${user.id}</p>
-                <h2 class="name">${user.name}</h2>
-                <p>${user.country}</p>
-                <p>${user.tagline}</p>
-                <p>${user.price}</p>
-                <p>${user.tags}</p>
+              <a href="photographer-page.html"> <h2 class="name">${user.name}</h2></a>
+                <p class="country">${user.country}</p>
+                <p class="tagline">${user.tagline}</p>
+                <p class="price">${user.price}</p>
+                <p class="tags">${user.tags}</p>
           </div>
 
           `;

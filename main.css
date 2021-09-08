@@ -105,12 +105,11 @@ body {
     font-weight: normal;
     font-size: 36px;
     line-height: 47px;
-    
-    
     text-align: center;
-    
     color: #D3573C;
+    margin: 0;
   }
+
 
 .city{
     font-family: DM Sans;
@@ -119,7 +118,7 @@ body {
     font-size: 13px;
     line-height: 17px;
     /* identical to box height */
-
+    margin: 0;
     text-align: center;
 
     color: #901C1C;
@@ -132,7 +131,7 @@ body {
     font-size: 10px;
     line-height: 13px;
     /* identical to box height */
-
+    margin: 0;
     text-align: center;
 
     color: #000000;
@@ -148,7 +147,7 @@ body {
     /* identical to box height */
 
     text-align: center;
-
+    margin: 0;
     color: #757575;
 
 }
@@ -160,8 +159,13 @@ body {
     font-size: 12px;
     line-height: 16px;
     text-align: center;
-    
+    margin: 0;
     color: #911C1C;
+    border:3px;
+    border-radius:20px;
+    border-style:solid;
+    border-color:#911C1C;
+    padding: 5px;
 }
 
 .myData{
@@ -184,14 +188,17 @@ align-items: center;
   background-color: #ffffff;
   padding: 1em;
   margin: 10px;
-  width: 23%
-  ;
+  width: 23%;
+  height:auto;
+  
 }
 
 .profile{
  width: 200px;
  height: 200px;
- color:red;
+ border-radius: 50%;
+ object-fit: cover;
+
 
 }
 
