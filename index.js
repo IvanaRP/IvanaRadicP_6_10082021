@@ -186,7 +186,7 @@
 
     // RADI
 
-let photographers
+   
 
 
  function fetchData() {
@@ -199,7 +199,7 @@ let photographers
         const html = data.photographers.map(user => {
           return `
           <div class = "user">
-             <a href="photographer-page.html"> <img id="profile" src="/Documents/Sample Photos/Photographers ID Photos/${user.portrait}" class="profile"  alt=""/> </a>
+             <a href="photographer-page.html?id=${user.id}"> <img id="profile" src="/Documents/Sample Photos/Photographers ID Photos/${user.portrait}" class="profile"  alt=""/> </a>
                <p class="id">${user.id}</p>
               <a href="photographer-page.html"> <h2 class="name">${user.name}</h2></a>
                 <p class="country">${user.country}</p>
@@ -222,4 +222,6 @@ let photographers
    fetchData();
 
 
-  
+  // boucle=loop?
+  // chaque photographer object  ?
+  // deuxieme page?
