@@ -23,20 +23,22 @@ function fetchData() {
 
       //make user div in innerHTML
 
-//make user TAG SEPARATE in innerHTML
+      //make user TAG SEPARATE in innerHTML
 
-    let tagsHtml = filteredUser.tags.map(tag => {
-     return `
+    // let tagsHtml = filteredUser.tags
+    // .map((tag) => {
+    //    return `
+    //     <div class="tagseparated">
+    //       <p>${tag.tags}</p>
+    //     </div>
+    //   `;
+    //   })
+    //   .join("");
+
+    //   document.querySelector("#photographer").innerHTML = tagsHtml;
+    // })
     
-      <p>${tag.tags}</p>
-     
-     `;
-      console.log(tag);
-
-      })
-      .join("");
-     document.querySelector("#photographerTags").innerHTML = tagsHtml;
-
+   // console.log(tag);
 
 //make user TAG SEPARATE in innerHTML add this  `+tagsHtml+`
 
@@ -47,7 +49,7 @@ function fetchData() {
                   <p class="country">${filteredUser.country}</p>
                   <p class="tagline">${filteredUser.tagline}</p>
                   <p class="price">${filteredUser.price}</p>
-                  `+tagsHtml+`
+                  
 
           </div>
 

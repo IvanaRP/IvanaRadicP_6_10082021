@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="photographerPage.css">
+    <link rel="stylesheet" href="dropdown.css">
+    <script src="dropdown.js" type="module" defer></script>
     <script src="lightbox.js" type="module" defer></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
     <title>FishEye</title>
    
 
@@ -28,6 +32,26 @@
         <div id="photographer" class="boxes"></div>
         <div id="photographerTags" class="tags"></div>
         <div id="btn" class="btn"></div>
+    </div>
+
+    <!--DROPDOWNMENU-->
+
+
+    <div class="dropdownPART">
+        <p>Trier par</p>
+
+        <div class="dropdown">
+            <button class="dropdown__toggle" type="button" aria-haspopup="true">
+               Trier par<i class="fas fa-chevron-up"></i>
+            </button>
+            <ul class="dropdown__menu" role="listbox" aria-expanded="false">
+              <li role="option" tabindex="0">Popularite</li>
+              <li role="option" tabindex="0">Date</li>
+              <li role="option" tabindex="0">Titre</li>
+            </ul>
+          </div>
+          
+
     </div>
 
     <!--LIGHTBOX-->
