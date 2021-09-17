@@ -1,0 +1,160 @@
+/*Profiles*/
+
+.boxes {
+  margin: auto;
+  width: 100%;
+}
+.filteredUser {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  flex-direction: row;
+  align-items: center;
+  padding: 1em;
+  height: auto;
+}
+
+.filteredUser__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  float: left;
+  margin: 20px;
+}
+
+.filteredUser__img {
+  float: right;
+  margin: 20px;
+}
+
+.profiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.profil {
+  display: flexbox;
+  width: 32%;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.boxgrey {
+  display: flex;
+  align-items: flex-start;
+  margin: auto;
+  width: 90%;
+  background: #fafafa;
+}
+
+.profile {
+  display: flex;
+  flex-direction: ;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.id {
+  display: none;
+}
+
+.foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+button {
+  font-weight: bold;
+  padding: 0 10px;
+  color: #fafafa;
+  background: #901c1c;
+  border: none;
+  width: fit-content;
+  height: 45px;
+  border-radius: 5px;
+  z-index: 30;
+}
+
+.btn {
+  margin-top: 30px;
+  position: absolute;
+  align-content: center;
+  left: 30%;
+}
+
+/*Galerie*/
+
+.galerie__user {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+.galerie {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  width: 90%;
+  align-items: center;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.galerie__image {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.galerie__img {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+}
+.galerie__title {
+  display: flex;
+  color: #901c1c;
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.galerie__info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.galerie__likes {
+  color: #901c1c;
+  size: 12px;
+  font-weight: 400;
+  font-weight: 400;
+}
+
+.galerie__video {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/*Galerie hidden stuff*/
+
+.pID,
+.photoID,
+.photoTags,
+.photoDate,
+.photoPrice {
+  display: none;
+}
