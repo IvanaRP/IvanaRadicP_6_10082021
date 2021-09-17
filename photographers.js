@@ -66,6 +66,8 @@ function fetchData() {
 
 //display all  MEDIA PHOTOS VIDEOS in inner html
 
+//VIDEO NOT WORKING
+
       let photoHtml = photographerPhotos
         .map((photo) => {
           return `<div class="galerie__user">
