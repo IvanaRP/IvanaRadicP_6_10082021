@@ -15,80 +15,95 @@ function fetchData() {
     })
     .then((data) => {
       let photographerId = getParam("id");
+      let sortBy = getParam("sort"); //sort for dropdownmenu
       const filteredUsers = data.photographers.filter((user) => {
         return user.id == photographerId;
       });
 
       let filteredUser = filteredUsers[0];
 
-      //make user div in innerHTML
-
       //make user TAG SEPARATE in innerHTML
+      let tagsHtml = filteredUser.tags
+        .map((tag) => {
+          return `
+          <p class="tags">#${tag}</p>
+        `;
+        })
+        .join("");
 
-    // let tagsHtml = filteredUser.tags
-    // .map((tag) => {
-    //    return `
-    //     <div class="tagseparated">
-    //       <p>${tag.tags}</p>
-    //     </div>
-    //   `;
-    //   })
-    //   .join("");
-
-    //   document.querySelector("#photographer").innerHTML = tagsHtml;
-    // })
-    
-   // console.log(tag);
-
-//make user TAG SEPARATE in innerHTML add this  `+tagsHtml+`
-
-      document.getElementById("photographer").innerHTML = `
+      //make user TAG SEPARATE in innerHTML add this  `+tagsHtml+`
+      //make user div in innerHTML
+      //BUTTON CONCTACT ME mozda izmedju?
+      document.getElementById("photographer").innerHTML =
+        `
             <div class = "filteredUser__info"> 
                 <p class="id">${filteredUser.id}</p>
                 <a href="photographer-page.html"> <h2 class="name">${filteredUser.name}</h2></a>
                   <p class="country">${filteredUser.country}</p>
                   <p class="tagline">${filteredUser.tagline}</p>
                   <p class="price">${filteredUser.price}</p>
-                  
-
-          </div>
-
+                  <div class="tags__all">`+tagsHtml +`</div>
+            </div> 
+           
           <div class = "filteredUser__img">
-          <a href="photographer-page.html?id=${filteredUser.id}"> <img id="profile" src="/Documents/Sample Photos/Photographers ID Photos/${filteredUser.portrait}" class="profile"  alt=""/> </a>
-        </div>
-              `;
-
-      console.log(filteredUser);
+            <a href="photographer-page.html?id=${filteredUser.id}"> <img id="profile" src="/Documents/Sample Photos/Photographers ID Photos/${filteredUser.portrait}" class="profile"  alt=""/> </a>
+          </div>`;
 
       let photographerPhotos = data.media.filter((media) => {
         return media.photographerId == photographerId;
       });
-      console.log(photographerPhotos);
 
+      if (sortBy) {
+        photographerPhotos = photographerPhotos.sort((a, b) => {
+          if (a[sortBy] < b[sortBy]) {
+            return -1;
+          }
+          if (a[sortBy] > b[sortBy]) {
+            return 1;
+          }
+          return 0;
+        });
+      }
 
-//display all  MEDIA PHOTOS VIDEOS in inner html
+      //display all  MEDIA PHOTOS VIDEOS in inner html
 
-//VIDEO NOT WORKING
+      //VIDEO if else
 
       let photoHtml = photographerPhotos
         .map((photo) => {
-          return `<div class="galerie__user">
-          <div class = "galerie__image">
-              <p class="pID" >${photo.id}</p>
-              <p class="photoID">${photo.photographerId}</p>
-              <img id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt=""/>
-             
-              <p class="photoDate">${photo.date}</p>
-              <p class="photoPrice">${photo.price}</p>
+          let mediaHtml = "";
+
+          if (photo.hasOwnProperty("video")) {
+            mediaHtml = `<video id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.video}"  alt=""/>`;
+          } else {
+            mediaHtml = `<img id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt=""/>`;
+          }
+
+          return (
+            `
+          <div class="galerie__user">
+            <div class = "galerie__image">
+                <p class="pID" >${photo.id}</p>
+                <p class="photoID">${photo.photographerId}</p>
+                ` +
+            mediaHtml +
+            `
+                <p class="photoDate">${photo.date}</p>
+                <p class="photoPrice">${photo.price}</p>
+            </div>
+
+            <div class="galerie__info"> 
+                    <p class="galerie__title">${photo.title}</p>
+                    <p class="galerie__likes" onclick="incrLinkes(event)">${photo.likes}<i class="fas fa-heart"></i></p>
+            </div> 
           </div>
 
-          <div class="galerie__info"> 
-                  <p class="galerie__title">${photo.title}</p>
-                  <p class="galerie__likes">${photo.likes}</p>
-          </div>    
-
-          </div>
-          `;
+          <div class="galerie__infoDown"> 
+                 <p class="galerie__infolikes">${photo.likes}<i class="fas fa-heart"></i></p> 
+                <p class="galerie__infotitle">${photo.price}/jour</p>
+           </div> 
+          `
+          );
         })
         .join("");
 
@@ -100,6 +115,20 @@ function fetchData() {
 }
 
 fetchData();
+
+// onClick = sortPhotosBy('likes');
+
+function incrLinkes(e) {
+  let lajkovi = parseInt(e.target.innerHTML);
+  e.target.innerHTML = lajkovi + 1;
+}
+
+//SEARCH SORT BY LIKES
+function sortPhotosBy(sortBy) {
+  const urlParams = new URLSearchParams(window.location.search);
+  urlParams.set("sort", sortBy);
+  window.location.search = urlParams;
+}
 
 //BUTTON CONCTACT ME
 
@@ -159,4 +188,3 @@ button.addEventListener("click", function () {
 //   }
 
 //   fetchMedia();
-

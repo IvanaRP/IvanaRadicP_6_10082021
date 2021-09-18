@@ -1,63 +1,60 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="photographerPage.css">
-    <link rel="stylesheet" href="dropdown.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="photographerPage.css" />
+    <link rel="stylesheet" href="dropdown.css" />
     <script src="dropdown.js" type="module" defer></script>
     <script src="lightbox.js" type="module" defer></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+      crossorigin="anonymous"
+    />
 
     <title>FishEye</title>
-   
-
-
-
-</head>
-<body>
-    
-      <!--Header-->
-      <header>
-        <div class="header">
-            <img class="header__logo" src="Documents/FishEyeLOGO.svg" alt="FishEye">
-        </div>
-
-
+  </head>
+  <body>
+    <!--Header-->
+    <header>
+      <div class="header">
+        <a href="/index.html"
+          ><img
+            class="header__logo"
+            src="Documents/FishEyeLOGO.svg"
+            alt="FishEye"
+        /></a>
+      </div>
     </header>
-  
+
     <div class="boxgrey">
-        <div id="photographer" class="boxes"></div>
-        <div id="photographerTags" class="tags"></div>
-        <div id="btn" class="btn"></div>
+      <div id="photographer" class="boxes"></div>
+      <div id="btn" class="btn"></div>
     </div>
 
     <!--DROPDOWNMENU-->
 
-
     <div class="dropdownPART">
-        <p>Trier par</p>
+      <p>Trier par</p>
 
-        <div class="dropdown">
-            <button class="dropdown__toggle" type="button" aria-haspopup="true">
-               Trier par<i class="fas fa-chevron-up"></i>
-            </button>
-            <ul class="dropdown__menu" role="listbox" aria-expanded="false">
-              <li role="option" tabindex="0">Popularite</li>
-              <li role="option" tabindex="0">Date</li>
-              <li role="option" tabindex="0">Titre</li>
-            </ul>
-          </div>
-          
-
+      <div class="dropdown">
+        <button class="dropdown__toggle" type="button" aria-haspopup="true">
+          Trier par<i class="fas fa-chevron-up"></i>
+        </button>
+        <ul class="dropdown__menu" role="listbox" aria-expanded="false">
+          <li role="option" tabindex="0">Popularite</li>
+          <li role="option" tabindex="0">Date</li>
+          <li role="option" tabindex="0">Titre</li>
+        </ul>
+      </div>
     </div>
 
     <!--LIGHTBOX-->
 
-
-   <!-- <div class="lightbox" >
+    <!-- <div class="lightbox" >
         <button class="lightbox__close"></button>
         <button class="lightbox__next"></button>
         <button class="lightbox__prev"></button>
@@ -67,16 +64,27 @@
 
     </div>-->
 
+    <div id="media" class="galerie"></div>
 
-<div id="media" class="galerie"></div>
-<div class="likes-section">
-    <span class="likes">o likes</span>
-    <button class="like__button"><i class="fas fa-heart"></i></button>
-    
-</div>
+    <!--MODAL CONTACT ME-->
+
+    <div class="bg-modal">
+        <div class="modal-content">
+            <form>
+                <p>Prénom</p><input type="text" placeholder="">
+                <p>Nom</p><input type="text" placeholder="">
+                <p>Email</p><input type="text" placeholder="">
+                <p>Votre message</p><input type="text" placeholder="">
+            </form>
+
+        </div>
+        
 
 
-  <script type="text/javascript" src="photographers.js"></script>
-    
- </body>
+    </div>
+
+
+
+    <script type="text/javascript" src="photographers.js"></script>
+  </body>
 </html>
