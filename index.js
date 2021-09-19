@@ -1,5 +1,4 @@
 // FETCH JSON and display all photographers in inner html
-
 function fetchData() {
   fetch("FishEyeData.json")
     .then((response) => {
@@ -8,20 +7,35 @@ function fetchData() {
     .then((data) => {
       console.log(data.photographers);
 
-      //make user TAG SEPARATE function + add at const html function(tags)
+      //make div "topTags" with all tags
+      let allTags = data.photographers.map(a => a.tags);
+      //make all arrays separate
 
+     
+     
+
+
+      //write InnerHTML with all tags
+      document.getElementById("topTags").innerHTML =
+      `<div class="tags__all">`+allTags+`</div>
+      `;
+      console.log(allTags.join(""));
+      
+      //make all arrays separate
+
+
+      //make user TAG SEPARATE function + add at const html function(tags)
       function tags(tags) {
         return `
-       ${tags.map(function (tag) {
-           return `<p class="tags">#${tag}</p>`;
+            ${tags.map(function (tag) {
+            return `<p class="tags">#${tag}</p>`;
          })
          .join(" ")}
        `;
       }
      
-
-      //make div with all tags
-
+     
+      //write InnerHTML with all photographers
       const html = data.photographers
         .map((user) => {
           return `

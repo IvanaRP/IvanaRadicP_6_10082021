@@ -77,7 +77,9 @@ button {
   width: fit-content;
   height: 45px;
   border-radius: 5px;
-  z-index: 30;
+  cursor: pointer;
+  padding: 10px;
+  /*z-index: 30;*/
 }
 
 .btn {
@@ -152,20 +154,25 @@ button {
 .galerie__infoDown {
   display: flex;
   flex-direction: row;
-  background-color: #901c1c;
-  color: #fff;
+  justify-content: space-around;
+  background-color:  #DB8876;
   position: fixed;
+  font-weight: bold;
   right: 0;
   bottom: 0;
   width: 300px;
-  height: fit-content;
+  height: 60px;
 }
 
 .galerie__infolikes {
-  color: #fff;
+  color: black;
+  padding: 10px;
 }
 
-
+.galerie__infotitle{
+  color: black;
+  padding: 10px;
+}
 
 
 /*Galerie hidden stuff*/
