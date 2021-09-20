@@ -1,8 +1,3 @@
-
-
-
-
-
 // Get URL Parameters
 
 function getParam(name) {
@@ -93,6 +88,8 @@ function fetchData() {
       });
       console.log(totalLikes);
 
+      
+
 
       
       if (sortBy) {
@@ -131,14 +128,23 @@ function fetchData() {
                 <p class="photoDate">${photo.date}</p>
                 <p class="photoPrice">${photo.price}</p>
             </div>
+
             <div class="galerie__info"> 
                     <p class="galerie__title">${photo.title}</p>
-                    <h1 class="numberLikes" id="incrimentText" onclick="incrLikes()">${photo.likes}</h1>
-                    <button class="galerie__likes" onclick="incrimentButton()"><i class="fas fa-heart"></i></button>
+                    <div class="HeartLIKES">
+                      <div class="numberLikes" id="incrimentText">${photo.likes}</div>
+                      <button class="galerie__likes" onclick="incrimentButton()" value="Increment"><i class="fas fa-heart"></i></button>
+                    </div>
+
+
              </div> 
+
           </div>
           <div class="galerie__infoDown"> 
-                 <p class="galerie__infolikes">` + totalLikes + `<i class="fas fa-heart"></i></p>
+                 <div class="HeartLIKES">
+                  <div class="numberLikes" id="incrimentText">` + totalLikes + ` </div>
+                  <button class="galerie__likes" onclick="incrimentButton()" value="Increment"><i class="fas fa-heart"></i></button>
+               </div>
                  <p class="galerie__infotitle">${filteredUser.price}€/jour</p>
            </div> 
           `
@@ -155,9 +161,7 @@ function fetchData() {
 
 fetchData();
 
-  
-
-
+  //
 
     //LIKES COUNTER
 
@@ -178,10 +182,10 @@ fetchData();
       document.getElementById("incrimentText").innerHTML = value;
     }
 
-    function incrLikes(e) {
-      let likes = parseInt(e.target.innerHTML);
-      e.target.innerHTML = likes + 1;
-    }
+    // function incrLikes(e) {
+    //   let likes = parseInt(e.target.innerHTML);
+    //   e.target.innerHTML = likes + 1;
+    // }
 
 
     // onClick = sortPhotosBy('likes'); 
@@ -294,12 +298,12 @@ fetchData();
 
 
 
-//IncrimentHEART
+// //IncrimentHEART
 
-      function incrimentButton() {
-        let element = document.getElementById("incrimentText");
-        let value = element.innerHTML;
-        ++value;
-        console.log(value);
-        document.getElementById("incrimentText").innerHTML = value;
-      }
+//       function incrimentButton() {
+//         let element = document.getElementById("incrimentText");
+//         let value = element.innerHTML;
+//         ++value;
+//         console.log(value);
+//         document.getElementById("incrimentText").innerHTML = value;
+//       }
