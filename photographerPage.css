@@ -23,8 +23,22 @@
   margin: 20px;
 }
 
+.filteredUser__btn{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 25px;
+  
+  margin: 20px;
+}
+
 .filteredUser__img {
-  float: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding:20px;
   margin: 20px;
 }
 
@@ -139,6 +153,7 @@ button {
 
 .galerie__likes {
   color: #901c1c;
+  background:none;
   size: 12px;
   font-weight: 400;
   font-weight: 400;
@@ -162,6 +177,7 @@ button {
   bottom: 0;
   width: 300px;
   height: 60px;
+  margin-right: 5%;
 }
 
 .galerie__infolikes {
@@ -189,5 +205,30 @@ button {
 
 .fa-heart {
   color: #901c1c;
-  height: 20px;
+  height: 1em;
+}
+
+
+.HeartLIKES{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  height: 50px;
+  width: 300px;
+}
+
+.numberLikes{
+  color: #901c1c;
+  font-size: 1.5em;
+  padding: 15px 15px;
+  margin: 0;
+}
+
+.buttonlike {
+	background: none;
+	padding: 15px 15px;
+	margin: 0;
+	font-size: 1em;
+	cursor: pointer;
 }

@@ -27,10 +27,9 @@ body {
   font-family: "Roboto", sans-serif;
 }
 .header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-
+  justify-content: space-between;
+  align-items: center;
   margin: 5%;
   padding: 10px;
 }
@@ -41,9 +40,12 @@ body {
 .header__tags {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
   color: #901c1c;
   font-size: 12px;
+  height: fit-content;
 }
 .tag {
   display: flex;
@@ -66,17 +68,14 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  margin: 10%;
+  
 }
 
 .mainTitle {
   color: #901c1c;
-  position: absolute;
   width: 306px;
   height: 47px;
   font-weight: 400;
-
- 
 }
 
 /*Profiles*/
@@ -166,7 +165,12 @@ body {
   flex-wrap: wrap;
   align-items: center;
 }
-
+.topTags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
 .boxes {
   display: flex;
   flex-wrap: wrap;
@@ -291,11 +295,9 @@ body {
   border-radius: 5px;
   text-align: center;
   position: relative;
- 
 }
 
 .button__send {
-  
   padding: 0 10px;
   color: #fafafa;
   background: #901c1c;
@@ -319,7 +321,6 @@ body {
 }
 
 .close {
-  
   color: #fff;
   position: absolute;
   top: 0;

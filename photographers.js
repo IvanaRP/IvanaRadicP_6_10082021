@@ -27,7 +27,6 @@ function fetchData() {
 
       let filteredUser = filteredUsers[0];
 
-     
        //TOTTAL LIKES COUNTER - for class="galerie__infoDown"
        //array of numbers
 
@@ -36,14 +35,15 @@ function fetchData() {
 
         // console.log(reducedPrice);
 
-        const reducedPrice = filteredUsers.map(item => item.price).reduce((prev, curr) => prev + curr, 0);
-        console.log(reducedPrice);
+        // const reducedPrice = filteredUsers.map(item => item.price).reduce((prev, curr) => prev + curr);
+        // console.log(reducedPrice);
 
+       
 
         // //likes COUNT
 
-        const allLikes = filteredUsers.map(item => item.likes).reduce((prev, curr) => prev + curr, 0);
-        console.log(allLikes);
+        // const allLikes = filteredUsers.map(item => item.likes).reduce((prev, curr) => prev + curr);
+        // console.log(allLikes);
 
         // const reducedLikes = filteredUsers.map((filteredUser) =>filteredUser.likes);
 
@@ -73,11 +73,9 @@ function fetchData() {
                   <p class="price">${filteredUser.price}</p>
                   <div class="tags__all">`+tagsHtml+`</div>
             </div> 
-            
-            <div class="tags__all">button</div>
-
+            <div class="filteredUser__btn"><button class="button">Contatez-moi</button></div>
           <div class = "filteredUser__img">
-            <a href="photographer-page.html?id=${filteredUser.id}"> <img id="profile" src="/Documents/Sample Photos/Photographers ID Photos/${filteredUser.portrait}" class="profile"  alt=""/> </a>
+            <a href="photographer-page.html?id=${filteredUser.id}"> <img id="profile" src="Documents/Sample Photos/Photographers ID Photos/${filteredUser.portrait}" class="profile"  alt=""/> </a>
           </div>`;
 
 
@@ -87,11 +85,13 @@ function fetchData() {
         return media.photographerId == photographerId;
       });
       
+      //ALL LIKES total 
 
-      //ALL LIKES SUM=DOESN WORK DOESNT ADD
-      const reducedLikes = photographerPhotos.map((photographerPhoto) =>photographerPhoto.likes);
-
-      console.log(reducedLikes);
+      let totalLikes = 0;
+      photographerPhotos.forEach(item => {
+        totalLikes = totalLikes + item.likes;
+      });
+      console.log(totalLikes);
 
 
       
@@ -131,20 +131,15 @@ function fetchData() {
                 <p class="photoDate">${photo.date}</p>
                 <p class="photoPrice">${photo.price}</p>
             </div>
-
             <div class="galerie__info"> 
                     <p class="galerie__title">${photo.title}</p>
-                    <div class="galerie__likes" onclick="incrLinkes(event)"><div>${photo.likes}<i class="fas fa-heart"></i></div></div>
-            </div> 
+                    <h1 class="numberLikes" id="incrimentText" onclick="incrLikes()">${photo.likes}</h1>
+                    <button class="galerie__likes" onclick="incrimentButton()"><i class="fas fa-heart"></i></button>
+             </div> 
           </div>
-
           <div class="galerie__infoDown"> 
-                 ` + allLikes + `
-                 
-                 ` + reducedLikes + `
-                 <p class="galerie__infolikes">${photo.likes}<i class="fas fa-heart"></i></p> 
-                 
-                 <p class="galerie__infotitle">` + reducedPrice + `€/jour</p>
+                 <p class="galerie__infolikes">` + totalLikes + `<i class="fas fa-heart"></i></p>
+                 <p class="galerie__infotitle">${filteredUser.price}€/jour</p>
            </div> 
           `
           );
@@ -160,7 +155,8 @@ function fetchData() {
 
 fetchData();
 
-   
+  
+
 
 
     //LIKES COUNTER
@@ -172,7 +168,17 @@ fetchData();
     //   likeCount.value = parseInt(likeCount.value) +1;
     // }
 
-    function incrLinkes(e) {
+    //IncrimentHEART
+
+    function incrimentButton() {
+      let element = document.getElementById("incrimentText");
+      let value = element.innerHTML;
+      ++value;
+      console.log(value);
+      document.getElementById("incrimentText").innerHTML = value;
+    }
+
+    function incrLikes(e) {
       let likes = parseInt(e.target.innerHTML);
       e.target.innerHTML = likes + 1;
     }
@@ -188,39 +194,39 @@ fetchData();
 
 //BUTTON CONCTACT ME
 
-    // 1. Create the button
-    let button = document.createElement("button");
-    button.innerHTML = "Contatez-moi";
+    // // 1. Create the button
+    // let button = document.createElement("button");
+    // button.innerHTML = "Contatez-moi";
 
-    // 2. Append somewhere
-    let body = document.getElementById("btn");
-    body.appendChild(button);
+    // // 2. Append somewhere
+    // let body = document.getElementById("btn");
+    // body.appendChild(button);
 
-    // 3. Add event handler
+    // // 3. Add event handler
 
-    //get CONTACT ME BUTTON MODAL
+    // //get CONTACT ME BUTTON MODAL
 
-    document.getElementById("btn").addEventListener("click",
-      function () {
-        document.querySelector(".bg-modal").style.display = "flex";
-      });
-
-
-    // 4. Close modal by X
-
-    document.querySelector(".button__send").addEventListener("click",
-    function () {
-      document.querySelector(".bg-modal").style.display = "none";
-    });
+    // document.getElementById("btn").addEventListener("click",
+    //   function () {
+    //     document.querySelector(".bg-modal").style.display = "flex";
+    //   });
 
 
-    // 5. Close modal by send button
+    // // 4. Close modal by X
 
-    document.querySelector(".close").addEventListener("click",
-    function () {
-    document.querySelector(".bg-modal").style.display = "none";
-    alert("I am an alert box!");
-    });
+    // document.querySelector(".button__send").addEventListener("click",
+    // function () {
+    //   document.querySelector(".bg-modal").style.display = "none";
+    // });
+
+
+    // // 5. Close modal by send button
+
+    // document.querySelector(".close").addEventListener("click",
+    // function () {
+    // document.querySelector(".bg-modal").style.display = "none";
+    // alert("I am an alert box!");
+    // });
 
 
   //   //create BUTtONS FOR FILTER GALERY
@@ -288,3 +294,12 @@ fetchData();
 
 
 
+//IncrimentHEART
+
+      function incrimentButton() {
+        let element = document.getElementById("incrimentText");
+        let value = element.innerHTML;
+        ++value;
+        console.log(value);
+        document.getElementById("incrimentText").innerHTML = value;
+      }
