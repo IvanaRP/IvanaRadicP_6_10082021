@@ -23,13 +23,13 @@
   margin: 20px;
 }
 
-.filteredUser__btn{
+.filteredUser__btn {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   padding-top: 25px;
-  
+
   margin: 20px;
 }
 
@@ -38,7 +38,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
-  padding:20px;
+  padding: 20px;
   margin: 20px;
 }
 
@@ -153,7 +153,7 @@ button {
 
 .galerie__likes {
   color: #901c1c;
-  background:none;
+  background: none;
   size: 12px;
   font-weight: 400;
   font-weight: 400;
@@ -170,7 +170,7 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color:  #DB8876;
+  background-color: #db8876;
   position: fixed;
   font-weight: bold;
   right: 0;
@@ -185,11 +185,10 @@ button {
   padding: 10px;
 }
 
-.galerie__infotitle{
+.galerie__infotitle {
   color: black;
   padding: 10px;
 }
-
 
 /*Galerie hidden stuff*/
 
@@ -208,17 +207,15 @@ button {
   height: 1em;
 }
 
-
-.HeartLIKES{
+.HeartLIKES {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
   height: 50px;
-  width: 300px;
 }
 
-.numberLikes{
+.numberLikes {
   color: #901c1c;
   font-size: 1.5em;
   padding: 15px 15px;
@@ -226,9 +223,83 @@ button {
 }
 
 .buttonlike {
-	background: none;
-	padding: 15px 15px;
-	margin: 0;
-	font-size: 1em;
-	cursor: pointer;
+  background: none;
+  padding: 15px 15px;
+  margin: 0;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+#photographerLikes {
+  display: none;
+}
+
+.menuDrop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 20%;
+  margin: 20px;
+  margin-left: 5%;
+}
+.buttonMenu {
+  font-weight: bold;
+  padding: 0 10px;
+  color: #fafafa;
+  background: #901c1c;
+  border: none;
+  width: fit-content;
+  height: 45px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+  /*z-index: 30;*/
+}
+
+/*modal*/
+.modal {
+  position: fixed;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  transition: 200ms ease-in-out;
+  border-radius: 5px;
+  z-index: 30;
+  background-color:#DB8876;
+}
+
+.modal.active {
+  transform: translate(-50%,-50%) scale(1);
+}
+
+.contactName{
+  display: flex;
+  align-items: flex-start;
+  color: white;
+  font-weight: 400;
+}
+.modalForm {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.modalForm .close-button{
+  cursor: pointer;
+  background: none;
+  font-size: 2em;
+  color: white;
+}
+
+#overlay{
+  position:fixed;
+  opacity:0;
+  transition: 200ms ease-in-out;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0,0,0,.5);
 }

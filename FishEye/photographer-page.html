@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="photographerPage.css" />
-    <link rel="stylesheet" href="dropdown.css" />
-    <!--<script src="dropdown.js" type="module" defer></script>-->
     <script src="lightbox.js" type="module" defer></script>
     <script
       src="https://kit.fontawesome.com/f9349f7e63.js"
@@ -19,7 +17,7 @@
     <!--Header-->
     <header>
       <div class="header">
-        <a href="/index.html"><img class="header__logo" src="Documents/FishEyeLOGO.svg" alt="FishEye"/></a>
+        <a href="/FishEye/index.html"><img class="header__logo" src="Documents/FishEyeLOGO.svg" alt="FishEye"/></a>
       </div>
     </header>
 
@@ -29,32 +27,14 @@
 
     
 
-    <!--HEART INCRIMENT-->
-    <!--<div class="HeartLIKES">
-      <h1 class="numberLikes" id="incrimentText">0</h1>
-      <button class="buttonlike" onclick="incrimentButton()">
-        <i class="fas fa-heart"></i>
-      </button>
-    </div>-->
+    <div id="downright"></div>
+    
     <!--DROPDOWNMENU 3 buttons-->
-    <div id="btnLikes"></div>
+    
+
+    <div id="dropdownmenu"></div>
 
     <!--DROPDOWNMENU-->
-
-    <!--<div class="dropdownPART">
-      <p>Trier par</p>
-
-      <div class="dropdown">
-        <button class="dropdown__toggle" type="button" aria-haspopup="true">
-          Trier par<i class="fas fa-chevron-up"></i>
-        </button>
-        <ul class="dropdown__menu" role="listbox" aria-expanded="false">
-          <li role="option" tabindex="0">Popularite</li>
-          <li role="option" tabindex="0">Date</li>
-          <li role="option" tabindex="0">Titre</li>
-        </ul>
-      </div>
-    </div>-->
 
     <!--LIGHTBOX-->
 
@@ -69,25 +49,11 @@
     </div>-->
 
     <div id="media" class="galerie"></div>
+    
 
     <!--MODAL CONTACT ME-->
 
-    <div class="bg-modal">
-      <div class="modal-content">
-        <div class="close">+</div>
-        <form class="form">
-          <p>Prénom</p>
-          <input type="text" class="input" />
-          <p>Nom</p>
-          <input type="text" class="input" />
-          <p>Email</p>
-          <input type="text" class="input" />
-          <p>Votre message</p>
-          <input type="text" class="input__big" />
-          <a href="" class="button__send">Envoyer</a>
-        </form>
-      </div>
-    </div>
+    <div id="modalBox" class="modalBox"></div>
 
     <script type="text/javascript" src="photographers.js"></script>
   </body>
