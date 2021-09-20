@@ -186,9 +186,9 @@ function fetchData() {
           let mediaHtml = "";
 
           if (photo.hasOwnProperty("video")) {
-            mediaHtml = `<video id="img" class="galerie__img" src="/FishEye/Documents/Sample Photos/${filteredUser.name}/${photo.video}"  alt=""/>`;
+            mediaHtml = `<video id="img" class="galerie__img" src="/Documents/Sample Photos/${filteredUser.name}/${photo.video}"  alt=""/>`;
           } else {
-            mediaHtml = `<img id="img" class="galerie__img" src="/FishEye/Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt=""/>`;
+            mediaHtml = `<img id="img" class="galerie__img" src="/Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt=""/>`;
           }
 
           return (
