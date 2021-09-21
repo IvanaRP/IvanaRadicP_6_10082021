@@ -97,8 +97,8 @@ button {
 }
 
 .button:hover {
-  background: #DB8876;
-  color:#000000;
+  background: #db8876;
+  color: #000000;
 }
 
 .btn {
@@ -270,65 +270,107 @@ button {
   align-items: center;
 } */
 
-.overlay{
-  position:fixed;
-  opacity:1;
-  top:0;
+.overlay {
+  position: fixed;
+  opacity: 1;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color:  rgba(196, 196, 196, 0.4);
+  background-color: rgba(196, 196, 196, 0.4);
 }
 
-.modalBox{
+.modalBox {
   display: none;
 }
-.modal{
+.modal {
   position: fixed;
-  top:20%;
+  top: 10%;
   left: 20%;
-  /* bottom: 20%; */
-  right:20%;
+  bottom: 10%;
+  right: 20%;
   border-radius: 5px;
   z-index: 50;
-  /* width: 600px; */
+  width: 400px;
   max-width: 80%;
-  background: #DB8876;
+  height: fit-content;
+  background: #db8876;
   color: black;
-  
 }
 
-.modal-header{
+.modalplace {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.modal-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 20px;
 }
-.modal-body{
+.modal-body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
 }
 
-.form{
+.contactName{
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 47px;
+  text-align: center;
+  color: #000000;
+  margin: 0;
+}
+
+.form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  width: 90%;
+  width: 100%;
+  border: none;
 }
-#send{
-  margin-top:  20px;
+#send {
+  margin-top: 20px;
 }
 
-.close-button{
+.close-button {
   font-size: 2em;
   color: white;
   background: none;
   cursor: pointer;
 }
+.firstname,
+.lastname,
+.email,
+.message {
+  font-size: 1em;
+  height: 30px;
+  border-radius: 5px;
+}
 
+.messageinput {
+  height: 100px;
+  border-radius: 5px;
+}
+
+input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+}
+
+.error {
+  display: none;
+}
 
 /* .modal {
   display: none;
@@ -363,7 +405,7 @@ button {
   align-items: flex-start;
 }
 .contactName{ */
-  /* display: flex;
+/* display: flex;
   align-items: flex-start;
   color: white;
   font-weight: 400;
