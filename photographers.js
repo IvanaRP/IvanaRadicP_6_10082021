@@ -47,37 +47,63 @@ function fetchData() {
                   <p class="price">${filteredUser.price}</p>
                   <div class="tags__all">`+tagsHtml+`</div>
             </div> 
-            <div class="filteredUser__btn"><button data-modal-target="#modalBox" class="button">Contatez-moi</button></div>
+            <div class="filteredUser__btn"><button data-modal-target="#modal" id="open" class="button">Contatez-moi</button></div>
           <div class = "filteredUser__img">
             <a href="photographer-page.html?id=${filteredUser.id}"> <img id="profile" src="Documents/Sample Photos/Photographers ID Photos/${filteredUser.portrait}" class="profile"  alt=""/> </a>
           </div>`;
 
 
 
-      // //createMODAL NE RADI
-      document.getElementById("modal").innerHTML =
-      `  
+      //MODAL
+
+      document.getElementById("modalBox").innerHTML =
+      `  <div class="modal" id="modal">
               <div class="modal-header" id="modal-header">
                 <h2 class="contactName">Contactez-moi<br>${filteredUser.name}</h2>
-                <button data-close-button class="close-button">&times;</button>
+                <button class="close-button">&times;</button>
               </div>
               <div class=modal-body>
-              <h2>BLAH BLAH BLAH BLAH</h2>
+              <form action"" class="form">
+                <p>Prenom</p>
+                <input type="text" placeholder="Prenom"> 
+                <p>Nom</p>
+                <input type="text" placeholder="Nom"> 
+                <p>E-mail</p>
+                <input type="text" placeholder="Email">
+                <p>Votre message</p>
+                <input type="text" placeholder="Votre message">
+                <button id="send" class="button">Envoyez</button>
+              </form>
+              
               </div>
-          
-          <div id="overlay"></div>
+          </div>
+          <div id="overlay" class="overlay"></div>
       `;
+      
 
-        const openModalButtons = document.querySelectorAll("[data-modal-target]");
-        //const closeModalButtons = document.querySelectorAll("data-close-button");
-       // const overlay = document.getElementById("overlay");
 
-        openModalButtons.forEach(button => {
-          button.addEventListener("click", () => {
-            const modal = document.querySelector(button.dataset.modalTarget)
-            openModal(modal)
-          })
-        })
+      document.getElementById("open").addEventListener("click",
+      function() {
+          document.querySelector(".modalBox").style.display = "flex";
+      });
+
+      document.querySelector(".close-button").addEventListener("click",
+      function() {
+          document.querySelector(".modalBox").style.display = "none";
+      });
+
+      
+
+      //   const openModalButtons = document.querySelectorAll("[data-modal-target]")
+      //   const closeModalButtons = document.querySelectorAll("[data-close-button]")
+      //   const overlay = document.getElementById("overlay");
+
+      //   openModalButtons.forEach(button => {
+      //     button.addEventListener("click", () => {
+      //       const modal = document.querySelector(button.dataset.modalTarget)
+      //       openModal(modal)
+      //     })
+      //   })
 
       // closeModalButtons.forEach(button => {
       //   button.addEventListener("click", () => {
@@ -86,11 +112,11 @@ function fetchData() {
       //   })
       // })
       
-      function openModal(modal) {
-        if (modal == null) return
-        modal.classlist.add("active")
-        overlay.classList.add("active")
-      }
+      // function openModal(modal) {
+      //   if (modal == null) return
+      //   modal.classlist.add("active")
+      //   overlay.classList.add("active")
+      // }
 
       // function closeModal(modal) {
       //   if (modal == null) return

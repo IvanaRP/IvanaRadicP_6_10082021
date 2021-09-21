@@ -56,11 +56,11 @@ body {
   font-size: 12px;
   line-height: 16px;
   /* identical to box height */
-
   text-align: center;
-
   color: #911c1c;
 }
+
+
 
 .MainSection {
   display: flex;
@@ -157,6 +157,11 @@ body {
   border-color: #c4c4c4;
   padding: 4px;
   margin-right: 5px;
+}
+
+.tags:hover{
+  background: #901C1C;
+  color: white;
 }
 
 .tags__all {
