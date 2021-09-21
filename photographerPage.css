@@ -298,7 +298,7 @@ button {
   right: 20%; */
   border-radius: 5px;
   z-index: 50;
-  width: 400px;
+  
   max-width: 80%;
   height: fit-content;
   background: #db8876;
