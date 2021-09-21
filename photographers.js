@@ -67,12 +67,12 @@ function fetchData() {
               
                 <div class="modalplace">
                   <label for="firstname" class="firstname">Prenom</label>
-                  <input id="firstname" name="firstname" class="firstname" type="text" placeholder="Prenom" minlenght="2"> 
+                  <input id="firstname" name="firstname" class="firstname" type="text" placeholder="Prenom"  minlength="2"> 
                   <div id="error1" class="error">Veuillez entrer 2 caractères ou plus pour le champ du prenom.</div>
                 </div>
                 <div class="modalplace">
                   <label for="lastname" class="lastname">Nom</label>
-                  <input id="lastname" name="lastname" class="lastname"type="text" placeholder="Nom" minlenght="2">
+                  <input id="lastname" name="lastname" class="lastname"type="text" placeholder="Nom" minlength="2">
                   <div id="error2" class="error">Veuillez entrer 2 caractères ou plus pour le champ du nom.</div>
  
                 </div>
@@ -83,7 +83,7 @@ function fetchData() {
                 </div>
                 <div class="modalplace">
                   <label for="message" class="message">Votre message</label>
-                  <input id="message" name="message" class="messageinput" type="text" placeholder="Votre message">
+                  <input id="message" name="message" class="messageinput" type="text" placeholder="Votre message" minlength="2">
                   <div id="error4" class="error">Entrez votre message.</div>
                 </div>
                 <div class="modalplace">
