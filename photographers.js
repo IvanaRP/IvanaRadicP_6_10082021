@@ -190,35 +190,6 @@ function fetchData() {
 
 
 
-      //   const openModalButtons = document.querySelectorAll("[data-modal-target]")
-      //   const closeModalButtons = document.querySelectorAll("[data-close-button]")
-      //   const overlay = document.getElementById("overlay");
-
-      //   openModalButtons.forEach(button => {
-      //     button.addEventListener("click", () => {
-      //       const modal = document.querySelector(button.dataset.modalTarget)
-      //       openModal(modal)
-      //     })
-      //   })
-
-      // closeModalButtons.forEach(button => {
-      //   button.addEventListener("click", () => {
-      //     const modal = button.closest(".modal")
-      //     closeModal(modal)
-      //   })
-      // })
-      
-      // function openModal(modal) {
-      //   if (modal == null) return
-      //   modal.classlist.add("active")
-      //   overlay.classList.add("active")
-      // }
-
-      // function closeModal(modal) {
-      //   if (modal == null) return
-      //   modal.classlist.remove("active")
-      //   overlay.classList.remove("active")
-      // }
 
 
 
@@ -269,11 +240,26 @@ function fetchData() {
       `
           <div class="menuDrop">
             <p>Trier par</p>
-           <button id="sort__Pop" class="buttonMenu" onclick="myFunctionPop()">Popularité</button>
+           <button id="sort__Pop" class="buttonMenu">Popularité</button>
            <button id="sort__Date" class="buttonMenu">Date</button>
           <button id="sort__Name" class="buttonMenu">Titre</button>
           </div>
       `;
+
+
+      // on click shows sorted by likes date and title
+
+      // document.getElementById("sort__Pop").addEventListener("click",
+      // function() {
+      //   const sortedByPop = filteredUsers.sort(function (a, b){
+      //       return a.likes - b.likes;
+      //     })
+      // });
+
+
+
+
+
 
       
 
