@@ -28,6 +28,7 @@ body {
 }
 .header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin: 5%;
@@ -60,15 +61,12 @@ body {
   color: #911c1c;
 }
 
-
-
 .MainSection {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  
 }
 
 .mainTitle {
@@ -143,6 +141,11 @@ body {
   color: #757575;
 }
 
+.header__tags {
+  max-height: 200px;
+  overflow: hidden;
+}
+
 .tags {
   font-family: DM Sans;
   font-style: normal;
@@ -159,8 +162,8 @@ body {
   margin-right: 5px;
 }
 
-.tags:hover{
-  background: #901C1C;
+.tags:hover {
+  background: #901c1c;
   color: white;
 }
 
