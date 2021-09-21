@@ -285,12 +285,7 @@ button {
   display: none;
 }
 .modal {
-
-
-
-
   width: 300px;
- 
   position: fixed;
   left: 50%;
   top: 25%;
@@ -327,16 +322,16 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px;
+  padding: 0 20px 20px;
 }
 
 .contactName {
   font-family: DM Sans;
   font-style: normal;
   font-weight: normal;
-  font-size: 36px;
+  font-size: 30px;
   line-height: 47px;
-  text-align: center;
+  text-align: left;
   color: #000000;
   margin: 0;
 }
@@ -357,6 +352,7 @@ button {
   font-size: 2em;
   color: white;
   background: none;
+  padding: 0;
   cursor: pointer;
 }
 .firstname,
