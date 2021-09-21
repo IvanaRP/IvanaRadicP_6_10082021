@@ -42,7 +42,7 @@ function fetchData() {
               <a href="photographer-page.html"> <h2 class="name">${user.name}</h2></a>
                 <p class="country">${user.country}</p>
                 <p class="tagline">${user.tagline}</p>
-                <p class="price">${user.price}</p>
+                <p class="price">${user.price}€/jour</p>
                <div class="tags__all">${tags(user.tags)}</div>
           </div>
 
