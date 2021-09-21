@@ -21,6 +21,7 @@ function fetchData() {
       });
 
       let filteredUser = filteredUsers[0];
+     
 
       //make user TAG SEPARATE in innerHTML
       let tagsHtml = filteredUser.tags
@@ -30,6 +31,7 @@ function fetchData() {
         `;
         })
         .join("");
+
 
       
 
@@ -185,35 +187,14 @@ function fetchData() {
       });
 
 
-
-
-
-
-
-
-
-
-      //sort MEDIA BY group  
+      // 
 
       let photographerPhotos = data.media.filter((media) => {
         return media.photographerId == photographerId;
       });
       
-      if (sortBy) {
-        photographerPhotos = photographerPhotos.sort((a, b) => {
-          if (a[sortBy] < b[sortBy]) {
-            return -1;
-          }
-          if (a[sortBy] > b[sortBy]) {
-            return 1;
-          }
-          return 0;
-        });
-      }
 
-      console.log(photographerPhotos);
-
-
+     
       
       //ALL LIKES total 
 
@@ -223,29 +204,73 @@ function fetchData() {
       });
       console.log(totalLikes);
 
-
-      
-
-      // const sortedByPop = filteredUsers.sort(function (a, b){
-      //   return a.likes - b.likes;
-      // })
-
-      // console.log(sortedByPop);
-
-
-
-
       //DROPDOWN MENU
       document.getElementById("dropdownmenu").innerHTML =
       `
           <div class="menuDrop">
             <p>Trier par</p>
-           <button id="sort__Pop" class="buttonMenu">Popularité</button>
-           <button id="sort__Date" class="buttonMenu">Date</button>
-          <button id="sort__Name" class="buttonMenu">Titre</button>
+           <button id="sortPop" class="buttonMenu">Popularité</button>
+           <button id="sortDate" class="buttonMenu">Date</button>
+          <button id="sortName" class="buttonMenu">Titre</button>
           </div>
       `;
 
+
+       // //sort MEDIA BY group  
+  
+      //  const sortGallery = document.querySelector(".media");
+
+      //  const sortPop = document.getElementById("sortPop");
+      //  const sortDate = document.querySelector(".sortDate");
+      //  const sortName = document.querySelector(".sortName");
+
+
+      //  let desc = false;
+      //  sortPop.addEventListener("click", () => {
+      //     let arraytitle = sortarrayBy(filteredUser,"title", desc);
+      //     displayMedia(title);
+      //     desc = !desc;
+      //  });
+      
+      //  function sortarrayBy (title, sort, desc) {
+      //    title.sort (function (a, b) {
+      //      if(a[sort]< b[sort]) return -1;
+      //      if(a[sort]> b[sort]) return 1;
+      //      return 0;
+      //    });
+      //    if (desc) title.reverse();
+      //    return title;
+      //   }
+
+        // console.log(displaySort);
+
+
+
+
+      //  document.getElementById("sort__Pop").addEventListener("click",
+      //  function() {
+      //      document.querySelector(".modalBox").style.display = "flex";
+      //  });
+ 
+
+
+       if (sortBy) {
+         photographerPhotos = photographerPhotos.sort((a, b) => {
+           if (a[sortBy] < b[sortBy]) {
+             return -1;
+           }
+           if (a[sortBy] > b[sortBy]) {
+             return 1;
+           }
+           return 0;
+         });
+       }
+ 
+       console.log(sortBy);
+
+
+      
+ 
 
       // on click shows sorted by likes date and title
 
@@ -289,6 +314,10 @@ function fetchData() {
         //     </div> 
         //   `;
         //   console.log(likeEvery);
+
+
+
+        
 
 
         //If Else show img or video
@@ -368,15 +397,6 @@ fetchData();
       window.location.search = urlParams;
     }
 
-// //IncrimentHEART
-
-//       function incrimentButton() {
-//         let element = document.getElementById("incrimentText");
-//         let value = element.innerHTML;
-//         ++value;
-//         console.log(value);
-//         document.getElementById("incrimentText").innerHTML = value;
-//       }
 
 
 //menu FILTER SORT
@@ -396,6 +416,15 @@ fetchData();
 // console.log(sortedByPop);
 
 
-
-
-//MODAL
+//dropdown proba
+  document.getElementById('target').addEventListener('change', function () {
+    'use strict';
+    let vis = document.querySelector('.vis'),   
+                          target = document.getElementById(this.value);
+                      if (vis !== null) {
+                          vis.className = 'inv';
+                      }
+                      if (target !== null ) {
+                          target.className = 'vis';
+                      }
+              });
