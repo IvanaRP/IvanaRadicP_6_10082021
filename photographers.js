@@ -33,9 +33,6 @@ function fetchData() {
         .join("");
 
 
-      
-
-     
       //make user TAG SEPARATE in innerHTML add this  `+tagsHtml+`
       //make user div in innerHTML
       //BUTTON CONCTACT ME 
@@ -207,15 +204,52 @@ function fetchData() {
       //DROPDOWN MENU
       document.getElementById("dropdownmenu").innerHTML =
       `
+
+      <div class="dropMenu">
+          <div>
+             <p>Trier par</p>
+          </div>
+                <div class="dropdown">
+                  <button id="target2" class="dropbtn">Popularité <i class="fas fa-angle-up"></i></button>
+                  <div class="dropdown-content">
+                    <a href="#">Date</a>
+                    <a href="#">Titre</a>
+                  </div>
+                </div>
+      </div>          
+
+
+
           <div class="menuDrop">
             <p>Trier par</p>
-           <button id="sortPop" class="buttonMenu">Popularité</button>
-           <button id="sortDate" class="buttonMenu">Date</button>
-          <button id="sortName" class="buttonMenu">Titre</button>
+            <select id="target" class="buttonMenu" >
+                <option id="sortPop" class="buttonMenu" value="content_1">Popularité</option>
+                <option id="sortDate" class="buttonMenu" value="content_2">Date</option>
+                <option id="sortName" class="buttonMenu" value="content_3">Titre</option>
+            <select>
           </div>
+          <div id="content_1" class="sortedRes">Content 1</div>
+          <div id="content_2" class="sortedRes">Content 2</div>
+          <div id="content_3" class="sortedRes">Content 3</div>
       `;
 
+ 
 
+      // //dropdown 
+      document.getElementById('target').addEventListener('change', function () {
+        'use strict';
+          let sort = document.querySelector('.sort'),   
+             target = document.getElementById(this.value);
+              if (sort !== null) {
+                sort.className = 'sortedRes';
+              }
+              if (target !== null ) {
+                target.className = 'sort';
+              }
+          });
+         
+
+    
        // //sort MEDIA BY group  
   
       //  const sortGallery = document.querySelector(".media");
@@ -266,11 +300,7 @@ function fetchData() {
          });
        }
  
-       console.log(sortBy);
-
-
-      
- 
+     
 
       // on click shows sorted by likes date and title
 
@@ -280,13 +310,6 @@ function fetchData() {
       //       return a.likes - b.likes;
       //     })
       // });
-
-
-
-
-
-
-      
 
       //display all LIKES DOWN RIGHT  add down  in mediaID
       document.getElementById("downright").innerHTML =
@@ -298,29 +321,12 @@ function fetchData() {
         </div> 
       `;
 
-
       //display all  MEDIA PHOTOS VIDEOS in inner html
       //make variable for MEDIAhtml VIDEO if else 
+        let photoHtml = photographerPhotos
+          .map((photo) => {
 
-      let photoHtml = photographerPhotos
-        .map((photo) => {
-
-        // //display all LIKES counter 
-        //   let likeEvery =
-        //   ` <div > 
-        //         <div class="HeartLIKES">
-        //         <div class="numberLikes" id="incrimentText">${photo.likes} </div>
-        //         <button class="galerie__likes" onclick="incrimentButton()" value="Increment"><i class="fas fa-heart"></i></button>
-        //     </div> 
-        //   `;
-        //   console.log(likeEvery);
-
-
-
-        
-
-
-        //If Else show img or video
+      //If Else show img or video
           let mediaHtml = "";
 
           if (photo.hasOwnProperty("video")) {
@@ -341,10 +347,14 @@ function fetchData() {
             </div>
             <div class="galerie__info"> 
                     <p class="galerie__title">${photo.title}</p>
+
+
+
                 <div class="HeartLIKES">
                   <div class="numberLikes" id="incrimentText">${photo.likes} </div>
                   <button class="galerie__likes" onclick="incrimentButton()" value="Increment"><i class="fas fa-heart"></i></button>
                 </div> 
+           
               </div> 
           </div>
           `
@@ -361,17 +371,26 @@ function fetchData() {
 
 fetchData();
 
-  //
+      //LIKES COUNTER class="INCRIMENT"
+      document.getElementById("likesCounter").innerHTML =
+      `   <div class="INCRIMENT">
+              <h1 id="counter">0</h1>
+              <button id="button__increase" class="galerie__likes"><i class="fas fa-heart"></i></button>
+          </div>
+      `;
 
-    //LIKES COUNTER
+     
 
+      let increaseBtn = document.getElementById("button__increase");
+      let counter = document.getElementById("counter");
+      let count = 0;
 
-    //add id="likeCount" up
-    // let likeCount = document.querySelector("#likeCount");
-    // function count(){
-    //   likeCount.value = parseInt(likeCount.value) +1;
-    // }
+      increaseBtn.addEventListener("click", () => {
+          count ++;
+          counter.innerHTML = count;
+      });
 
+ 
     //IncrimentHEART
 
     function incrimentButton() {
@@ -381,6 +400,8 @@ fetchData();
       console.log(value);
       document.getElementById("incrimentText").innerHTML = value;
     }
+
+
     
 
     // function incrLikes(e) {
@@ -396,35 +417,3 @@ fetchData();
       urlParams.set("sort", sortBy);
       window.location.search = urlParams;
     }
-
-
-
-//menu FILTER SORT
-
-
-// function myFunctionPop() {
-//   likes.sort();
-//   document.getElementById("media").innerHTML = likes;
-// };
-
-// const media = totalLikes;
-
-// const sortedByPop = media.sort(function (a, b){
-//   return a.likes - b.likes;
-// })
-
-// console.log(sortedByPop);
-
-
-//dropdown proba
-  document.getElementById('target').addEventListener('change', function () {
-    'use strict';
-    let vis = document.querySelector('.vis'),   
-                          target = document.getElementById(this.value);
-                      if (vis !== null) {
-                          vis.className = 'inv';
-                      }
-                      if (target !== null ) {
-                          target.className = 'vis';
-                      }
-              });

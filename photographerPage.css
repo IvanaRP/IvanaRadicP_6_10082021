@@ -259,17 +259,10 @@ button {
   border-radius: 5px;
   cursor: pointer;
   padding: 10px;
-  /*z-index: 30;*/
+  z-index: 30;
 }
 
 /*modal*/
-
-/* .modalBox{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 .overlay {
   position: fixed;
   z-index: 1;
@@ -449,6 +442,105 @@ input {
 
 
 /* dropdown proba */
-.inv {
+
+
+
+.buttonMenu {
+  font-weight: bold;
+  padding: 0 10px;
+  color: #fafafa;
+  background: #901c1c;
+  border: none;
+  width: fit-content;
+  height: 45px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.buttonMenu:hover {
+  background: #db8876;
+  color: #000000;
+}
+.sortedRes {
   display: none;
 }
+
+
+
+
+/* dropdown scrool HOVER menu */
+
+.dropMenu{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: auto;
+  width: 90%;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background:#901c1c;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
+
+.dropbtn:hover{
+  border-radius: 5px 5px 0 0;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 20px;
+}
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background:#901c1c;
+  color: white;
+  border-radius: 0 0 5px 5px ;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 0 0 5px 5px ;
+  border-top: 1px solid white;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background: #db8876;
+  color: #000000;
+  
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+  
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background: #db8876;
+  color: #000000;
+  
+}
+
+  
