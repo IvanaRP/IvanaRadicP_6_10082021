@@ -233,10 +233,10 @@ function fetchData() {
 
      
     // // //SORTED BY LIKES  WORKs!!!
-    //  const sortedByLike = photographerPhotos.sort(function (a, b) {
-    //       return b.likes - a.likes;
-    //  });
-    //  console.log(sortedByLike);
+     const sortedByLike = photographerPhotos.sort(function (a, b) {
+          return b.likes - a.likes;
+     });
+     console.log(sortedByLike);
 
     //SORTED BY title WORKs!!!
     // const sortedByTitle = photographerPhotos.sort(function (a, b) {
@@ -249,10 +249,11 @@ function fetchData() {
     //  console.log(sortedByTitle);
   
     // //SORTED BY DATE WORKs!!!
-      const sortedByDate = photographerPhotos.sort(function(a,b){
-        return new Date(b.date) - new Date(a.date);
-      });
-      console.log(sortedByDate);
+    
+      // const sortedByDate = photographerPhotos.sort(function(a,b){
+      //   return new Date(b.date) - new Date(a.date);
+      // });
+      // console.log(sortedByDate);
 
 
 
@@ -276,6 +277,7 @@ function fetchData() {
               <h1 id="counter">0</h1>
               <button id="button__increase" class="galerie__likes"><i class="fas fa-heart"></i></button>
           </div>
+          
       `;
 
       let increaseBtn = document.getElementById("button__increase");
@@ -301,12 +303,18 @@ function fetchData() {
       // let photographerPhoto = photographerPhotos[0];
       // console.log(photographerPhoto);
 
-      //make user TAG SEPARATE function + add at const html function(tags)
-      
 
-     
 
-   
+//like button plus
+let btnLajk = document.querySelector("#add");
+let input = document.querySelector("#input");
+if(btnLajk){
+  btnLajk.addEventListener("click",() => {
+    input.value = parseInt(input.value) +1;
+    
+  });
+}
+
 
 
       //display all  MEDIA PHOTOS VIDEOS in inner html
@@ -334,6 +342,12 @@ function fetchData() {
                 </div>
                 <div class="galerie__info"> 
                           <p class="galerie__title">${photo.title}</p>
+
+                     <div class="HeartLIKES">
+                        <input type="number" id="input" value="${photo.likes}">
+                        <button id="add" class="galerie__likes"><i class="fas fa-heart"></i></button>
+                      </div>
+
                       <div class="HeartLIKES">
                         <div class="numberLikes" id="incrimentText">${photo.likes}</div>
                         <button class="galerie__likes" onclick="incrimentButton()" value="Increment"><i class="fas fa-heart"></i></button>
@@ -350,6 +364,7 @@ function fetchData() {
     });
 
 
+   
 }
 
 fetchData();
@@ -366,23 +381,9 @@ fetchData();
     };
 
 
+  
 
-      // //LIKES COUNTER class="INCRIMENT"
-      // document.getElementById("likesCounter").innerHTML =
-      // `   <div class="INCRIMENT">
-      //         <h1 id="counter">0</h1>
-      //         <button id="button__increase" class="galerie__likes"><i class="fas fa-heart"></i></button>
-      //     </div>
-      // `;
-
-      // let increaseBtn = document.getElementById("button__increase");
-      // let counter = document.getElementById("counter");
-      // let count = 0;
-
-      // increaseBtn.addEventListener("click", () => {
-      //     count ++;
-      //     counter.innerHTML = count;
-      // });
+    
 
  
 
