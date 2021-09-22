@@ -15,13 +15,21 @@ function fetchData() {
     })
     .then((data) => {
       let photographerId = getParam("id");
-      let sortBy = getParam("sort"); //sort for dropdownmenu
+      // let sortBy = getParam("sort"); //sort for dropdownmenu
       const filteredUsers = data.photographers.filter((user) => {
         return user.id == photographerId;
       });
 
       let filteredUser = filteredUsers[0];
-     
+
+
+      //ON TAG SELECT photos with tag
+      let tag1 = filteredUser.tags[0];
+      let tag2 = filteredUser.tags[1];
+      console.log(tag1);
+      console.log(tag2);
+
+
 
       //make user TAG SEPARATE in innerHTML
       let tagsHtml = filteredUser.tags
@@ -32,11 +40,11 @@ function fetchData() {
         })
         .join("");
 
-
+     
       //make user TAG SEPARATE in innerHTML add this  `+tagsHtml+`
       //make user div in innerHTML
-      //BUTTON CONCTACT ME 
-
+      //BUTTON CONCTACT ME  and popup MODAL
+ 
       document.getElementById("photographer").innerHTML =
            `<div class = "filteredUser__info"> 
                 <p class="id">${filteredUser.id}</p>
@@ -52,9 +60,7 @@ function fetchData() {
           </div>`;
 
 
-
-      //MODAL
-
+      //MODAL open on CONTACT ME button
       document.getElementById("modalBox").innerHTML =
       `  <div class="modal" id="modal">
               <div class="modal-header" id="modal-header">
@@ -73,7 +79,6 @@ function fetchData() {
                   <label for="lastname" class="lastname">Nom</label>
                   <input id="lastname" name="lastname" class="lastname"type="text" placeholder="Nom" minlength="2">
                   <div id="error2" class="error">Veuillez entrer 2 caractères ou plus pour le champ du nom.</div>
- 
                 </div>
                 <div class="modalplace">
                   <label for="email" class="email">E-mail</label>
@@ -95,8 +100,6 @@ function fetchData() {
           <div id="overlay" class="overlay"></div>
       `;
       
-
-
       document.getElementById("open").addEventListener("click",
       function() {
           document.querySelector(".modalBox").style.display = "flex";
@@ -120,11 +123,7 @@ function fetchData() {
       let error3 = document.getElementById("error3")
       let error4 = document.getElementById("error4")
      
-
-      
-
       form.addEventListener("submit", (e) => {
-      
       /*conditin IF ELSE for FIRST name input*/
       if (firstname.value == "" || firstname.value.lenght < 2) {
         e.preventDefault();//stop form from submitting
@@ -135,7 +134,6 @@ function fetchData() {
         
         error1.style.display = "none"
       }
-
 
       /*conditin IF ELSE for LAST name input*/
 
@@ -150,7 +148,6 @@ function fetchData() {
         error2.style.display = "none"
       }
 
-
       /*conditin IF ELSE for EMAIL input*/
 
       if (!email.value.match(mailformat)){
@@ -162,7 +159,6 @@ function fetchData() {
         
         error3.style.display = "none"
       }
-
 
       /*conditin IF ELSE for MESSAGE*/
 
@@ -178,52 +174,53 @@ function fetchData() {
         alert("Merci ! Votre réservation a été reçue.")
         error4.style.display = "none"
         
-        
       }
 
       });
 
-
-      // 
-
+      // Display photographer MEDIA by id
       let photographerPhotos = data.media.filter((media) => {
         return media.photographerId == photographerId;
       });
       
-
-     
-      
       //ALL LIKES total 
-
       let totalLikes = 0;
       photographerPhotos.forEach(item => {
         totalLikes = totalLikes + item.likes;
       });
       console.log(totalLikes);
 
+
+      //ALL LIKES total 
+      let totalLikesIncr = 0;
+      photographerPhotos.forEach(item => {
+        totalLikesIncr = totalLikesIncr + item.likes;
+      });
+      console.log(totalLikesIncr);
+
+
+      
+
       //DROPDOWN MENU
       document.getElementById("dropdownmenu").innerHTML =
-      `
-
-      <div class="dropMenu">
+      `<div class="dropMenu">
           <div>
              <p>Trier par</p>
           </div>
                 <div class="dropdown">
-                  <button id="target2" class="dropbtn">Popularité <i class="fas fa-angle-up"></i></button>
+                  <button  class="dropbtn" id="sortPop" >Popularité <i class="fas fa-angle-up"></i></button>
                   <div class="dropdown-content">
-                    <a href="#">Date</a>
+                    <a href="#" id="sortD">Date</a>
                     <a href="#">Titre</a>
                   </div>
                 </div>
       </div>          
-
-
+      <div>mediaGalery</div>
 
           <div class="menuDrop">
             <p>Trier par</p>
             <select id="target" class="buttonMenu" >
-                <option id="sortPop" class="buttonMenu" value="content_1">Popularité</option>
+                <option id="sortPop" class="buttonMenu"  value="content_1">Popularité</option>
                 <option id="sortDate" class="buttonMenu" value="content_2">Date</option>
                 <option id="sortName" class="buttonMenu" value="content_3">Titre</option>
             <select>
@@ -232,8 +229,32 @@ function fetchData() {
           <div id="content_2" class="sortedRes">Content 2</div>
           <div id="content_3" class="sortedRes">Content 3</div>
       `;
-
  
+
+     
+    // // //SORTED BY LIKES  WORKs!!!
+    //  const sortedByLike = photographerPhotos.sort(function (a, b) {
+    //       return b.likes - a.likes;
+    //  });
+    //  console.log(sortedByLike);
+
+    //SORTED BY title WORKs!!!
+    // const sortedByTitle = photographerPhotos.sort(function (a, b) {
+    //    if (a.title < b.title)
+    //     return -1;
+    //     if (a.title > b.title)
+    //       return 1;
+    //       return 0;
+    //      });
+    //  console.log(sortedByTitle);
+  
+    // //SORTED BY DATE WORKs!!!
+      const sortedByDate = photographerPhotos.sort(function(a,b){
+        return new Date(b.date) - new Date(a.date);
+      });
+      console.log(sortedByDate);
+
+
 
       // //dropdown 
       document.getElementById('target').addEventListener('change', function () {
@@ -247,69 +268,24 @@ function fetchData() {
                 target.className = 'sort';
               }
           });
-         
-
-    
-       // //sort MEDIA BY group  
-  
-      //  const sortGallery = document.querySelector(".media");
-
-      //  const sortPop = document.getElementById("sortPop");
-      //  const sortDate = document.querySelector(".sortDate");
-      //  const sortName = document.querySelector(".sortName");
-
-
-      //  let desc = false;
-      //  sortPop.addEventListener("click", () => {
-      //     let arraytitle = sortarrayBy(filteredUser,"title", desc);
-      //     displayMedia(title);
-      //     desc = !desc;
-      //  });
-      
-      //  function sortarrayBy (title, sort, desc) {
-      //    title.sort (function (a, b) {
-      //      if(a[sort]< b[sort]) return -1;
-      //      if(a[sort]> b[sort]) return 1;
-      //      return 0;
-      //    });
-      //    if (desc) title.reverse();
-      //    return title;
-      //   }
-
-        // console.log(displaySort);
-
-
-
-
-      //  document.getElementById("sort__Pop").addEventListener("click",
-      //  function() {
-      //      document.querySelector(".modalBox").style.display = "flex";
-      //  });
- 
-
-
-       if (sortBy) {
-         photographerPhotos = photographerPhotos.sort((a, b) => {
-           if (a[sortBy] < b[sortBy]) {
-             return -1;
-           }
-           if (a[sortBy] > b[sortBy]) {
-             return 1;
-           }
-           return 0;
-         });
-       }
- 
+       
      
+      //LIKES COUNTER class="INCRIMENT"
+      document.getElementById("likesCounter").innerHTML =
+      `   <div class="INCRIMENT">
+              <h1 id="counter">0</h1>
+              <button id="button__increase" class="galerie__likes"><i class="fas fa-heart"></i></button>
+          </div>
+      `;
 
-      // on click shows sorted by likes date and title
+      let increaseBtn = document.getElementById("button__increase");
+      let counter = document.getElementById("counter");
+      let count = 0;
 
-      // document.getElementById("sort__Pop").addEventListener("click",
-      // function() {
-      //   const sortedByPop = filteredUsers.sort(function (a, b){
-      //       return a.likes - b.likes;
-      //     })
-      // });
+      increaseBtn.addEventListener("click", () => {
+          count ++;
+          counter.innerHTML = count;
+      });
 
       //display all LIKES DOWN RIGHT  add down  in mediaID
       document.getElementById("downright").innerHTML =
@@ -320,6 +296,18 @@ function fetchData() {
             <p class="galerie__infotitle">${filteredUser.price}€/jour</p>
         </div> 
       `;
+
+    //let for 1 photo
+      // let photographerPhoto = photographerPhotos[0];
+      // console.log(photographerPhoto);
+
+      //make user TAG SEPARATE function + add at const html function(tags)
+      
+
+     
+
+   
+
 
       //display all  MEDIA PHOTOS VIDEOS in inner html
       //make variable for MEDIAhtml VIDEO if else 
@@ -334,86 +322,78 @@ function fetchData() {
           } else {
             mediaHtml = `<img id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt=""/>`;
           }
-
+   
           return (
-            `
-          <div class="galerie__user">
-            <div class = "galerie__image">
-                <p class="pID" >${photo.id}</p>
-                <p class="photoID">${photo.photographerId}</p>
-                ` + mediaHtml + `
-                <p class="photoDate">${photo.date}</p>
-                <p class="photoPrice">${photo.price}</p>
-            </div>
-            <div class="galerie__info"> 
-                    <p class="galerie__title">${photo.title}</p>
-
-
-
-                <div class="HeartLIKES">
-                  <div class="numberLikes" id="incrimentText">${photo.likes} </div>
-                  <button class="galerie__likes" onclick="incrimentButton()" value="Increment"><i class="fas fa-heart"></i></button>
-                </div> 
-           
-              </div> 
-          </div>
-          `
-          );
+            `<div class="galerie__user">
+                <div class = "galerie__image">
+                    <p class="pID" >${photo.id}</p>
+                    <p class="photoID">${photo.photographerId}</p>
+                    ` + mediaHtml + `
+                    <p class="photoDate">${photo.date}</p>
+                    <p class="photoPrice">${photo.price}</p>
+                </div>
+                <div class="galerie__info"> 
+                          <p class="galerie__title">${photo.title}</p>
+                      <div class="HeartLIKES">
+                        <div class="numberLikes" id="incrimentText">${photo.likes}</div>
+                        <button class="galerie__likes" onclick="incrimentButton()" value="Increment"><i class="fas fa-heart"></i></button>
+                      </div> 
+                 </div> 
+              </div>
+          `);
         })
         .join("");
-
       document.querySelector("#media").innerHTML = photoHtml;
     })
     .catch((error) => {
       console.log(error);
     });
+
+
 }
 
 fetchData();
 
-      //LIKES COUNTER class="INCRIMENT"
-      document.getElementById("likesCounter").innerHTML =
-      `   <div class="INCRIMENT">
-              <h1 id="counter">0</h1>
-              <button id="button__increase" class="galerie__likes"><i class="fas fa-heart"></i></button>
-          </div>
-      `;
 
-     
 
-      let increaseBtn = document.getElementById("button__increase");
-      let counter = document.getElementById("counter");
-      let count = 0;
-
-      increaseBtn.addEventListener("click", () => {
-          count ++;
-          counter.innerHTML = count;
-      });
-
- 
-    //IncrimentHEART
-
+    // COUNTER OF LIKES - IncrimentHEART 
     function incrimentButton() {
       let element = document.getElementById("incrimentText");
       let value = element.innerHTML;
       ++value;
       console.log(value);
       document.getElementById("incrimentText").innerHTML = value;
-    }
+    };
 
 
-    
 
-    // function incrLikes(e) {
-    //   let likes = parseInt(e.target.innerHTML);
-    //   e.target.innerHTML = likes + 1;
-    // }
+      // //LIKES COUNTER class="INCRIMENT"
+      // document.getElementById("likesCounter").innerHTML =
+      // `   <div class="INCRIMENT">
+      //         <h1 id="counter">0</h1>
+      //         <button id="button__increase" class="galerie__likes"><i class="fas fa-heart"></i></button>
+      //     </div>
+      // `;
 
+      // let increaseBtn = document.getElementById("button__increase");
+      // let counter = document.getElementById("counter");
+      // let count = 0;
+
+      // increaseBtn.addEventListener("click", () => {
+      //     count ++;
+      //     counter.innerHTML = count;
+      // });
+
+ 
 
     // onClick = sortPhotosBy('likes'); 
     //SEARCH SORT BY LIKES
-    function sortPhotosBy(sortBy) {
-      const urlParams = new URLSearchParams(window.location.search);
-      urlParams.set("sort", sortBy);
-      window.location.search = urlParams;
-    }
+    // function sortPhotosBy(sortBy) {
+    //   const urlParams = new URLSearchParams(window.location.search);
+    //   urlParams.set("sort", sortBy);
+    //   window.location.search = urlParams;
+    // };
+    
+
+
+ 
