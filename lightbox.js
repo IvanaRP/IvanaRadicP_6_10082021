@@ -1,49 +1,76 @@
-class Lightbox {
+class lightbox {
 
-    static init(){
-        const links = document.querySelectorAll(`a[href$=".jpg"]`)
+    static init () {
+        const links = document.querySelectorAll('a[href$=".jpg"],a[href$=".mp4"],a[href$=".png"]')
         .forEach(link => link.addEventListener("click", e => {
-            e.preventDefault()
-            new Lightbox(e.currentTarget.getAttribute("href"))
+                e.preventDefault()
+                new lightbox(e.currentTarget.getAttribute("href"))
         }))
-        
     }
 
-    /*
-    @param {string} url URL de l'image
-    */
+    /**
+     * 
+     * @param {string} url  url of image
+     * 
+     */
 
-    constructor (url){
-        const element = this.buildDOM(url)
-        document.body.appendChild(element)
+    
+    constructor (url) {
+            const element = this.buildDOM(url)
+            document.body.appendChild(element)
     }
 
-     /*
-    @param {string} url URL de l'image
-    * @return {HTMLElement} 
+
+    /**
+    * Close lightbbox
+    * @param {MouseEvent} e
+    * 
     */
 
-    buildDOM (url) {
-        const dom =createElement("div")
+    close (e) {
+        e.preventDefault()
+        console.log(this);
+        this.element.classList.add('fadeOut')
+        window.setTimeout(() => {
+            this.element.remove()
+        }, 500)
+    }
+
+
+
+     /**
+     * 
+     * @param {string} url  url of image
+     * @return {HTMLElement}
+     */
+
+
+     buildDOM (url) {
+        const dom = document.createElement ("div")
         dom.classList.add("lightbox")
         dom.innerHTML = `
-        <div class="lightbox" >
-        <button class="lightbox__close"></button>
-        <button class="lightbox__next"></button>
-        <button class="lightbox__prev"></button>
+        <button class="lightbox__close">Close</button>
+        <button class="lightbox__next">Next</button>
+        <button class="lightbox__prev">Prev</button>
         <div class="lightbox__container">
             <img class="foto" src="${url}" alt="">
         </div>`
+        dom.querySelector(".lightbox__close").addEventListener("click",
+            this.close.bind(this))
         return dom
-    }
-
+     }
+   
 }
 
 
-/*<div class="lightbox" >
 
+/* <div class="lightbox" >
+        <button class="lightbox__close">Close</button>
+        <button class="lightbox__next">Next</button>
+        <button class="lightbox__prev">Prev</button>
+        <div class="lightbox__container">
+            <img class="foto" src="Documents/Sample Photos/Ellie-Rose Wilkens/Architecture_Water_on_Modern.jpg" alt="">
+        </div>
+    </div> */
 
-</div>*/
-
-
-Lightbox.init();
+lightbox.init()

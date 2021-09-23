@@ -207,6 +207,10 @@ function fetchData() {
           <div>
              <p>Trier par</p>
           </div>
+         
+          <button  class="dropbtn" onclick="mySort()" id="sortPop1">Popularité</button>
+          <p id="myId"></p>
+
                 <div class="dropdown">
                   <button  class="dropbtn" id="sortPop" >Popularité <i class="fas fa-angle-up"></i></button>
                   <div class="dropdown-content">
@@ -215,7 +219,6 @@ function fetchData() {
                   </div>
                 </div>
       </div>          
-      <div>mediaGalery</div>
 
           <div class="menuDrop">
             <p>Trier par</p>
@@ -230,13 +233,37 @@ function fetchData() {
           <div id="content_3" class="sortedRes">Content 3</div>
       `;
  
+    
 
-     
+
     // // //SORTED BY LIKES  WORKs!!!
-     const sortedByLike = photographerPhotos.sort(function (a, b) {
-          return b.likes - a.likes;
-     });
-     console.log(sortedByLike);
+    //  const sortedByLike = photographerPhotos.sort(function (a, b) {
+    //       return b.likes - a.likes;
+    //  });
+  
+    //  console.log(mySort);
+
+//ADD BUTTON TO SORT !!!doesnt work
+      // const btnSortPop = document.getElementById("sortPop1");
+
+      // const sortedByLike = photographerPhotos.sort(function(a,b){
+      //     return new Date(b.date) - new Date(a.date);
+
+      //    });
+
+      //    btnSortPop.addEventListener("click", sortedByLike)
+
+      // btnSortPop.addEventListener("click", () => {
+      //  photographerPhotos.sort(function (a, b) {
+      //     return b.likes - a.likes;
+      // });
+
+
+    // // //SORTED BY LIKES  WORKs!!!
+    //  const sortedByLike = photographerPhotos.sort(function (a, b) {
+    //       return b.likes - a.likes;
+    //  });
+    //  console.log(sortedByLike);
 
     //SORTED BY title WORKs!!!
     // const sortedByTitle = photographerPhotos.sort(function (a, b) {
@@ -250,10 +277,10 @@ function fetchData() {
   
     // //SORTED BY DATE WORKs!!!
     
-      // const sortedByDate = photographerPhotos.sort(function(a,b){
-      //   return new Date(b.date) - new Date(a.date);
-      // });
-      // console.log(sortedByDate);
+      const sortedByDate = photographerPhotos.sort(function(a,b){
+        return new Date(b.date) - new Date(a.date);
+      });
+      console.log(sortedByDate);
 
 
 
@@ -304,19 +331,6 @@ function fetchData() {
       // console.log(photographerPhoto);
 
 
-
-//like button plus
-let btnLajk = document.querySelector("#add");
-let input = document.querySelector("#input");
-if(btnLajk){
-  btnLajk.addEventListener("click",() => {
-    input.value = parseInt(input.value) +1;
-    
-  });
-}
-
-
-
       //display all  MEDIA PHOTOS VIDEOS in inner html
       //make variable for MEDIAhtml VIDEO if else 
         let photoHtml = photographerPhotos
@@ -332,7 +346,7 @@ if(btnLajk){
           }
    
           return (
-            `<div class="galerie__user">
+            ` <div class="galerie__user">
                 <div class = "galerie__image">
                     <p class="pID" >${photo.id}</p>
                     <p class="photoID">${photo.photographerId}</p>
@@ -343,11 +357,7 @@ if(btnLajk){
                 <div class="galerie__info"> 
                           <p class="galerie__title">${photo.title}</p>
 
-                     <div class="HeartLIKES">
-                        <input type="number" id="input" value="${photo.likes}">
-                        <button id="add" class="galerie__likes"><i class="fas fa-heart"></i></button>
-                      </div>
-
+                       
                       <div class="HeartLIKES">
                         <div class="numberLikes" id="incrimentText">${photo.likes}</div>
                         <button class="galerie__likes" onclick="incrimentButton()" value="Increment"><i class="fas fa-heart"></i></button>
@@ -381,12 +391,7 @@ fetchData();
     };
 
 
-  
-
-    
-
  
-
     // onClick = sortPhotosBy('likes'); 
     //SEARCH SORT BY LIKES
     // function sortPhotosBy(sortBy) {
