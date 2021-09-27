@@ -21,20 +21,19 @@ class lightbox {
     }
 
 
-    /**
-    * Close lightbbox
-    * @param {MouseEvent} e
-    * 
-    */
+    // /**
+    // * Close lightbbox
+    // * @param {MouseEvent} e
+    // * 
+    // */
 
-    close (e) {
-        e.preventDefault()
-        console.log(this);
-        this.element.classList.add('fadeOut')
-        window.setTimeout(() => {
-            this.element.remove()
-        }, 500)
-    }
+    // close (e) {
+    //     e.preventDefault()
+    //     this.element.classList.add('fadeOut')
+    //     window.setTimeout(() => {
+    //         this.element.remove()
+    //     }, 500)
+    // }
 
 
 
@@ -43,8 +42,7 @@ class lightbox {
      * @param {string} url  url of image
      * @return {HTMLElement}
      */
-
-
+     
      buildDOM (url) {
         const dom = document.createElement ("div")
         dom.classList.add("lightbox")
@@ -58,9 +56,18 @@ class lightbox {
         dom.querySelector(".lightbox__close").addEventListener("click",
             this.close.bind(this))
         return dom
-     }
+        
+     };
    
+
+
 }
+
+// document.querySelector(".lightbox__close").addEventListener("click",
+// function() {
+//     document.querySelector(".lightbox").style.display = "none";
+// });
+
 
 
 

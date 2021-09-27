@@ -545,6 +545,17 @@ input {
 
 
 /* proba */
+#myId{
+  font-size: 3em;
+  display: none;
+}
 
 
+/* button hide show div */
+.third{
+  display: none;
+}
 
+.tit, .date{
+  display: none;
+}

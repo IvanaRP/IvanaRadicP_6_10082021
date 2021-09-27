@@ -183,7 +183,7 @@ function fetchData() {
         return media.photographerId == photographerId;
       });
       
-      //ALL LIKES total 
+      // ALL LIKES total 
       let totalLikes = 0;
       photographerPhotos.forEach(item => {
         totalLikes = totalLikes + item.likes;
@@ -192,11 +192,11 @@ function fetchData() {
 
 
       //ALL LIKES total 
-      let totalLikesIncr = 0;
-      photographerPhotos.forEach(item => {
-        totalLikesIncr = totalLikesIncr + item.likes;
-      });
-      console.log(totalLikesIncr);
+      // let totalLikesIncr = 0;
+      // photographerPhotos.forEach(item => {
+      //   totalLikesIncr = totalLikesIncr + item.likes;
+      // });
+      // console.log(totalLikesIncr);
 
 
       
@@ -204,47 +204,113 @@ function fetchData() {
       //DROPDOWN MENU
       document.getElementById("dropdownmenu").innerHTML =
       `<div class="dropMenu">
-          <div>
-             <p>Trier par</p>
-          </div>
          
-          <button  class="dropbtn" onclick="mySort()" id="sortPop1">Popularité</button>
-          <p id="myId"></p>
-
+             <p>Trier par</p>
                 <div class="dropdown">
-                  <button  class="dropbtn" id="sortPop" >Popularité <i class="fas fa-angle-up"></i></button>
+                  <button  class="dropbtn" id="popular">Popularité <i class="fas fa-angle-up"></i></button>
                   <div class="dropdown-content">
-                    <a href="#" id="sortD">Date</a>
-                    <a href="#">Titre</a>
+                    <a href="#" id="date">Date</a>
+                    <a href="#" id="title">Titre</a>
                   </div>
                 </div>
-      </div>          
 
-          <div class="menuDrop">
-            <p>Trier par</p>
-            <select id="target" class="buttonMenu" >
-                <option id="sortPop" class="buttonMenu"  value="content_1">Popularité</option>
-                <option id="sortDate" class="buttonMenu" value="content_2">Date</option>
-                <option id="sortName" class="buttonMenu" value="content_3">Titre</option>
-            <select>
-          </div>
-          <div id="content_1" class="sortedRes">Content 1</div>
-          <div id="content_2" class="sortedRes">Content 2</div>
-          <div id="content_3" class="sortedRes">Content 3</div>
+       </div>          
       `;
  
-    
 
 
-    // // //SORTED BY LIKES  WORKs!!!
-    //  const sortedByLike = photographerPhotos.sort(function (a, b) {
-    //       return b.likes - a.likes;
-    //  });
+// filter sort button
   
-    //  console.log(mySort);
+
+// show hide div  PROMENA IMENA BUTTONA I DIV CLASSE SHOW HIDE
+const btnPopular = document.getElementById("popular");
+const btnDate = document.getElementById("date");
+const btnTitle = document.getElementById("title");
+// const galeriHIDe = document.getElementById("--media");
+
+// btnpop.onclick = function () {
+//   if (galeriHIDe.style.display == "none") {
+//     galeriHIDe.style.display = "none";
+//   } else {
+//     galeriHIDe.style.display = "flex";
+//     btnpop.innerHTML = "POP";
+//   }
+//   if (btnpop.innerHTML = "POP") {
+//     galeriHIDe.style.display = "flex";
+//   } else {
+//     galeriHIDe.style.display = "none";
+//     btntit.innerHTML = "title";
+//   }
+// };
+// btntit.onclick = function () {
+//   if (btnpop.innerHTML = "POP") {
+//     galeriHIDe.style.display = "flex";
+//   } else {
+//     galeriHIDe.style.display = "none";
+//     btntit.innerHTML = "title";
+//   }
+// };
+// btndate.onclick = function () {
+//   if (galeriHIDe.style.display == "none") {
+//     galeriHIDe.style.display = "none";
+//   } else {
+//     galeriHIDe.style.display = "flex";
+//     btnpop.innerHTML = "DAte";
+//   }
+// };
+
+// proba addlistener sort
+// const sortGaler = document.querySelector(".galerie");
+// const btn = document.querySelector(".dropbtn");
+
+
+// almost working
+
+const sortedByLike = photographerPhotos.sort(function (a, b) {
+  return b.likes - a.likes;
+});
+
+document.getElementById("popular").addEventListener("click", sortPopular);
+document.getElementById("date").addEventListener("click", sortDate);
+document.getElementById("title").addEventListener("click", sortTitle);
+const sortGaler = document.getElementById("media");
+// const sortedByLike = photographerPhotos.sort(function (a, b) {
+//   return b.likes - a.likes;
+//   console.log(sortedByLike);
+
+function sortPopular() {
+  btnPopular.innerHTML = "Date";
+  // document.getElementById("galerie").innerHTML = sortedByLike;
+// sortGaler.innerHTML = sortedByLike;
+}
+function sortDate() {
+  btnPopular.innerHTML = "Popular";
+}
+function sortTitle() {
+  btnPopular.innerHTML = "Date";
+}
+// console.log(sortGaler);
+
+// function sortLike () {
+//   document.getElementById(".media").innerHTML = "YOU CLICKED ME!"
+// };
+// console.log(sortLike);
+
+
+     // //SORTED BY LIKES  WORKs!!!
+//      const sortedByLike = photographerPhotos.sort(function (a, b) {
+//       return b.likes - a.likes;
+//  });
+    //  console.log(sortedByLike);
 
 //ADD BUTTON TO SORT !!!doesnt work
-      // const btnSortPop = document.getElementById("sortPop1");
+//       const btnSortPop = document.getElementById("sortPop1");
+// // console.log(btnSortPop);
+//       const show = document.getElementById("myId");
+//       console.log(show);
+//       btnSortPop.addEventListener("click", () =>{
+//         show.style.display = "block"
+//       });
 
       // const sortedByLike = photographerPhotos.sort(function(a,b){
       //     return new Date(b.date) - new Date(a.date);
@@ -277,28 +343,28 @@ function fetchData() {
   
     // //SORTED BY DATE WORKs!!!
     
-      const sortedByDate = photographerPhotos.sort(function(a,b){
-        return new Date(b.date) - new Date(a.date);
-      });
-      console.log(sortedByDate);
+      // const sortedByDate = photographerPhotos.sort(function(a,b){
+      //   return new Date(b.date) - new Date(a.date);
+      // });
+      // console.log(sortedByDate);
 
 
 
-      // //dropdown 
-      document.getElementById('target').addEventListener('change', function () {
-        'use strict';
-          let sort = document.querySelector('.sort'),   
-             target = document.getElementById(this.value);
-              if (sort !== null) {
-                sort.className = 'sortedRes';
-              }
-              if (target !== null ) {
-                target.className = 'sort';
-              }
-          });
+      // // //dropdown 
+      // document.getElementById('target').addEventListener('change', function () {
+      //   'use strict';
+      //     let sort = document.querySelector('.sort'),   
+      //        target = document.getElementById(this.value);
+      //         if (sort !== null) {
+      //           sort.className = 'sortedRes';
+      //         }
+      //         if (target !== null ) {
+      //           target.className = 'sort';
+      //         }
+      //     });
        
      
-      //LIKES COUNTER class="INCRIMENT"
+      //LIKES COUNTER class="INCRIMENT"  TOP OF ALL
       document.getElementById("likesCounter").innerHTML =
       `   <div class="INCRIMENT">
               <h1 id="counter">0</h1>
@@ -316,6 +382,9 @@ function fetchData() {
           counter.innerHTML = count;
       });
 
+
+
+
       //display all LIKES DOWN RIGHT  add down  in mediaID
       document.getElementById("downright").innerHTML =
       ` <div class="galerie__infoDown"> 
@@ -326,6 +395,8 @@ function fetchData() {
         </div> 
       `;
 
+
+      
     //let for 1 photo
       // let photographerPhoto = photographerPhotos[0];
       // console.log(photographerPhoto);
@@ -335,6 +406,22 @@ function fetchData() {
       //make variable for MEDIAhtml VIDEO if else 
         let photoHtml = photographerPhotos
           .map((photo) => {
+
+// all likes of [0] photographer
+// let likes = photo.likes;
+// console.log(likes);
+ 
+//LIKES COUNTER class="INCRIMENT" PROBA3
+// document.getElementById("likesAlone").innerHTML =
+// `   <div class="HeartLIKES">
+//         <div class="numberLikes" id="incrimentText3" value=${photo.likes}>${photo.likes} </div>
+//         <button class="galerie__likes" onclick="incrimentButton3()" ><i class="fas fa-heart"></i></button>
+//     </div> 
+    
+// `;
+
+
+
 
       //If Else show img or video
           let mediaHtml = "";
@@ -357,13 +444,22 @@ function fetchData() {
                 <div class="galerie__info"> 
                           <p class="galerie__title">${photo.title}</p>
 
-                       
+                         
+                      <div class="LikesEACH">
+                         <div class="numberLikes" id="addText" >${photo.likes} </div>
+                         <button class="galerie__likes" id="incrimentText" onclick="addLikes()" ><i class="fas fa-heart"></i></button>
+                      </div> 
+
                       <div class="HeartLIKES">
-                        <div class="numberLikes" id="incrimentText">${photo.likes}</div>
-                        <button class="galerie__likes" onclick="incrimentButton()" value="Increment"><i class="fas fa-heart"></i></button>
+                        <div class="numberLikes" id="incrimentText" >${photo.likes} </div>
+                        <button class="galerie__likes" id="incrimentText" onclick="incrimentButton()" ><i class="fas fa-heart"></i></button>
                       </div> 
                  </div> 
               </div>
+
+          
+           
+          
           `);
         })
         .join("");
@@ -375,13 +471,20 @@ function fetchData() {
 
 
    
+   
 }
 
 fetchData();
 
 
+      // //display all LIKES DOWN RIGHT  add down  in mediaID
+      // document.getElementById("likesEach").innerHTML =
+      // ` <div>${likes} </div>
+      // `;
 
-    // COUNTER OF LIKES - IncrimentHEART 
+    
+
+    // COUNTER OF LIKES - IncrimentHEART TOTALLIKES
     function incrimentButton() {
       let element = document.getElementById("incrimentText");
       let value = element.innerHTML;
@@ -389,6 +492,37 @@ fetchData();
       console.log(value);
       document.getElementById("incrimentText").innerHTML = value;
     };
+
+
+
+      // COUNTER OF LIKES - IncrimentHEART TOTALLIKES
+      function addLikes() {
+        let element = document.getElementById("addText");
+        let value = element.innerHTML;
+        ++value;
+        console.log(value);
+        document.getElementById("addText").innerHTML = value;
+      };
+  
+       
+
+      // COUNTER OF LIKES - IncrimentHEART like on each photo
+      // let increaseBtn1 = document.getElementById("button__increase1");
+      // let counter1 = document.getElementById("counter1");
+      // let count1 = 0;
+      // increaseBtn1.addEventListener("click", () => {
+      //       count1 ++;
+      //       counter1.innerHTML = count1;
+      //  });
+      //  console.log(increaseBtn1);
+       
+
+    
+     
+      
+       
+    
+     
 
 
  
@@ -403,3 +537,11 @@ fetchData();
 
 
  
+// // COUNTER OF LIKES - IncrimentHEART PROBA3
+// function incrimentButton3() {
+//   let element = document.getElementById("incrimentText3");
+//   let value = element.innerHTML;
+//   ++value;
+//   console.log(value);
+//   document.getElementById("incrimentText3").innerHTML = value;
+// };

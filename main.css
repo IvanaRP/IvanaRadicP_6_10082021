@@ -161,6 +161,7 @@ body {
   border-color: #c4c4c4;
   padding: 4px;
   margin-right: 5px;
+  cursor: pointer;
 }
 
 .tags:hover {
