@@ -62,7 +62,9 @@ function fetchData() {
       // open MODAL
       document.getElementById("open").addEventListener("click",
       function() {
-          document.querySelector(".modalBox").style.display = "flex";
+       
+        document.querySelector(".modalBox").style.display = "flex";
+          
       });
 
      
@@ -305,7 +307,10 @@ document.getElementById("likesAlone").innerHTML =
         <div class="numberLikes" id="incrimentText3" value=${photo.likes}>${photo.likes}</div>
         <button class="galerie__likes" onclick="incrimentButton3()" ><i class="fas fa-heart"></i></button>
     </div> 
-    
+    <div class="HeartLIKES">
+    <div class="numberLikes" id="incrimentText3" value=${photo.likes}>${photo.likes}</div>
+    <button class="galerie__likes" onclick="incrimentButton3()" ><i class="fas fa-heart"></i></button>
+</div> 
 `;
 
 
