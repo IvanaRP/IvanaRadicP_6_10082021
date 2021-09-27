@@ -1,5 +1,4 @@
 
-
 // make variables
 let allPhotographers;
 let filteredPhotographers;
@@ -54,7 +53,7 @@ function drawPhotographersHtml() {
   let html = filteredPhotographers
     .map((user) => {
       let tagsHtml = user.tags.map(tag => {
-        return `<p class="tags">#${tag}</p>`;
+        return `<a href="photographer-page.html?id=${user.id}"><p class="tags">#${tag}</p></a>`;
       }).join("");
 
       return `
@@ -63,7 +62,7 @@ function drawPhotographersHtml() {
           <p class="id">${user.id}</p>
           <a href="photographer-page.html"> <h2 class="name">${user.name}</h2></a>
             <p class="country">${user.country}</p>
-            <p class="tagline">${user.tagline}</p>
+            <<p class="tagline">${user.tagline}</p>
             <p class="price">${user.price}€/jour</p>
           <div class="tags__all">${tagsHtml}</div> 
       </div>

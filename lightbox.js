@@ -10,7 +10,7 @@ class lightbox {
 
     /**
      * 
-     * @param {string} url  url of image
+     * @param {string} url  URL of image
      * 
      */
 
@@ -31,7 +31,7 @@ class lightbox {
     //     e.preventDefault()
     //     this.element.classList.add('fadeOut')
     //     window.setTimeout(() => {
-    //         this.element.remove()
+    //         this.element.parentElement.removeChild(this.element)
     //     }, 500)
     // }
 
@@ -44,29 +44,34 @@ class lightbox {
      */
      
      buildDOM (url) {
-        const dom = document.createElement ("div")
+        const dom = document.createElement("div")
         dom.classList.add("lightbox")
         dom.innerHTML = `
         <button class="lightbox__close">Close</button>
         <button class="lightbox__next">Next</button>
         <button class="lightbox__prev">Prev</button>
         <div class="lightbox__container">
-            <img class="foto" src="${url}" alt="">
+        <div class="lightbox__loader"> </div>
         </div>`
-        dom.querySelector(".lightbox__close").addEventListener("click",
-            this.close.bind(this))
+      
+        // this.close.bind(this))
+   
         return dom
-        
      };
    
-
-
 }
+// document.querySelector(".lightbox__close").addEventListener("click",
+// function() {
+//     document.querySelector(".lightbox").style.display = "none";
+// });
+
+
 
 // document.querySelector(".lightbox__close").addEventListener("click",
 // function() {
 //     document.querySelector(".lightbox").style.display = "none";
 // });
+
 
 
 

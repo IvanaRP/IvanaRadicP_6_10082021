@@ -16,6 +16,7 @@
 
 
 .lightbox {
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
@@ -87,6 +88,15 @@
      min-height: 100vh; /*height of the screen; */
 }
 
+
+.lightbox__loader{
+  width: 38px;
+  height: 38px;
+  opacity: .5;
+  background-color: red;
+  background: url(Documents/img/loader.svg) center center no-repeat;
+
+}
 
 @keyframes lightboxIn {
     from {opacity: 0;}

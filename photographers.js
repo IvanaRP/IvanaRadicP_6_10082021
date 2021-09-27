@@ -1,5 +1,4 @@
 // Get URL Parameters
-
 function getParam(name) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -7,7 +6,6 @@ function getParam(name) {
 }
 
 //fetch json and display all photographers in inner html
-
 function fetchData() {
   fetch("FishEyeData.json")
     .then((response) => {
@@ -22,13 +20,11 @@ function fetchData() {
 
       let filteredUser = filteredUsers[0];
 
-
       //ON TAG SELECT photos with tag
       let tag1 = filteredUser.tags[0];
       let tag2 = filteredUser.tags[1];
       console.log(tag1);
       console.log(tag2);
-
 
 
       //make user TAG SEPARATE in innerHTML
@@ -44,7 +40,6 @@ function fetchData() {
       //make user TAG SEPARATE in innerHTML add this  `+tagsHtml+`
       //make user div in innerHTML
       //BUTTON CONCTACT ME  and popup MODAL
- 
       document.getElementById("photographer").innerHTML =
            `<div class = "filteredUser__info"> 
                 <p class="id">${filteredUser.id}</p>
@@ -62,12 +57,9 @@ function fetchData() {
       // open MODAL
       document.getElementById("open").addEventListener("click",
       function() {
-       
         document.querySelector(".modalBox").style.display = "flex";
-          
       });
 
-     
       // Display photographer MEDIA by id
       let photographerPhotos = data.media.filter((media) => {
         return media.photographerId == photographerId;
@@ -88,13 +80,10 @@ function fetchData() {
       // });
       // console.log(totalLikesIncr);
 
-
       
-
       //DROPDOWN MENU
       document.getElementById("dropdownmenu").innerHTML =
       `<div class="dropMenu">
-         
              <p>Trier par</p>
                 <div class="dropdown">
                   <button  class="dropbtn" id="popular">Popularité <i class="fas fa-angle-up"></i></button>
@@ -103,19 +92,15 @@ function fetchData() {
                     <a href="#" id="title">Titre</a>
                   </div>
                 </div>
-
        </div>          
       `;
  
-
-
 // filter sort button
-  
 
 // show hide div  PROMENA IMENA BUTTONA I DIV CLASSE SHOW HIDE
-const btnPopular = document.getElementById("popular");
-const btnDate = document.getElementById("date");
-const btnTitle = document.getElementById("title");
+// const btnPopular = document.getElementById("popular");
+// const btnDate = document.getElementById("date");
+// const btnTitle = document.getElementById("title");
 // const galeriHIDe = document.getElementById("--media");
 
 // btnpop.onclick = function () {
@@ -253,28 +238,7 @@ const btnTitle = document.getElementById("title");
       //         }
       //     });
        
-     
-      //LIKES COUNTER class="INCRIMENT"  TOP OF ALL
-      document.getElementById("likesCounter").innerHTML =
-      `   <div class="INCRIMENT">
-              <h1 id="counter">0</h1>
-              <button id="button__increase" class="galerie__likes"><i class="fas fa-heart"></i></button>
-          </div>
-          
-      `;
-
-      let increaseBtn = document.getElementById("button__increase");
-      let counter = document.getElementById("counter");
-      let count = 0;
-
-      increaseBtn.addEventListener("click", () => {
-          count ++;
-          counter.innerHTML = count;
-      });
-
-
-
-
+      
       //display all LIKES DOWN RIGHT  add down  in mediaID
       document.getElementById("downright").innerHTML =
       ` <div class="galerie__infoDown"> 
@@ -284,8 +248,6 @@ const btnTitle = document.getElementById("title");
             <p class="galerie__infotitle">${filteredUser.price}€/jour</p>
         </div> 
       `;
-
-
       
     //let for 1 photo
       // let photographerPhoto = photographerPhotos[0];
@@ -300,18 +262,7 @@ const btnTitle = document.getElementById("title");
 // all likes of [0] photographer
 // let likes = photo.likes;
 // console.log(likes);
- 
-// LIKES COUNTER class="INCRIMENT" PROBA3
-document.getElementById("likesAlone").innerHTML =
-`   <div class="HeartLIKES">
-        <div class="numberLikes" id="incrimentText3" value=${photo.likes}>${photo.likes}</div>
-        <button class="galerie__likes" onclick="incrimentButton3()" ><i class="fas fa-heart"></i></button>
-    </div> 
-    <div class="HeartLIKES">
-    <div class="numberLikes" id="incrimentText3" value=${photo.likes}>${photo.likes}</div>
-    <button class="galerie__likes" onclick="incrimentButton3()" ><i class="fas fa-heart"></i></button>
-</div> 
-`;
+
 
 
       //If Else show img or video
@@ -347,9 +298,6 @@ document.getElementById("likesAlone").innerHTML =
                       </div> 
                  </div> 
               </div>
-
-          
-           
           
           `);
         })
@@ -360,8 +308,6 @@ document.getElementById("likesAlone").innerHTML =
       console.log(error);
     });
 
-
-   
    
 }
 
@@ -372,6 +318,9 @@ fetchData();
       // document.getElementById("likesEach").innerHTML =
       // ` <div>${likes} </div>
       // `;
+
+
+
 
     
 

@@ -1,4 +1,6 @@
- 
+
+
+
 // !!! add USER
 // <h2 class="contactName">Contactez-moi<br>${filteredUser.name}</h2>
  
@@ -6,7 +8,7 @@
       document.getElementById("modalBox").innerHTML =
       `  <div class="modal" id="modal">
               <div class="modal-header" id="modal-header">
-                <h2 class="contactName">Contactez-moi<br>Name</h2>
+                <h2 class="contactName">Contactez-moi<br>NAME</h2>
                 <button class="close-button">&times;</button>
               </div>
               <div class=modal-body>
@@ -100,7 +102,6 @@
         return false;
 
       } else {
-        
         error3.style.display = "none"
       }
 
@@ -108,15 +109,13 @@
 
       if (message.value == "" || message.value.lenght < 2) {
         e.preventDefault();//stop form from submitting
-        
         error4.style.display = "inline-block"
-        
         return false;
         
       }   else {
-        
         alert("Merci ! Votre réservation a été reçue.")
         error4.style.display = "none"
+        return true;
         
       }
 

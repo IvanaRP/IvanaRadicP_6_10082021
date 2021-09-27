@@ -488,6 +488,7 @@ input {
   font-size: 16px;
   border: none;
   border-radius: 5px;
+  width: 100%;
 }
 
 .dropbtn:hover{
@@ -499,6 +500,7 @@ input {
   position: relative;
   display: inline-block;
   margin-left: 20px;
+  width: 25%;
 }
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
