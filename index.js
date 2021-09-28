@@ -85,3 +85,36 @@ fetchData().then((data) => {
 .catch((error) => {
   console.log(error);
 });;
+
+
+// // button Passer au contenu
+// const btnTop = document.querySelector("#buttonTopdiv");
+
+// btnTop.addEventListener("click", function () {
+//   window.scrollTo({
+//     top:0,
+//     left:0,
+//     behavior:"smooth"
+//   });
+// });
+
+
+// Get the button:
+btnTop = document.getElementById("buttonTopdiv");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    btnTop.style.display = "block";
+  } else {
+    btnTop.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}

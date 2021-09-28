@@ -215,3 +215,21 @@ body {
   object-fit: cover;
 }
 
+
+.buttonTopdiv{
+  display: none;/* Hidden by default */
+  position: fixed;
+  top: 2px;
+  right: auto;
+  left:48%;
+  z-index: 99; /* Make sure it does not overlap */
+}
+.buttonTop{
+  border-radius: 5px;
+  background-color: #d3573c;
+  color: #000000;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border:none;
+}

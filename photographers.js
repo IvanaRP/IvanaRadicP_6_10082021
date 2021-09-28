@@ -20,6 +20,9 @@ function fetchData() {
 
       let filteredUser = filteredUsers[0];
 
+
+     
+
       //ON TAG SELECT photos with tag
       let tag1 = filteredUser.tags[0];
       let tag2 = filteredUser.tags[1];
