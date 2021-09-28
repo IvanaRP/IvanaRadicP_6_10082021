@@ -221,7 +221,7 @@ body {
   position: fixed;
   top: 2px;
   right: auto;
-  left:48%;
+  left:41%;
   z-index: 99; /* Make sure it does not overlap */
 }
 .buttonTop{

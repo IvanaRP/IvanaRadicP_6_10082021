@@ -87,17 +87,7 @@ fetchData().then((data) => {
 });;
 
 
-// // button Passer au contenu
-// const btnTop = document.querySelector("#buttonTopdiv");
-
-// btnTop.addEventListener("click", function () {
-//   window.scrollTo({
-//     top:0,
-//     left:0,
-//     behavior:"smooth"
-//   });
-// });
-
+// button Passer au contenu
 
 // Get the button:
 btnTop = document.getElementById("buttonTopdiv");
