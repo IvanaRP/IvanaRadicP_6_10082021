@@ -1,3 +1,10 @@
+/**
+ * 
+ * @property {HTMLElement} element
+ * 
+ */
+
+
 class lightbox {
 
     static init () {
@@ -15,25 +22,45 @@ class lightbox {
      */
 
     
-    constructor (url) {
-            const element = this.buildDOM(url)
-            document.body.appendChild(element)
+    constructor(url) {
+            this.element = this.buildDOM(url)
+            this.loadImage(url)
+            document.body.appendChild(this.element)
     }
 
+     /**
+     * 
+     * @param {string} url  URL of image
+     * 
+     */
 
-    // /**
-    // * Close lightbbox
-    // * @param {MouseEvent} e
-    // * 
-    // */
+     loadImage (url) {
+         const image = new Image()
+         const container = this.element.querySelector(".lightbox__container")
+         const loader = document.createElement("div")
+         loader.classList.add("lightbox__loader")
+         container.appendChild(loader)
+         image.onload = function () {
+           container.removeChild(loader)
+           container.appendChild(image)
+         }
+         image.src = url
+     }
 
-    // close (e) {
-    //     e.preventDefault()
-    //     this.element.classList.add('fadeOut')
-    //     window.setTimeout(() => {
-    //         this.element.parentElement.removeChild(this.element)
-    //     }, 500)
-    // }
+
+    /**
+    * Close lightbbox
+    * @param {MouseEvent} e
+    * 
+    */
+
+    close (e) {
+      e.preventDefault()
+      this.element.classList.add('fadeOut')
+      window.setTimeout(() => {
+        this.element.parentElement.removeChild(this.element)
+        }, 500)
+    }
 
 
 
@@ -47,15 +74,12 @@ class lightbox {
         const dom = document.createElement("div")
         dom.classList.add("lightbox")
         dom.innerHTML = `
-        <button class="lightbox__close">Close</button>
-        <button class="lightbox__next">Next</button>
-        <button class="lightbox__prev">Prev</button>
-        <div class="lightbox__container">
-        <div class="lightbox__loader"> </div>
-        </div>`
-      
-        // this.close.bind(this))
-   
+            <button class="lightbox__close">Close</button>
+            <button class="lightbox__next">Next</button>
+            <button class="lightbox__prev">Prev</button>
+            <div class="lightbox__container"></div>`
+        dom.querySelector(".lightbox__close").addEventListener("click",
+        this.close.bind(this))
         return dom
      };
    
