@@ -472,6 +472,12 @@ input {
 
 /* dropdown scrool HOVER menu */
 
+
+.dropdownmenu{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .dropMenu{
   display: flex;
   flex-direction: row;
@@ -500,7 +506,7 @@ input {
   position: relative;
   display: inline-block;
   margin-left: 20px;
-  width: 25%;
+  /* width: 25%; */
 }
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
