@@ -62,7 +62,7 @@ function drawPhotographersHtml() {
           <p class="id">${user.id}</p>
           <a href="photographer-page.html"> <h2 class="name">${user.name}</h2></a>
             <p class="country">${user.country}</p>
-            <<p class="tagline">${user.tagline}</p>
+            <p class="tagline">${user.tagline}</p>
             <p class="price">${user.price}€/jour</p>
           <div class="tags__all">${tagsHtml}</div> 
       </div>
