@@ -1,4 +1,4 @@
-
+/* 
 .grid {
   display: flex;
   flex-direction: row;
@@ -11,7 +11,7 @@
     width: 200px;
     height: 200px;
     padding: 20px;
-}
+} */
 
 
 
@@ -44,12 +44,14 @@
   right: 0;
   margin-top: -14px;
   z-index: 51;
+  margin: 10px;
 }
 
 .lightbox__prev {
   right: auto;
   left: 0;
   transform: rotate(180deg);
+ 
 }
 
 .lightbox__close {
@@ -63,6 +65,13 @@
   z-index: 52;
 }
 
+.lightbox__title{
+  display: flex;
+  margin:50px;
+  margin-left: 80px;
+  font-size: 1em;
+  color: #901c1c;
+}
 .lightbox button {
  opacity: .5;
  cursor: pointer;
@@ -76,16 +85,18 @@
 
 .lightbox__container img{
     max-width: 100%;
-    height: auto;
+    height: 600px;
     animation: lightboxIn .5s;
+    border-radius: 5px;
 }
 .lightbox__container{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 50px;
-    margin-right: 50px;
-     min-height: 100vh; /*height of the screen; */
+    margin: 50px;
+    /* margin-right: 50px; */
+    
+     /* min-height: 100vh; height of the screen; */
 }
 
 

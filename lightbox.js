@@ -130,7 +130,8 @@ class lightbox {
             <button class="lightbox__close">Close</button>
             <button class="lightbox__next">Next</button>
             <button class="lightbox__prev">Prev</button>
-            <div class="lightbox__container"></div>`
+            <div class="lightbox__container"></div>
+            <div class="lightbox__title"><p>Photo TITLE</p></div>`
         dom.querySelector(".lightbox__close").addEventListener("click",
         this.close.bind(this))
         dom.querySelector(".lightbox__next").addEventListener("click",
@@ -141,17 +142,7 @@ class lightbox {
      };
    
 }
-// document.querySelector(".lightbox__close").addEventListener("click",
-// function() {
-//     document.querySelector(".lightbox").style.display = "none";
-// });
 
-
-
-// document.querySelector(".lightbox__close").addEventListener("click",
-// function() {
-//     document.querySelector(".lightbox").style.display = "none";
-// });
 
 
 
