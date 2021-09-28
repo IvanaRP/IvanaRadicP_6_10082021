@@ -1,31 +1,36 @@
 /**
  * 
  * @property {HTMLElement} element
- * 
+ * @property {string[]} images link to the images of the lightbox
+ * @property {string} url images showed
  */
 
 
 class lightbox {
 
     static init () {
-        const links = document.querySelectorAll('a[href$=".jpg"],a[href$=".mp4"],a[href$=".png"]')
-        .forEach(link => link.addEventListener("click", e => {
+        const links = Array.from(document.querySelectorAll('a[href$=".jpg"],a[href$=".mp4"],a[href$=".png"]'))
+        const gallery = links.map(link => link.getAttribute("href"))
+        links.forEach(link => link.addEventListener("click", e => {
                 e.preventDefault()
-                new lightbox(e.currentTarget.getAttribute("href"))
+                new lightbox(e.currentTarget.getAttribute("href"), gallery)
         }))
     }
 
     /**
      * 
      * @param {string} url  URL of image
-     * 
+     * @param {string[]} images  link to the images of the lightbox
      */
 
     
-    constructor(url) {
+    constructor(url, images) {
             this.element = this.buildDOM(url)
+            this.images =images
             this.loadImage(url)
+            this.onKeyUp = this.onKeyUp.bind(this)
             document.body.appendChild(this.element)
+            document.addEventListener("keyup", this.onKeyUp)
     }
 
      /**
@@ -35,22 +40,41 @@ class lightbox {
      */
 
      loadImage (url) {
+         this.url = null
          const image = new Image()
          const container = this.element.querySelector(".lightbox__container")
          const loader = document.createElement("div")
          loader.classList.add("lightbox__loader")
+         container.innerHTML = ""
          container.appendChild(loader)
-         image.onload = function () {
+         image.onload = () => {
            container.removeChild(loader)
            container.appendChild(image)
+           this.url = url
          }
          image.src = url
      }
 
 
     /**
+    * 
+    * @param {KeyboardEvent} e
+    * 
+    */
+
+    onKeyUp (e) {
+        if (e.key === "Escape") {
+            this.close(e)
+        } else if (e.key === "ArrowLeft") {
+            this.prev(e)
+        }else if (e.key === "ArrowRight") {
+            this.next(e)
+        }
+    }
+
+    /**
     * Close lightbbox
-    * @param {MouseEvent} e
+    * @param {MouseEvent/KeyboardEvent} e
     * 
     */
 
@@ -60,9 +84,38 @@ class lightbox {
       window.setTimeout(() => {
         this.element.parentElement.removeChild(this.element)
         }, 500)
+        document.removeEventListener("keyup", this.onKeyUp)
     }
 
+    /**
+    * Close lightbbox
+    * @param {MouseEvent/KeyboardEvent} e
+    * 
+    */
 
+    next (e) {
+        e.preventDefault()
+        let i = this.images.findIndex(image => image === this.url)
+        if (i === this.images.length -1){
+            i = -1
+        }
+        this.loadImage(this.images [i + 1])
+    }
+
+    /**
+    * Close lightbbox
+    * @param {MouseEvent/KeyboardEvent} e
+    * 
+    */
+
+      prev (e) {
+        e.preventDefault()
+        let i = this.images.findIndex(image => image === this.url)
+        if (i === 0) {
+            i = this.images.length
+        }
+        this.loadImage(this.images [i - 1])
+    }
 
      /**
      * 
@@ -80,6 +133,10 @@ class lightbox {
             <div class="lightbox__container"></div>`
         dom.querySelector(".lightbox__close").addEventListener("click",
         this.close.bind(this))
+        dom.querySelector(".lightbox__next").addEventListener("click",
+        this.next.bind(this))
+        dom.querySelector(".lightbox__prev").addEventListener("click",
+        this.prev.bind(this))
         return dom
      };
    

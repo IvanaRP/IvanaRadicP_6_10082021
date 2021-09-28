@@ -276,30 +276,30 @@ function fetchData() {
             }
    
           return (
-            ` <div class="galerie__user">
-                <div class = "galerie__image">
-                    <p class="pID" >${photo.id}</p>
-                    <p class="photoID">${photo.photographerId}</p>
-                    ` + mediaHtml + `
-                    <p class="photoDate">${photo.date}</p>
-                    <p class="photoPrice">${photo.price}</p>
-                </div>
-                <div class="galerie__info"> 
+            ` <a href= "Documents/Sample Photos/${filteredUser.name}/${photo.image}">
+                <div class="galerie__user">
+                    <div class = "galerie__image">
+                        <p class="pID" >${photo.id}</p>
+                        <p class="photoID">${photo.photographerId}</p>
+                        ` + mediaHtml + `
+                        <p class="photoDate">${photo.date}</p>
+                        <p class="photoPrice">${photo.price}</p>
+                    </div>
+                    <div class="galerie__info"> 
                           <p class="galerie__title">${photo.title}</p>
 
-                         
-                      <div class="LikesEACH">
-                         <div class="numberLikes" id="addText" >${photo.likes} </div>
-                         <button class="galerie__likes" id="incrimentText" onclick="addLikes()" ><i class="fas fa-heart"></i></button>
-                      </div> 
+                          <div class="LikesEACH">
+                            <div class="numberLikes" id="addText" >${photo.likes} </div>
+                            <button class="galerie__likes" id="incrimentText" onclick="addLikes()" ><i class="fas fa-heart"></i></button>
+                          </div> 
 
-                      <div class="HeartLIKES">
-                        <div class="numberLikes" id="incrimentText">${photo.likes} </div>
-                        <button class="galerie__likes" id="incrimentText" onclick="incrimentButton()" ><i class="fas fa-heart"></i></button>
-                      </div> 
-                 </div> 
-              </div>
-          
+                          <div class="HeartLIKES">
+                            <div class="numberLikes" id="incrimentText">${photo.likes} </div>
+                            <button class="galerie__likes" id="incrimentText" onclick="incrimentButton()" ><i class="fas fa-heart"></i></button>
+                          </div> 
+                    </div> 
+                </div>
+             </a>
           `);
         })
         .join("");
