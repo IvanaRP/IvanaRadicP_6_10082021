@@ -85,7 +85,8 @@
 
 .lightbox__container img{
     max-width: 100%;
-    height: 600px;
+   
+    height: auto;
     animation: lightboxIn .5s;
     border-radius: 5px;
 }
