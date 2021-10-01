@@ -1,46 +1,36 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="buttonContenu.css" />
+    <link rel="stylesheet" href="main.css" />
     <title>FishEye</title>
-   
+  </head>
 
-
-
-</head>
-
-
-<body>
-
-      <!--Header-->
-      <header>
-        <div class="header">
-            <img class="header__logo" src="Documents/FishEyeLOGO.svg" alt="FishEye">
-            <div id="topTags" class="header__tags"></div>
-            <div class="MainSection">
-                <a href="index.html"><h1 class="mainTitle">Nos photographers</h1></a>
-            </div>
-           
+  <body>
+    <!--Header-->
+    <header class="header__info" role="banner">
+      <div class="header">
+        <a href="index.html"><img role=”img” class="header__logo" src="Documents/FishEyeLOGO.svg" alt="FishEye"/></a>
+        <!-- /*aria-label ”photographer_categories”*/ -->
+        <div aria-label=”photographer_categories” id="topTags" class="header__tags"></div> 
+        <div class="MainSection">
+          <a href="index.html"><h1 class="mainTitle">Nos photographers</h1></a>
         </div>
+      </div>
 
-            <div class="buttonTopdiv" id="buttonTopdiv" onclick="topFunction()">
-                <button class="buttonTop" >Passer au contenu</button>
-            </div>
+      <!--BUTTON PASSER CONTENU-->
+      <div class="buttonTopdiv" id="buttonTopdiv" onclick="topFunction()">
+        <button class="buttonTop">Passer au contenu</button>
+      </div>
+      
     </header>
-
 
     <div id="app" class="boxes"></div>
 
-
+    <script type="text/javascript" src="buttonContenu.js"></script>
     <script type="text/javascript" src="index.js"></script>
-
-
-   
-     
-
-    
-    </body>
+  </body>
 </html>

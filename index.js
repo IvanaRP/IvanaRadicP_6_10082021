@@ -33,7 +33,7 @@ function getTags(data) {
 // topTags for header
 function drawTagsHtml() {
   taghtml = allTags.map((tag) => {
-    return `<div class="topTags" id="tagclick" onClick=filterByTag("${tag}")><p class="tags">#${tag}</p></div>`;
+    return `<div class="topTags" id="tagclick" onClick=filterByTag("${tag}")><p aria-label=”tag_cattegories” role="tags" class="tags">#${tag}</p></div>`;
   }).join("");
   document.querySelector("#topTags").innerHTML = taghtml;
 }
@@ -53,14 +53,14 @@ function drawPhotographersHtml() {
   let html = filteredPhotographers
     .map((user) => {
       let tagsHtml = user.tags.map(tag => {
-        return `<a href="photographer-page.html?id=${user.id}"><p class="tags">#${tag}</p></a>`;
+        return `<p onClick=filterByTag("${tag}")  class="tags">#${tag}</p>`;
       }).join("");
-
       return `
       <div class = "user" id="user">
-        <a href="photographer-page.html?id=${user.id}"> <img id="profile" src="Documents/Sample Photos/Photographers ID Photos/${user.portrait}" class="profile"  alt=""/> </a>
+        <a href="photographer-page.html?id=${user.id}"> <img id="profile" src="Documents/Sample Photos/Photographers ID Photos/${user.portrait}" class="profile"  alt="photo of ${user.name}" role="img"/>
           <p class="id">${user.id}</p>
-          <a href="photographer-page.html"> <h2 class="name">${user.name}</h2></a>
+          <h2 class="name">${user.name}</h2>
+       </a>
             <p class="country">${user.country}</p>
             <p class="tagline">${user.tagline}</p>
             <p class="price">${user.price}€/jour</p>
@@ -87,24 +87,3 @@ fetchData().then((data) => {
 });;
 
 
-// button Passer au contenu
-
-// Get the button:
-btnTop = document.getElementById("buttonTopdiv");
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    btnTop.style.display = "block";
-  } else {
-    btnTop.style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}

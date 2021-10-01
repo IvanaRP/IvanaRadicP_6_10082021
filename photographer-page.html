@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="main.css" />
-    <link rel="stylesheet" href="photographerPage.css"/>
+    <link rel="stylesheet" href="buttonContenu.css" />
+    <link rel="stylesheet" href="likebutton.css" />
+    <link rel="stylesheet" href="photographerPage.css" />
     <link rel="stylesheet" href="lightbox.css" />
     <script
       src="https://kit.fontawesome.com/f9349f7e63.js"
@@ -17,15 +19,50 @@
     <!--Header-->
     <header>
       <div class="header">
-        <a href="index.html"><img class="header__logo" src="Documents/FishEyeLOGO.svg" alt="FishEye"/></a>
+        <a href="index.html"
+          ><img
+            class="header__logo"
+            src="Documents/FishEyeLOGO.svg"
+            alt="FishEye"
+        /></a>
+      </div>
+      <!--BUTTON PASSER CONTENU-->
+      <div class="buttonTopdiv" id="buttonTopdiv" onclick="topFunction()">
+        <button class="buttonTop">Passer au contenu</button>
       </div>
     </header>
 
+    <!--LIKE BUTTON-->
+   
+    <!-- <div class="HeartLIKES">
+      <ul>
+          <li data-choisi="false" data-calories="23" class="numberLikesdata" >JEDAN</li>
+          <li data-choisi="false" data-calories="23" class="numberLikesdata" >DVA</li>
+          <li data-choisi="false" data-calories="23" class="numberLikesdata" >TRI</li>
+    </ul>
+      
+      <h2> number ccc: <span id="count">0</span></h2>
+      <h2> Total number: <span id="total">0</span></h2>
+    </div>  -->
+
+
+    <div class="HeartLIKES">
+  
+          <ul>
+              <li data-choisi="false" data-calories="1"  id="likeNumber" class="numberLikesdata" ><i class="fas fa-heart"></i></li>
+        </ul>
+     
+      <h2> Likes number: <span id="countheart">0</span></h2>
+      <h2> Total number: <span id="totalheart">0</span></h2>
+    </div> 
+
+
+    
+
+ <!--Profil section-->
     <div class="boxgrey">
       <div id="photographer" class="boxes"></div>
     </div>
-
-    
 
     <div id="downright"></div>
 
@@ -33,15 +70,14 @@
     <div id="likesCounter"></div>
 
     <div id="likesCounter"></div>
-    
+
     <!--DROPDOWNMENU-->
-  
 
     <div id="dropdownmenu" class="dropdownmenu"></div>
 
     <!--LIGHTBOX-->
-
- <!-- <div class="grid">
+<!--   
+<div class="grid">
     <a href="Documents/Sample Photos/Ellie-Rose Wilkens/Sport_Next_Hold.jpg">
       <img class="imggrid" src="Documents/Sample Photos/Ellie-Rose Wilkens/Sport_Next_Hold.jpg" alt="">
     </a>
@@ -69,15 +105,13 @@
 
 </div> -->
 
-<!-- DUGMICI SHOW HIDE RADI -->
+    <!-- DUGMICI SHOW HIDE RADI -->
     <!-- <div>
       <button id="toggle" class="dropbtn">Popularite</button>
       <div id="first">This is the FIRST div</div>
       <div id="second">This is the SECOND div</div>
       <div id="third" class="third">This is the THIRD div</div>
     </div> -->
-
-   
 
     <div id="likesEach" class="likesEach"></div>
     <!--MODAL CONTACT ME-->
@@ -87,11 +121,14 @@
     <div id="likesAlone"></div>
     <div id="media" class="galerie"></div>
 
-  
 
-    <script type="text/javascript" src="photographers.js"></script>
-    <script type="module" src="modal.js" ></script>
+
+    
+    <script type="text/javascript" src="likebutton.js"></script>
+    <script type="text/javascript" src="buttonContenu.js"></script>
+    <script type="text/javascript" src="2photographers.js"></script>
+    <!-- <script type="text/javascript" src="photographers.js"></script> -->
+    <script type="module" src="modal.js"></script>
     <script src="lightbox.js" type="module" defer></script>
-
   </body>
 </html>
