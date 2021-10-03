@@ -22,6 +22,14 @@
 //     document.getElementById("heartbtn").style.display = "none";
 //  }
 
-function myFunction(x) {
-    x.classList.toggle("fa-thumbs-down");
-  }
+// function myFunction(x) {
+//     x.classList.toggle("fa-thumbs-down");
+//   }
+
+
+  var garbage = document.getElementById("likeNumber");
+
+garbage.addEventListener("click",function(){
+  garbage.style.color = "#66c144";
+});
+

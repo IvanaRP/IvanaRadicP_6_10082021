@@ -46,7 +46,7 @@
     </div>  -->
 
 
-    <div class="HeartLIKES">
+    <!-- <div class="HeartLIKES">
   
           <ul>
               <li data-choisi="false" data-calories="1"  id="likeNumber" class="numberLikesdata" ><i class="fas fa-heart"></i></li>
@@ -54,7 +54,7 @@
      
       <h2> Likes number: <span id="countheart">0</span></h2>
       <h2> Total number: <span id="totalheart">0</span></h2>
-    </div> 
+    </div>  -->
 
 
     
@@ -74,7 +74,20 @@
     <!--DROPDOWNMENU-->
 
     <div id="dropdownmenu" class="dropdownmenu"></div>
+    <div id="dropdownmenu2" class="dropdownmenu"></div>
 
+
+    <div class="dropDownMenu2">
+      <p>Trier par</p>
+      <div class="dropdown">
+          <button  class="dropdown-toggle" aria-haspopup="true" >Select <i class="fas fa-angle-up"></i></button>
+          <ul class="dropdown-menu" role="listbox" aria-expanded="false">
+              <li role="option" tabindex="0">Titre</li>
+              <li role="option" tabindex="1">Date</li>
+              <li role="option" tabindex="2">Popularite</li>
+          </ul>
+      </div>
+  </div> 
     <!--LIGHTBOX-->
 <!--   
 <div class="grid">
@@ -120,10 +133,12 @@
 
     <div id="likesAlone"></div>
     <div id="media" class="galerie"></div>
+    <div id="mediaLikes" class="galerieOdvojeno"></div>
 
 
 
-    
+
+    <script type="text/javascript" src="dropdown.js"></script>
     <script type="text/javascript" src="likebutton.js"></script>
     <script type="text/javascript" src="buttonContenu.js"></script>
     <script type="text/javascript" src="2photographers.js"></script>

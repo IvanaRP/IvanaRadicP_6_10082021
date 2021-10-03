@@ -152,6 +152,7 @@ button {
   width: 350px;
   height: 300px;
   object-fit: cover;
+  border-radius: 5px;
 }
 .galerie__title {
   display: flex;
@@ -219,6 +220,13 @@ button {
 
 .fa-heart {
   color: #901c1c;
+  ;
+  height: 1em;
+}
+
+.fa-heart::after{
+  color: #DB8876;
+  ;
   height: 1em;
 }
 
@@ -576,4 +584,117 @@ input {
 
 .tit, .date{
   display: none;
+}
+
+/* tags change color */
+
+.imggrid{
+  width: 300px;
+  height: 300px;
+}
+
+/* likes odvojeno */
+
+.galerieOdvojeno{
+  display: flex;
+width: auto;
+height: 200px;
+}
+
+
+/* dropdown tuto */
+
+
+.dropDownMenu2 {
+  display: flex;
+  flex-direction: row;
+  margin:auto;
+  width: 80%;
+}
+
+.dropdown{
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown .dropdown-toggle{
+  appearance: none;
+  background: #901c1c;
+  color: #fff;
+  border: 0;
+  padding: 12px 35px 12px 12px;
+  border-radius: 5px;
+  text-align: left;
+  position: relative;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  /* border-top: 1px solid white; */
+}
+
+.dropdown .dropdown-toggle::after {
+  content: '';
+  border-width: 6px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: inherit;
+  position: absolute;
+  right: 12px;
+  top: calc(50% + 3px);
+  transform: translateY(-50%);
+}
+
+.dropdown .dropdown-toggle.active::after {
+  border-color: transparent;
+  border-bottom-color: inherit;
+  top: calc(50% - 3px);
+}
+
+.dropdown .dropdown-menu {
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  transform: translateX(-50%);
+  background: #901C1C;
+  color: white;
+  box-shadow:#DB8876;
+  list-style: none;
+  padding: 5px 0;
+  margin: 0;
+  max-width: 320px;
+  width: calc(100% + 24px);
+  border-radius: 5px;
+  z-index: 10;
+  visibility: hidden;
+  overflow: auto;
+  max-height: 200px;
+
+}
+
+.dropdown .dropdown-menu[aria-expanded="true"] {
+  visibility: visible;
+}
+
+
+.dropdown .dropdown-menu li {
+  height: 35px;
+  display: block;
+  align-items: center;
+  padding: 10px 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-top: 1px solid white;
+}
+
+
+.dropdown .dropdown-menu li:hover,
+.dropdown .dropdown-menu li:focus{
+  outline:none;
+  background: #DB8876;
+
 }
