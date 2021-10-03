@@ -33,7 +33,7 @@ function getTags(data) {
 // topTags for header
 function drawTagsHtml() {
   taghtml = allTags.map((tag) => {
-    return `<div class="topTags" id="tagclick" onClick=filterByTag("${tag}")><p aria-label=”tag_cattegories” role="tags" class="tags">#${tag}</p></div>`;
+    return `<div class="topTags" id="tagclick" onClick=filterByTag("${tag}")><p aria-label=”tag_cattegories” role="tags" id="tags" class="tags">#${tag}</p></div>`;
   }).join("");
   document.querySelector("#topTags").innerHTML = taghtml;
 }
@@ -48,12 +48,13 @@ function filterByTag(tag) {
 }
 
 
+
 // display Photographers
 function drawPhotographersHtml() {
   let html = filteredPhotographers
     .map((user) => {
       let tagsHtml = user.tags.map(tag => {
-        return `<p onClick=filterByTag("${tag}")  class="tags">#${tag}</p>`;
+        return `<p onClick=filterByTag("${tag}") id="tags" class="tags">#${tag}</p>`;
       }).join("");
       return `
       <div class = "user" id="user">
@@ -64,13 +65,32 @@ function drawPhotographersHtml() {
             <p class="country">${user.country}</p>
             <p class="tagline">${user.tagline}</p>
             <p class="price">${user.price}€/jour</p>
-          <div class="tags__all">${tagsHtml}</div> 
+          <div class="tags__all" id="tags">${tagsHtml}</div> 
       </div>
       `;
     })
     .join("");
   document.querySelector("#app").innerHTML = html;
 }
+
+
+// change color for TAGS
+function changeTagColor(){
+  let tags = document.querySelectorAll('.tags');
+
+  function changeColor() {
+      for (var i = 0; i < tags.length; i++) {
+      tags[i].classList.remove('clicked');
+      }
+      this.classList.add('clicked');
+  }
+  for (var i = 0; i < tags.length; i++) {
+      tags[i].addEventListener('click',changeColor,false);
+  }
+}  
+
+
+
 
 
 
@@ -81,6 +101,8 @@ fetchData().then((data) => {
 
   drawPhotographersHtml();
   drawTagsHtml();
+  changeTagColor();
+  
 })
 .catch((error) => {
   console.log(error);

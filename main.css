@@ -171,6 +171,10 @@ body {
 }
 
 
+.clicked {
+  color: black;
+  background-color: #DB8876;
+  }
 
 .tags__all {
   display: flex;
