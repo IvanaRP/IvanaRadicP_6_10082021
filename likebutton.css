@@ -1,4 +1,10 @@
-.fas{
+.fa-heart {
     color: #f50057;
+    
+    cursor: pointer;
+}
+
+.fa-heart::after {
+    color: #f5f100;
     cursor: pointer;
 }
