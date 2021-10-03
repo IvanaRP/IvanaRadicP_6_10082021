@@ -130,7 +130,9 @@ class lightbox {
             <button class="lightbox__close">Close</button>
             <button class="lightbox__next">Next</button>
             <button class="lightbox__prev">Prev</button>
-            <div class="lightbox__container"></div>
+            <div class="lightbox__container">
+               <img class="foto" src="Documents/Sample Photos/Ellie-Rose Wilkens/Architecture_Water_on_Modern.jpg" alt="">
+            </div>
             <div class="lightbox__title"><p>Photo TITLE</p></div>`
         dom.querySelector(".lightbox__close").addEventListener("click",
         this.close.bind(this))
@@ -145,6 +147,7 @@ class lightbox {
 
 
 
+lightbox.init()
 
 
 
@@ -156,5 +159,3 @@ class lightbox {
             <img class="foto" src="Documents/Sample Photos/Ellie-Rose Wilkens/Architecture_Water_on_Modern.jpg" alt="">
         </div>
     </div> */
-
-lightbox.init()
