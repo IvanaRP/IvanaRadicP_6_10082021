@@ -114,27 +114,14 @@ function drawPhotographersHtml() {
         .join("");
       // let mediaHtml = ""; //If Else show img or video
       // if (photo.hasOwnProperty("video")) {
-      //   mediaHtml = `<a href="Documents/Sample Photos/${filteredUser.name}/${photo.video}">
-      //                  <video id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.video}"  alt="${photo.title}"/>
-      //               </a>`;
-      // } else {
-      //   mediaHtml = `<a href="Documents/Sample Photos/${filteredUser.name}/${photo.image}">
-      //                  <img id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt="${photo.title}"/>
-      //                </a>`;
-      // }
-      // if (photo.hasOwnProperty("video")) {
       //   mediaHtml = `<video id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.video}"  alt=""/>`;
       // } else {
       //   mediaHtml = `<img id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt=""/>`;
       // }
       return (
-        ` <div class="grid">
-        <a href="Documents/Sample Photos/${filteredUser.name}/${photo.image}">
-          <img class="imggrid" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}" alt="${photo.title}">
-        </a>
-    
-    </div>
-
+        `  <a href="Documents/Sample Photos/${filteredUser.name}/${photo.image}">
+        <img class="imggrid" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}" alt="">
+      </a>
           `);
     })
     .join("");

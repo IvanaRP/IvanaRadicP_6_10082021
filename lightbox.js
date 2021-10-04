@@ -1,7 +1,7 @@
 /**
  * 
  * @property {HTMLElement} element
- * @property {string[]} images link to the images of the lightbox
+ * @property {string[]} images links to the images of the lightbox
  * @property {string} url images showed
  */
 
@@ -9,28 +9,28 @@
 class Lightbox {
 
     static init () {
-        const links = Array.from(document.querySelectorAll('a[href$=".jpg"],a[href$=".mp4"],a[href$=".png"]'))
-        const gallery = links.map(link => link.getAttribute("href"))
+        const links = Array.from(documnet.querySelectorAll('a[href$=".jpg"], a[href$=".mp4"]'));
+        const gallery = links.map(link => link.getAttribute("href"));
         links.forEach(link => link.addEventListener("click", e => {
                 e.preventDefault()
-                new Lightbox(e.currentTarget.getAttribute("href"), gallery)
-        }))
+                new Lightbox(e.currentTarget.getAttribute("href"), gallery);
+        }));
     }
 
     /**
      * 
      * @param {string} url  URL of the image
-     * @param {string[]} images  link to the images of the Lightbox
+     * @param {string[]} images  links to the images of the Lightbox
      */
 
     
     constructor(url, images) {
-            this.element = this.buildDOM(url)
-            this.images =images
-            this.loadImage(url)
-            this.onKeyUp = this.onKeyUp.bind(this)
-            document.body.appendChild(this.element)
-            document.addEventListener("keyup", this.onKeyUp)
+            this.element = this.buildDOM(url);
+            this.images = images;
+            this.loadImage(url);
+            this.onKeyUp = this.onKeyUp.bind(this);
+            document.body.appendChild(this.element);
+            document.addEventListener("keyup", this.onKeyUp);
     }
 
      /**
@@ -40,19 +40,19 @@ class Lightbox {
      */
 
      loadImage (url) {
-         this.url = null
-         const image = new Image()
-         const container = this.element.querySelector(".lightbox__container")
-         const loader = document.createElement("div")
-         loader.classList.add("lightbox__loader")
-         container.innerHTML = ""
-         container.appendChild(loader)
+         this.url = null;
+         const image = new Image();
+         const container = this.element.querySelector(".lightbox__container");
+         const loader = document.createElement("div");
+         loader.classList.add("lightbox__loader");
+         container.innerHTML = "";
+         container.appendChild(loader);
          image.onload = () => {
-           container.removeChild(loader)
-           container.appendChild(image)
-           this.url = url
+           container.removeChild(loader);
+           container.appendChild(image);
+           this.url = url;
          }
-         image.src = url
+         image.src = url;
      }
 
 
@@ -64,11 +64,11 @@ class Lightbox {
 
     onKeyUp (e) {
         if (e.key === "Escape") {
-            this.close(e)
+            this.close(e);
         } else if (e.key === "ArrowLeft") {
-            this.prev(e)
+            this.prev(e);
         }else if (e.key === "ArrowRight") {
-            this.next(e)
+            this.next(e);
         }
     }
 
@@ -79,12 +79,12 @@ class Lightbox {
     */
 
     close (e) {
-      e.preventDefault()
-      this.element.classList.add('fadeOut')
+      e.preventDefault();
+      this.element.classList.add('fadeOut');
       window.setTimeout(() => {
-        this.element.parentElement.removeChild(this.element)
-        }, 500)
-        document.removeEventListener("keyup", this.onKeyUp)
+        this.element.parentElement.removeChild(this.element);
+        }, 500);
+        document.removeEventListener("keyup", this.onKeyUp);
     }
 
     /**
@@ -94,12 +94,12 @@ class Lightbox {
     */
 
     next (e) {
-        e.preventDefault()
-        let i = this.images.findIndex(image => image === this.url)
+        e.preventDefault();
+        let i = this.images.findIndex(image => image === this.url);
         if (i === this.images.length -1){
-            i = -1
+            i = -1;
         }
-        this.loadImage(this.images [i + 1])
+        this.loadImage(this.images [i + 1]);
     }
 
     /**
@@ -109,12 +109,12 @@ class Lightbox {
     */
 
       prev (e) {
-        e.preventDefault()
-        let i = this.images.findIndex(image => image === this.url)
+        e.preventDefault();
+        let i = this.images.findIndex(image => image === this.url);
         if (i === 0) {
-            i = this.images.length
+            i = this.images.length;
         }
-        this.loadImage(this.images [i - 1])
+        this.loadImage(this.images [i - 1]);
     }
 
      /**
@@ -124,27 +124,29 @@ class Lightbox {
      */
      
      buildDOM (url) {
-        const dom = document.createElement("div")
-        dom.classList.add("lightbox")
+        const dom = document.createElement("div");
+        dom.classList.add("lightbox");
         dom.innerHTML = `
             <button class="lightbox__close">Close</button>
             <button class="lightbox__next">Next</button>
             <button class="lightbox__prev">Prev</button>
-            <div class="lightbox__container"></div>`
+            <div class="lightbox__container">
+                 
+            </div>`;
         dom.querySelector(".lightbox__close").addEventListener("click",
-        this.close.bind(this))
+        this.close.bind(this));
         dom.querySelector(".lightbox__next").addEventListener("click",
-        this.next.bind(this))
+        this.next.bind(this));
         dom.querySelector(".lightbox__prev").addEventListener("click",
-        this.prev.bind(this))
-        return dom
+        this.prev.bind(this));
+        return dom;
      };
    
 }
 
 
 
-Lightbox.init()
+// Lightbox.init()
 
 
 
