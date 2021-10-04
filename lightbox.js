@@ -6,21 +6,21 @@
  */
 
 
-class lightbox {
+class Lightbox {
 
     static init () {
         const links = Array.from(document.querySelectorAll('a[href$=".jpg"],a[href$=".mp4"],a[href$=".png"]'))
         const gallery = links.map(link => link.getAttribute("href"))
         links.forEach(link => link.addEventListener("click", e => {
                 e.preventDefault()
-                new lightbox(e.currentTarget.getAttribute("href"), gallery)
+                new Lightbox(e.currentTarget.getAttribute("href"), gallery)
         }))
     }
 
     /**
      * 
-     * @param {string} url  URL of image
-     * @param {string[]} images  link to the images of the lightbox
+     * @param {string} url  URL of the image
+     * @param {string[]} images  link to the images of the Lightbox
      */
 
     
@@ -130,10 +130,7 @@ class lightbox {
             <button class="lightbox__close">Close</button>
             <button class="lightbox__next">Next</button>
             <button class="lightbox__prev">Prev</button>
-            <div class="lightbox__container">
-               <img class="foto" src="Documents/Sample Photos/Ellie-Rose Wilkens/Architecture_Water_on_Modern.jpg" alt="">
-            </div>
-            <div class="lightbox__title"><p>Photo TITLE</p></div>`
+            <div class="lightbox__container"></div>`
         dom.querySelector(".lightbox__close").addEventListener("click",
         this.close.bind(this))
         dom.querySelector(".lightbox__next").addEventListener("click",
@@ -147,7 +144,7 @@ class lightbox {
 
 
 
-lightbox.init()
+Lightbox.init()
 
 
 

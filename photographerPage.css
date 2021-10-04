@@ -515,8 +515,9 @@ input {
   width: 100%;
 }
 
-.dropbtn:hover{
+.dropbtn:hover,:focus{
   border-radius: 5px 5px 0 0;
+
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -545,14 +546,19 @@ input {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  border-radius: 0 0 5px 5px ;
+  /* border-radius: 0 0 5px 5px ; */
   border-top: 1px solid white;
+  /* left: 10%; */
+  /* width: 50%;  or 100px */
 }
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
   background: #db8876;
   color: #000000;
+  outline:none;
+  background: #DB8876;
+  overflow: hidden;
   
 }
 

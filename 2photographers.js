@@ -10,7 +10,7 @@ let photographerId;
 let photographerPhotos;
 let filteredUsers;
 let filteredUser;
-let allTags;
+// let allTags;
 let allfilteredUsers;
 
 // fetch Json data
@@ -21,20 +21,21 @@ function fetchData() {
 }
 
 
-// get Tags by map
-function getTags(data) {
-  let tags = [];
-  data.media.map(media => {
-    if (media.hasOwnProperty('tags')) {
-      media.tags.map(tag => {
-        if (!tags.includes(tag)) {
-          tags.push(tag);
-        }
-      });
-    }
-  });
-  return tags;
-}
+// // get Tags by map
+// function getTags(data) {
+//   let tags = [];
+//   data.media.map(media => {
+//     if (media.hasOwnProperty('tags')) {
+//       media.tags.map(tag => {
+//         if (!tags.includes(tag)) {
+//           tags.push(tag);
+//         }
+//       });
+//     }
+//   });
+//   return tags;
+// }
+
 
 
 // filter by Tags photographer
@@ -43,21 +44,19 @@ function filterByTag(tag) {
     return photographer.tags.includes(tag);
   })
   drawPhotographersHtmlBox();
-  drawPhotographersHtml();
 }
 
 // display Photographers
 function drawPhotographersHtmlBox() {
   let filteredUserhtml = filteredUsers
     .map((user) => {
-      let tagsHtml = user.tags
-        .map((tag) => {
-          return `<p onClick=filterByTag("${tag}") id="tags" class="tags">#${tag}</p>`;
+      let tagsHtml = user.tags.map((tag) => {
+          return `<a href="index.html?tag=${tag}"><p onClick=filterByTag("${tag}") id="tags" class="tags">#${tag}</p></a>`;
         })
         .join("");
       return `<div class = "filteredUser__info"> 
             <p class="id">${filteredUser.id}</p>
-            <a href="photographer-page.html"> <h2 class="name">${filteredUser.name}</h2></a>
+            <a href="photographer-page.html"><h2 class="name">${filteredUser.name}</h2></a>
               <p class="country">${filteredUser.country}</p>
               <p class="tagline">${filteredUser.tagline}</p>
               <p class="price">${filteredUser.price}</p>
@@ -87,8 +86,9 @@ function dropDownMenu() {
        `<div class="dropMenu">
             <p>Trier par</p>
             <div class="dropdown">
-                <button  class="dropbtn" id="title">Titre<i class="fas fa-angle-up"></i></button>
+                <button  class="dropbtn" id="select">Select: <i class="fas fa-angle-up"></i></button>
                 <div class="dropdown-content">
+                  <a href="#" id="title">Titre</a>
                   <a href="#" id="date">Date</a>
                   <a href="#" id="popular">Popularité</a>
                 </div>
@@ -112,45 +112,28 @@ function drawPhotographersHtml() {
           return `<p onClick=filterByTag("${tag}") id="tags" class="tags">#${tag}</p>`;
         })
         .join("");
-      let mediaHtml = ""; //If Else show img or video
-      if (photo.hasOwnProperty("video")) {
-        mediaHtml = `<a href="Documents/Sample Photos/${filteredUser.name}/${photo.video}">
-                       <video id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.video}"  alt="${photo.title}"/>
-                    </a>`;
-      } else {
-        mediaHtml = `<a href="Documents/Sample Photos/${filteredUser.name}/${photo.image}">
-                       <img id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt="${photo.title}"/>
-                     </a>`;
-      }
+      // let mediaHtml = ""; //If Else show img or video
+      // if (photo.hasOwnProperty("video")) {
+      //   mediaHtml = `<a href="Documents/Sample Photos/${filteredUser.name}/${photo.video}">
+      //                  <video id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.video}"  alt="${photo.title}"/>
+      //               </a>`;
+      // } else {
+      //   mediaHtml = `<a href="Documents/Sample Photos/${filteredUser.name}/${photo.image}">
+      //                  <img id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt="${photo.title}"/>
+      //                </a>`;
+      // }
       // if (photo.hasOwnProperty("video")) {
       //   mediaHtml = `<video id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.video}"  alt=""/>`;
       // } else {
       //   mediaHtml = `<img id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt=""/>`;
       // }
       return (
-        ` <div class="galerie__box">
-                              <div class="galerie__user">
-                                    <div class = "galerie__image">
-                                        <p class="pID" >${photo.id}</p>
-                                        <p class="photoID">${photo.photographerId}</p>
-                                        ` + mediaHtml + `
-                                        <p class="photoDate">${photo.date}</p>
-                                        <p class="photoPrice">${photo.price}</p>
-                                      </div>
-                              </div>
-                <div class="galerie__info"> 
-                    <p class="galerie__title">${photo.title}</p>
-                    <div class="tags__all">${tagsPhotoHtml}</div>
-                    <div class="HeartLIKES">
-                      <div data-choisi="false" data-calories="23" class="numberLikes" id="incrementText">${photo.likes} </div>
-                      <button id="heart" class="galerie__likes" onclick="incrementButton()" ><i class="fas fa-heart"></i></button>
-                    </div> 
-                </div> 
-           </div> 
-
-           <div class="media__likes">
-                
-           </div>
+        ` <div class="grid">
+        <a href="Documents/Sample Photos/${filteredUser.name}/${photo.image}">
+          <img class="imggrid" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}" alt="${photo.title}">
+        </a>
+    
+    </div>
 
           `);
     })
@@ -161,7 +144,29 @@ function drawPhotographersHtml() {
 
 // MEdiaLIKES
 
-     
+// {/* <div class="galerie__box">
+// <div class="galerie__user">
+//       <div class = "galerie__image">
+//           <p class="pID" >${photo.id}</p>
+//           <p class="photoID">${photo.photographerId}</p>
+//           ` + mediaHtml + `
+//           <p class="photoDate">${photo.date}</p>
+//           <p class="photoPrice">${photo.price}</p>
+//         </div>
+// </div>
+// <div class="galerie__info"> 
+// <p class="galerie__title">${photo.title}</p>
+// <div class="tags__all">${tagsPhotoHtml}</div>
+// <div class="HeartLIKES">
+// <div data-choisi="false" data-calories="23" class="numberLikes" id="incrementText">${photo.likes} </div>
+// <button id="heart" class="galerie__likes" onclick="incrementButton()" ><i class="fas fa-heart"></i></button>
+// </div> 
+// </div> 
+// </div> 
+
+// <div class="media__likes">
+
+// </div>  */}
 
 
 
@@ -182,13 +187,13 @@ function likeInfo() {
 }
 
 // COUNTER OF LIKES - IncrimentHEART
-function incrementButton(event) {
-  let element = document.getElementById("incrementText");
-  let value = element.innerHTML;
-  ++value;
-  console.log(value);
-  document.getElementById("incrementText").innerHTML = value;
-}
+// function incrementButton(event) {
+//   let element = document.getElementById("incrementText");
+//   let value = element.innerHTML;
+//   ++value;
+//   console.log(value);
+//   document.getElementById("incrementText").innerHTML = value;
+// }
 
 // change buttonLIke 
 
@@ -197,7 +202,8 @@ function incrementButton(event) {
 fetchData()
   .then((data) => {
     photographerId = getParam("id");
-    allTags = getTags(data);
+    // allTags = getTags(data);
+// console.log(allTags);
     allfilteredUsers = data.photographers;
     filteredUsers = data.photographers.filter((user) => {
       return user.id == photographerId;
@@ -212,7 +218,7 @@ fetchData()
     drawPhotographersHtmlBox();
     openModal();
     likeInfo();
-    incrementButton();
+    // incrementButton();
     dropDownMenu();
     // dropDownMenu2();
     // likePart();
