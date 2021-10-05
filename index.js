@@ -1,3 +1,9 @@
+// Get URL Parameters
+function getParam(tags) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  return urlParams.get(tags);
+}
 
 // make variables
 let allPhotographers;
@@ -95,6 +101,7 @@ function changeTagColor(){
 
 
 fetchData().then((data) => {
+  photographerId = getParam("tags");
   allPhotographers = data.photographers;
   allTags = getTags(data);
   filteredPhotographers = allPhotographers;

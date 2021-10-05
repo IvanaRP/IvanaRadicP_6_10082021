@@ -49,7 +49,7 @@ function drawPhotographersHtmlBox() {
   let filteredUserhtml = filteredUsers
     .map((user) => {
       let tagsHtml = user.tags.map((tag) => {
-          return `<a href="index.html?tag=${tag}"><p onClick=filterByTag("${tag}") id="tags" class="tags">#${tag}</p></a>`;
+          return `<a href="index.html?id=${tag}"><p onClick=filterByTag("${tag}") id="tags" class="tags">#${tag}</p></a>`;
         })
         .join("");
       return `<div class = "filteredUser__info"> 
@@ -78,28 +78,8 @@ function openModal() {
   });
 }
 
-// DropDownmenu
-function dropDownMenu() {
-  let dropDownMenuHtml = 
-       `<div class="dropMenu">
-            <p>Trier par</p>
-            <div class="dropdown">
-                <button  class="dropbtn" id="select">Select: <i class="fas fa-angle-up"></i></button>
-                <div class="dropdown-content">
-                  <a href="#" id="title">Titre</a>
-                  <a href="#" id="date">Date</a>
-                  <a href="#" id="popular">Popularité</a>
-                </div>
-            </div>
-        </div>     
-     `;
-  document.getElementById("dropdownmenu").innerHTML = dropDownMenuHtml;
-}
 
 
-
-// Sort gallery 
-  
 
 //display all  MEDIA PHOTOS VIDEOS in inner html //make variable for MEDIAhtml VIDEO if else
 function drawPhotographersHtml() {
@@ -110,78 +90,72 @@ function drawPhotographersHtml() {
           return `<p onClick=filterByTag("${tag}") id="tags" class="tags">#${tag}</p>`;
         })
         .join("");
-      let mediaHtml = ""; //If Else show img or video
-      if (photo.hasOwnProperty("video")) {
-        mediaHtml = `<video id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.video}"  alt=""/>`;
-      } else {
-        mediaHtml = `<img id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt=""/>`;
-      }
+      // let mediaHtml = ""; //If Else show img or video
+      // if (photo.hasOwnProperty("video")) {
+      //   mediaHtml = `<video id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.video}"  alt="${photo.title}"/>`;
+      // } else {
+      //   mediaHtml = `<img id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt="${photo.title}"/>`;
+      // }
       return (
-        `<div class="galerie__box">
-              <div class="galerie__user">
-                    <div class = "galerie__image">
-                        <p class="pID" >${photo.id}</p>
-                        <p class="photoID">${photo.photographerId}</p>
-                        ` + mediaHtml + `
-                        <p class="photoDate">${photo.date}</p>
-                        <p class="photoPrice">${photo.price}</p>
-                      </div>
-              </div>
-            <div class="galerie__info"> 
-                  <p class="galerie__title">${photo.title}</p>
-                  <div class="tags__all">${tagsPhotoHtml}</div>
-                  <div class="HeartLIKES">
+        `
+        <div class="galerie__grid">
+            <a href="Documents/Sample Photos/${filteredUser.name}/${photo.image}">
+                  <img class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}" alt="${photo.title}"> 
+            </a>
+
+            <div class="galerie__info">
+                <p class="galerie__title">${photo.title}</p>
+                
+                <div class="HeartLIKES">
                     <div class="numberLikes" id="incrementText">${photo.likes} </div>
                     <button id="heart" class="galerie__likes" onclick="incrementButton()"><i class="fas fa-heart color-heart"></i></button>
-                  </div> 
+                </div>
             </div> 
-        </div> 
-        <div class="likesHeart">
-        <li id="likebutton" class="likebutton" data-choisi="false" data-calories="10"><i class="fas fa-heart color-heart"></i>HEART</li>
-        
-     
-        <h2>nombre de plats selected: <span id="count">0</span></h2>
-        <h2>Total nombre: <span id="total">0</span></h2>
-     </div>
+        </div>
 
-        
         `);
     })
     .join("");
   document.querySelector("#media").innerHTML = photoHtml;
-  heartLike2();
+  lightbox();
+  // heartLike2();
   heartColor();
 }
 
-
+       
 // // LIKES DATA ATRIBUTES
-function heartLike2() {
-  const plats = document.querySelectorAll('li');
+  // <div class="likesHeart">
+  // <li id="likebutton" class="likebutton" data-choisi="false" data-calories="10"><i class="fas fa-heart color-heart"></i>HEART</li>
+  // <h2>nombre de plats selected: <span id="count">0</span></h2>
+  // <h2>Total nombre: <span id="total">0</span></h2>
+  // </div> 
+// function heartLike2() {
 
-console.log(plats)
-  plats.forEach(plat => {
-    plat.addEventListener('click', choisirPlat);
-  });
+//   const likes = document.querySelectorAll('li');
+// // console.log(plats)
+//   likes.forEach(like => {
+//     like.addEventListener('click', addLike);
+//   });
 
-  function choisirPlat() {
-    this.dataset.choisi = this.dataset.choisi == "true" ? "false" : "true";
-    calculNombrePlats();
-    calculCalorie();
-  }
+//   function addLike() {
+//     this.dataset.choisi = this.dataset.choisi == "true" ? "false" : "true";
+//     calculLike();
+//     calculTotalLike();
+//   }
 
-  function calculNombrePlats(){
-    const nombrePlats = document.querySelectorAll('li[data-choisi="true"]').length;
-    document.querySelector('#count').textContent = nombrePlats;
-  } 
+//   function calculLike(){
+//     const likeNumber = document.querySelectorAll('li[data-choisi="true"]').length;
+//     document.querySelector('#count').textContent = likeNumber;
+//   } 
  
-  function calculCalorie() {
-    const platsChoisis = Array.from(document.querySelectorAll('li[data-choisi="true"]'));
-    const totalCalories = platsChoisis.reduce((total, plat) => total + Number(plat.dataset.calories), 0);
+//   function calculTotalLike() {
+//     const choseLike = Array.from(document.querySelectorAll('li[data-choisi="true"]'));
+//     const totalLikes = choseLike.reduce((total, like) => total + Number(like.dataset.calories), 0);
 
-    document.querySelector('#total').textContent = totalCalories;
-  }
+//     document.querySelector('#total').textContent = totalLikes;
+//   }
 
-};
+// }
 
 
 // //display all LIKES DOWN RIGHT  add down  in mediaID
@@ -198,7 +172,7 @@ function likeInfo() {
               </div> 
             `;
   document.getElementById("downright").innerHTML = likeInfoHtml;
-heartColor();
+// heartColor();
 }
 
 //COUNTER OF LIKES - IncrimentHEART
@@ -213,18 +187,16 @@ function incrementButton() {
 // change button Like Color
 function heartColor() {
       // gets a reference to the heartDOm
-    const heartDOM = document.getElementById('heart');
+    const heart = document.getElementById('heart');
     // initialized like to false when user hasnt selected
     let liked = false;
-console.log(heartDOM);
+// console.log(heartDOM);
     // create a onclick listener
-    heartDOM.onclick = (event) => {
-      // check if liked 
-      liked = !liked; // toggle the like ( flipping the variable)
-      
-      // this is what we clicked on
-      const target = event.currentTarget;
-      
+    heart.onclick = (event) => {
+    // check if liked 
+    liked = !liked; // toggle the like ( flipping the variable)
+    // this is what we clicked on
+    const target = event.currentTarget;
       if (liked) {
         // remove empty heart if liked and add the full heart
         target.style.color = "#901c1c";
@@ -236,6 +208,225 @@ console.log(heartDOM);
       }
     }
 }
+
+// DropDownmenu
+function dropDownMenu() {
+  let dropDownMenuHtml = 
+       `<div class="dropMenu">
+            <p>Trier par</p>
+            <div class="dropdown">
+                <button  class="dropbtn" id="select">Select: <i class="fas fa-angle-up"></i></button>
+                <div class="dropdown-content">
+                  <a href="#" id="popular">Popularité</a>
+                  <a href="#" id="title">Titre</a>
+                  <a href="#" id="date">Date</a>
+                </div>
+            </div>
+        </div>     
+     `;
+  document.getElementById("dropdownmenu").innerHTML = dropDownMenuHtml;
+  sortBy();
+}
+
+// sort DROPDOWN MENU
+function sortBy() {
+
+      // sort by like 
+      function sortByLike() {
+          let sortLike = document.getElementById("popular");
+          console.log(sortLike);
+        }
+
+        const sortedByLike = photographerPhotos.sort(function (a, b) {
+            return b.likes - a.likes;
+        });
+        console.log(sortedByLike);
+     
+      // sort by Date
+      function sortByDate() {
+        let sortDate = document.getElementById("date");
+        console.log(sortDate);
+      }
+
+      const sortedByDate = photographerPhotos.sort(function(a,b){
+          return new Date(b.date) - new Date(a.date);
+      });
+      console.log(sortedByDate);
+      
+
+      // sort by Title
+      function sortByTitle() {
+        let sortTitle = document.getElementById("title");
+        console.log(sortTitle);
+      }
+
+      const sortedByTitle = photographerPhotos.sort(function (a, b) {
+        if (a.title < b.title)
+         return -1;
+         if (a.title > b.title)
+           return 1;
+           return 0;
+          });
+      console.log(sortedByTitle);
+      // display media gallery by sort
+                // document.getElementById(".media").innerHTML = "";
+                   
+}
+
+// LIGHTBOX
+
+function lightbox() {
+/**
+ * 
+ * @property {HTMLElement} element
+ * @property {string[]} images links to the images of the lightbox
+ * @property {string} url images showed
+ */
+
+
+ class Lightbox {
+
+  static init () {
+      const links = Array.from(document.querySelectorAll('a[href$=".jpg"], a[href$=".mp4"]'));
+      const gallery = links.map(link => link.getAttribute("href"));
+      links.forEach(link => link.addEventListener("click", e => {
+              e.preventDefault()
+              new Lightbox(e.currentTarget.getAttribute("href"), gallery);
+      }));
+  }
+
+  /**
+   * 
+   * @param {string} url  URL of the image
+   * @param {string[]} images  links to the images of the Lightbox
+   */
+
+  
+  constructor(url, images) {
+          this.element = this.buildDOM(url);
+          this.images = images;
+          this.loadImage(url);
+          this.onKeyUp = this.onKeyUp.bind(this);
+          document.body.appendChild(this.element);
+          document.addEventListener("keyup", this.onKeyUp);
+  }
+
+   /**
+   * 
+   * @param {string} url  URL of image
+   * 
+   */
+
+   loadImage (url) {
+       this.url = null;
+       const image = new Image();
+       const container = this.element.querySelector(".lightbox__container");
+       const loader = document.createElement("div");
+       loader.classList.add("lightbox__loader");
+       container.innerHTML = "";
+       container.appendChild(loader);
+       image.onload = () => {
+         container.removeChild(loader);
+         container.appendChild(image);
+         this.url = url;
+       }
+       image.src = url;
+   }
+
+
+  /**
+  * 
+  * @param {KeyboardEvent} e
+  * 
+  */
+
+  onKeyUp (e) {
+      if (e.key === "Escape") {
+          this.close(e);
+      } else if (e.key === "ArrowLeft") {
+          this.prev(e);
+      }else if (e.key === "ArrowRight") {
+          this.next(e);
+      }
+  }
+
+  /**
+  * Close lightbbox
+  * @param {MouseEvent/KeyboardEvent} e
+  * 
+  */
+
+  close (e) {
+    e.preventDefault();
+    this.element.classList.add('fadeOut');
+    enableBodyScroll(this.element);
+    window.setTimeout(() => {
+      this.element.parentElement.removeChild(this.element);
+      }, 500);
+      document.removeEventListener("keyup", this.onKeyUp);
+  }
+
+  /**
+  * Close lightbbox
+  * @param {MouseEvent/KeyboardEvent} e
+  * 
+  */
+
+  next (e) {
+      e.preventDefault();
+      let i = this.images.findIndex(image => image === this.url);
+      if (i === this.images.length -1){
+          i = -1;
+      }
+      this.loadImage(this.images [i + 1]);
+  }
+
+  /**
+  * Close lightbbox
+  * @param {MouseEvent/KeyboardEvent} e
+  * 
+  */
+
+    prev (e) {
+      e.preventDefault();
+      let i = this.images.findIndex(image => image === this.url);
+      if (i === 0) {
+          i = this.images.length;
+      }
+      this.loadImage(this.images [i - 1]);
+  }
+
+   /**
+   * 
+   * @param {string} url  url of image
+   * @return {HTMLElement}
+   */
+   
+   buildDOM (url) {
+      const dom = document.createElement("div");
+      dom.classList.add("lightbox");
+      dom.innerHTML = `
+          <button class="lightbox__close">Close</button>
+          <button class="lightbox__next">Next</button>
+          <button class="lightbox__prev">Prev</button>
+          <div class="lightbox__container">
+          <p class="galerie__title">Title</p>
+          </div>`;
+      dom.querySelector(".lightbox__close").addEventListener("click",
+      this.close.bind(this));
+      dom.querySelector(".lightbox__next").addEventListener("click",
+      this.next.bind(this));
+      dom.querySelector(".lightbox__prev").addEventListener("click",
+      this.prev.bind(this));
+      return dom;
+   };
+ 
+}
+
+Lightbox.init();
+
+}
+
 
 
 
@@ -256,13 +447,12 @@ fetchData()
     drawPhotographersHtmlBox();
     openModal();
     likeInfo();
-    heartLike2();
     incrementButton();
     dropDownMenu();
-    // dropDownMenu2();
-    // likePart();
-    // likeDataTuto();
+    sortBy();
     heartColor();
+    // heartLike2();
+    lightbox();
 
   })
   .catch((error) => {

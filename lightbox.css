@@ -84,17 +84,23 @@
 }
 
 .lightbox__container img{
-    max-width: 100%;
-   
+  max-width: 100%;
     height: auto;
-    animation: lightboxIn .5s;
+    max-height: 89vh;
+    overflow: hidden;
+    
     border-radius: 5px;
 }
 .lightbox__container{
-    display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 89vh;
+  margin: 50px 100px;;
+    /* display: flex;
     align-items: center;
     justify-content: center;
-    margin: 50px;
+    margin: 50px; */
     /* margin-right: 50px; */
     
      /* min-height: 100vh; height of the screen; */
