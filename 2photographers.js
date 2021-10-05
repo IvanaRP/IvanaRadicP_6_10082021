@@ -359,7 +359,6 @@ function lightbox() {
   close (e) {
     e.preventDefault();
     this.element.classList.add('fadeOut');
-    enableBodyScroll(this.element);
     window.setTimeout(() => {
       this.element.parentElement.removeChild(this.element);
       }, 500);
