@@ -10,7 +10,6 @@ let photographerId;
 let photographerPhotos;
 let filteredUsers;
 let filteredUser;
-// let allTags;
 let allfilteredUsers;
 
 // fetch Json data
@@ -21,21 +20,20 @@ function fetchData() {
 }
 
 
-// // get Tags by map
-// function getTags(data) {
-//   let tags = [];
-//   data.media.map(media => {
-//     if (media.hasOwnProperty('tags')) {
-//       media.tags.map(tag => {
-//         if (!tags.includes(tag)) {
-//           tags.push(tag);
-//         }
-//       });
-//     }
-//   });
-//   return tags;
-// }
-
+// get Tags by map
+function getTags(data) {
+  let tags = [];
+  data.media.map(media => {
+    if (media.hasOwnProperty('tags')) {
+      media.tags.map(tag => {
+        if (!tags.includes(tag)) {
+          tags.push(tag);
+        }
+      });
+    }
+  });
+  return tags;
+}
 
 
 // filter by Tags photographer
@@ -112,52 +110,81 @@ function drawPhotographersHtml() {
           return `<p onClick=filterByTag("${tag}") id="tags" class="tags">#${tag}</p>`;
         })
         .join("");
-      // let mediaHtml = ""; //If Else show img or video
-      // if (photo.hasOwnProperty("video")) {
-      //   mediaHtml = `<video id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.video}"  alt=""/>`;
-      // } else {
-      //   mediaHtml = `<img id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt=""/>`;
-      // }
+      let mediaHtml = ""; //If Else show img or video
+      if (photo.hasOwnProperty("video")) {
+        mediaHtml = `<video id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.video}"  alt=""/>`;
+      } else {
+        mediaHtml = `<img id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt=""/>`;
+      }
       return (
-        `  <a href="Documents/Sample Photos/${filteredUser.name}/${photo.image}">
-        <img class="imggrid" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}" alt="">
-      </a>
-          `);
+        `<div class="galerie__box">
+              <div class="galerie__user">
+                    <div class = "galerie__image">
+                        <p class="pID" >${photo.id}</p>
+                        <p class="photoID">${photo.photographerId}</p>
+                        ` + mediaHtml + `
+                        <p class="photoDate">${photo.date}</p>
+                        <p class="photoPrice">${photo.price}</p>
+                      </div>
+              </div>
+            <div class="galerie__info"> 
+                  <p class="galerie__title">${photo.title}</p>
+                  <div class="tags__all">${tagsPhotoHtml}</div>
+                  <div class="HeartLIKES">
+                    <div class="numberLikes" id="incrementText">${photo.likes} </div>
+                    <button id="heart" class="galerie__likes" onclick="incrementButton()"><i class="fas fa-heart color-heart"></i></button>
+                  </div> 
+            </div> 
+        </div> 
+        <div class="likesHeart">
+        <li id="likebutton" class="likebutton" data-choisi="false" data-calories="10"><i class="fas fa-heart color-heart"></i>HEART</li>
+        
+     
+        <h2>nombre de plats selected: <span id="count">0</span></h2>
+        <h2>Total nombre: <span id="total">0</span></h2>
+     </div>
+
+        
+        `);
     })
     .join("");
   document.querySelector("#media").innerHTML = photoHtml;
+  heartLike2();
+  heartColor();
 }
 
 
-// MEdiaLIKES
+// // LIKES DATA ATRIBUTES
+function heartLike2() {
+  const plats = document.querySelectorAll('li');
 
-// {/* <div class="galerie__box">
-// <div class="galerie__user">
-//       <div class = "galerie__image">
-//           <p class="pID" >${photo.id}</p>
-//           <p class="photoID">${photo.photographerId}</p>
-//           ` + mediaHtml + `
-//           <p class="photoDate">${photo.date}</p>
-//           <p class="photoPrice">${photo.price}</p>
-//         </div>
-// </div>
-// <div class="galerie__info"> 
-// <p class="galerie__title">${photo.title}</p>
-// <div class="tags__all">${tagsPhotoHtml}</div>
-// <div class="HeartLIKES">
-// <div data-choisi="false" data-calories="23" class="numberLikes" id="incrementText">${photo.likes} </div>
-// <button id="heart" class="galerie__likes" onclick="incrementButton()" ><i class="fas fa-heart"></i></button>
-// </div> 
-// </div> 
-// </div> 
+console.log(plats)
+  plats.forEach(plat => {
+    plat.addEventListener('click', choisirPlat);
+  });
 
-// <div class="media__likes">
+  function choisirPlat() {
+    this.dataset.choisi = this.dataset.choisi == "true" ? "false" : "true";
+    calculNombrePlats();
+    calculCalorie();
+  }
 
-// </div>  */}
+  function calculNombrePlats(){
+    const nombrePlats = document.querySelectorAll('li[data-choisi="true"]').length;
+    document.querySelector('#count').textContent = nombrePlats;
+  } 
+ 
+  function calculCalorie() {
+    const platsChoisis = Array.from(document.querySelectorAll('li[data-choisi="true"]'));
+    const totalCalories = platsChoisis.reduce((total, plat) => total + Number(plat.dataset.calories), 0);
+
+    document.querySelector('#total').textContent = totalCalories;
+  }
+
+};
 
 
-
-//display all LIKES DOWN RIGHT  add down  in mediaID
+// //display all LIKES DOWN RIGHT  add down  in mediaID
 function likeInfo() {
   let totalLikes = 0;
   photographerPhotos.forEach((item) => {
@@ -166,31 +193,55 @@ function likeInfo() {
   let likeInfoHtml = ` <div class="galerie__infoDown"> 
                   <div class="HeartLIKES">
                   <div class="numberLikes">${totalLikes}</div>
-                  <div id="btnLike" class="galerie__likes"><i class="fas fa-heart"></i></div>
+                  <div id="heart" class="galerie__likes"><i class="fas fa-heart"></i></div>
                   <p class="galerie__infotitle">${filteredUser.price}€/jour</p>
               </div> 
             `;
   document.getElementById("downright").innerHTML = likeInfoHtml;
+heartColor();
 }
 
-// COUNTER OF LIKES - IncrimentHEART
-// function incrementButton(event) {
-//   let element = document.getElementById("incrementText");
-//   let value = element.innerHTML;
-//   ++value;
-//   console.log(value);
-//   document.getElementById("incrementText").innerHTML = value;
-// }
+//COUNTER OF LIKES - IncrimentHEART
+function incrementButton() {
+  let element = document.getElementById("incrementText");
+  let value = element.innerHTML;
+  ++value;
+  console.log(value);
+  document.getElementById("incrementText").innerHTML = value;
+}
 
-// change buttonLIke 
+// change button Like Color
+function heartColor() {
+      // gets a reference to the heartDOm
+    const heartDOM = document.getElementById('heart');
+    // initialized like to false when user hasnt selected
+    let liked = false;
+console.log(heartDOM);
+    // create a onclick listener
+    heartDOM.onclick = (event) => {
+      // check if liked 
+      liked = !liked; // toggle the like ( flipping the variable)
+      
+      // this is what we clicked on
+      const target = event.currentTarget;
+      
+      if (liked) {
+        // remove empty heart if liked and add the full heart
+        target.style.color = "#901c1c";
+        target.style.color = "#D3573C";
+      } else {
+        // remove full heart if unliked and add empty heart
+        target.style.color = "#D3573C";
+        target.style.color = "#901c1c";
+      }
+    }
+}
 
 
 
 fetchData()
   .then((data) => {
     photographerId = getParam("id");
-    // allTags = getTags(data);
-// console.log(allTags);
     allfilteredUsers = data.photographers;
     filteredUsers = data.photographers.filter((user) => {
       return user.id == photographerId;
@@ -205,18 +256,16 @@ fetchData()
     drawPhotographersHtmlBox();
     openModal();
     likeInfo();
-    // incrementButton();
+    heartLike2();
+    incrementButton();
     dropDownMenu();
     // dropDownMenu2();
     // likePart();
     // likeDataTuto();
+    heartColor();
 
   })
   .catch((error) => {
     console.log(error);
   });
 
-// za
-//   <a href="Documents/Sample Photos/Ellie-Rose Wilkens/Sport_Next_Hold.jpg">
-//   <img class="imggrid" src="Documents/Sample Photos/Ellie-Rose Wilkens/Sport_Next_Hold.jpg" alt="">
-// </a>

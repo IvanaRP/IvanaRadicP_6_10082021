@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="likebutton.css" />
     <link rel="stylesheet" href="photographerPage.css" />
     <link rel="stylesheet" href="lightbox.css" />
+    <!-- <link rel="stylesheet" href="3lightbox.css" /> -->
     <script
       src="https://kit.fontawesome.com/f9349f7e63.js"
       crossorigin="anonymous"
@@ -25,39 +26,15 @@
             src="Documents/FishEyeLOGO.svg"
             alt="FishEye"
         /></a>
+        <!-- /*aria-label ”photographer_categories”*/ -->
+        <div aria-label=”photographer_categories” id="topTags" class="header__tags"></div> 
       </div>
+      
       <!--BUTTON PASSER CONTENU-->
       <div class="buttonTopdiv" id="buttonTopdiv" onclick="topFunction()">
         <button class="buttonTop">Passer au contenu</button>
       </div>
     </header>
-
-    <!--LIKE BUTTON-->
-   
-    <!-- <div class="HeartLIKES">
-      <ul>
-          <li data-choisi="false" data-calories="23" class="numberLikesdata" >JEDAN</li>
-          <li data-choisi="false" data-calories="23" class="numberLikesdata" >DVA</li>
-          <li data-choisi="false" data-calories="23" class="numberLikesdata" >TRI</li>
-    </ul>
-      
-      <h2> number ccc: <span id="count">0</span></h2>
-      <h2> Total number: <span id="total">0</span></h2>
-    </div>  -->
-
-
-    <!-- <div class="HeartLIKES">
-  
-          <ul>
-              <li data-choisi="false" data-calories="1"  id="likeNumber" class="numberLikesdata" ><i class="fas fa-heart"></i></li>
-        </ul>
-     
-      <h2> Likes number: <span id="countheart">0</span></h2>
-      <h2> Total number: <span id="totalheart">0</span></h2>
-    </div>  -->
-
-
-    
 
  <!--Profil section-->
     <div class="boxgrey">
@@ -74,20 +51,6 @@
     <!--DROPDOWNMENU-->
 
     <div id="dropdownmenu" class="dropdownmenu"></div>
-    <!-- <div id="dropdownmenu2" class="dropdownmenu"></div>
-
-
-    <div class="dropDownMenu2">
-      <p>Trier par</p>
-      <div class="dropdown">
-          <button  class="dropdown-toggle" aria-haspopup="true" >Select <i class="fas fa-angle-up"></i></button>
-          <ul class="dropdown-menu" role="listbox" aria-expanded="false">
-              <li role="option" tabindex="0">Titre</li>
-              <li role="option" tabindex="1">Date</li>
-              <li role="option" tabindex="2">Popularite</li>
-          </ul>
-      </div>
-  </div>  -->
     <!--LIGHTBOX-->
 
 
@@ -105,25 +68,25 @@
       <div id="third" class="third">This is the THIRD div</div>
     </div> -->
 
-    <div id="likesEach" class="likesEach"></div>
+   
     <!--MODAL CONTACT ME-->
 
     <div id="modalBox" class="modalBox"></div>
 
-    <div id="likesAlone"></div>
     <div id="media" class="photographer-page__gallery"></div>
+
+
+
     <div id="mediaLikes" class="galerieOdvojeno"></div>
 
-
-
-
     <!-- <script type="text/javascript" src="dropdown.js"></script> -->
-    <script type="text/javascript" src="likebutton.js"></script>
+    <!-- <script type="text/javascript" src="likebutton.js"></script> -->
     <script type="text/javascript" src="buttonContenu.js"></script>
     <script type="text/javascript" src="2photographers.js"></script>
     <!-- <script type="text/javascript" src="photographers.js"></script> -->
     <script type="module" src="modal.js"></script>
-    <script src="2lightbox.js" type="module" defer></script>
-    <!-- <script src="lightbox.js" type="module" defer></script> -->
+    <!-- <script src="3lightbox.js"></script> -->
+    <!-- <script src="2lightbox.js" type="module" defer></script> -->
+    <script src="lightbox.js" type="module" defer></script>
   </body>
 </html>

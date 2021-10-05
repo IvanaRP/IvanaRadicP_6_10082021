@@ -27,9 +27,9 @@
 //   }
 
 
-  var garbage = document.getElementById("likeNumber");
+//   var garbage = document.getElementById("likeNumber");
 
-garbage.addEventListener("click",function(){
-  garbage.style.color = "#66c144";
-});
+// garbage.addEventListener("click",function(){
+//   garbage.style.color = "#66c144";
+// });
 
