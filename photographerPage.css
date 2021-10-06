@@ -65,7 +65,7 @@
 
 .profile {
   display: flex;
-  flex-direction: ;
+  flex-direction:row ;
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -176,6 +176,15 @@ button {
   background: none;
   font-size: 1.5em;
  padding: 0;
+ transition: all .2s ease-in-out;
+}
+
+.galerie__likes:hover {
+  color: #DB8876;
+  background: none;
+  font-size: 1.5em;
+ padding: 0;
+ transform: scale(1.3);  
 }
 
 .galerie__video {
@@ -226,6 +235,8 @@ button {
   height: 2em;
   width: 2em;
   transition: all .2s ease-in-out;
+
+  pointer-events: none;/* ensure svg will never be the target of mouse event */
 }
 
 .fa-heart:hover{
