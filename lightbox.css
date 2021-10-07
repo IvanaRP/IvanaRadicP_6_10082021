@@ -58,7 +58,7 @@
     border: none;
   width: 2em;
   height: 2em;
-  background: url(/Documents/img/close.svg) center center no-repeat;
+  background: url(Documents/img/close.svg) center center no-repeat;
   position: fixed;
   top:20px;
   right: 10px;
