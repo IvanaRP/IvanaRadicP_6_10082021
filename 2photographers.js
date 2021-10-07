@@ -95,7 +95,7 @@ function drawPhotographersHtml() {
       // }
       return `
         <div class="galerie__grid">
-            <a href="Documents/Sample Photos/${filteredUser.name}/${photo.image}">
+            <a href="Documents/Sample Photos/${filteredUser.name}/${photo.image}" aria-label=”image closeup view”>
                   <img class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}" alt="${photo.title}"> 
             </a>
 
