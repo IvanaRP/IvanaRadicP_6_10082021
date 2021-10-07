@@ -68,7 +68,7 @@ function drawPhotographersHtml() {
           <p class="id">${user.id}</p>
           <h2 class="name">${user.name}</h2>
        </a>
-            <p class="country" aria-label="localité de ${user.name} est ${user.city} en ${user.country}">${user.city},${user.country}</p>
+            <p class="country" aria-label="localité de ${user.name} est ${user.city} en ${user.country}">${user.city}, ${user.country}</p>
             <p class="tagline" aria-label="le tagline du photographe est ${user.tagline}">${user.tagline}</p>
             <p class="price" aria-label="le prix du photographe est de ${user.price} euro par jour">${user.price}€/jour</p>
           <div class="tags__all" id="tags">${tagsHtml}</div> 

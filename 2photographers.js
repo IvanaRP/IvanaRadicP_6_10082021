@@ -55,9 +55,9 @@ function drawPhotographersHtmlBox() {
       return `<div class = "filteredUser__info"> 
             <p class="id">${filteredUser.id}</p>
             <a href="photographer-page.html"><h2 class="name">${filteredUser.name}</h2></a>
-              <p class="country">${filteredUser.country}</p>
-              <p class="tagline">${filteredUser.tagline}</p>
-              <p class="price">${filteredUser.price}</p>
+              <p class="country" aria-label="localité de ${filteredUser.name} est ${filteredUser.city} en ${filteredUser.country}">${user.city}.${filteredUser.country}</p>
+              <p class="tagline" aria-label="le tagline du photographe est ${filteredUser.tagline}">${filteredUser.tagline}</p>
+              <p class="price" aria-label="le prix du photographe est de ${filteredUser.price} euro par jour">${filteredUser.price}</p>
               <div class="tags__all">${tagsHtml}</div>
          </div> 
         <div class="filteredUser__btn"><button data-modal-target="#modal" id="open" class="button">Contatez-moi</button></div>
@@ -100,11 +100,11 @@ function drawPhotographersHtml() {
             </a>
 
             <div class="galerie__info">
-                <p class="galerie__title">${photo.title}</p>
+                <p class="galerie__title" aria-label="le title du photographie est ${photo.title}">${photo.title}</p>
                 
                 <div class="HeartLIKES">
-                    <div class="numberLikes" id="incrementText">${photo.likes} </div>
-                    <button id="heart" class="galerie__likes" onclick="incrementButton(event)"><i class="fas fa-heart"></i></button>
+                    <div class="numberLikes" id="incrementText" aria-label="le nombre du likes est ${photo.likes}">${photo.likes} </div>
+                    <button id="heart" class="galerie__likes" onclick="incrementButton(event)" aria-label="button like"><i class="fas fa-heart"></i></button>
                 </div>
             </div> 
         </div>
@@ -120,6 +120,7 @@ function incrementButton(event) {
   console.log(event.target.parentElement.querySelector(".numberLikes"));
   const element = event.target.parentElement.querySelector(".numberLikes");
   console.log(event.target.querySelector(".galerie__likes"));
+
   if (!element.classList.contains("liked")) {
     console.log(parseInt(element.innerHTML) + 1);
     element.innerHTML = parseInt(element.innerHTML) + 1;
@@ -140,9 +141,9 @@ function likeInfo() {
   });
   let likeInfoHtml = ` <div class="galerie__infoDown"> 
                   <div class="HeartLIKES">
-                  <div class="numberLikes">${totalLikes}</div>
+                  <div class="numberLikes" aria-label="le nombre du total likes du photographer est ${totalLikes}">${totalLikes}</div>
                   <div id="heart" class="galerie__likes"><i class="fas fa-heart"></i></div>
-                  <p class="galerie__infotitle">${filteredUser.price}€/jour</p>
+                  <p class="galerie__infotitle" aria-label="le prix du photographe est de ${filteredUser.price} euro par jour">${filteredUser.price}€/jour</p>
               </div> 
             `;
   document.getElementById("downright").innerHTML = likeInfoHtml;
@@ -152,13 +153,13 @@ function likeInfo() {
 // DropDownmenu
 function dropDownMenu() {
   let dropDownMenuHtml = `<div class="dropMenu">
-            <p>Trier par</p>
+            <p aria-label="trier gallerie par popularite, titre ou date">Trier par</p>
             <div class="dropdown">
                 <button  class="dropbtn" id="select">Select: <i class="fas fa-angle-up"></i></button>
                 <div class="dropdown-content">
-                  <a href="#" id="popular" onClick="sortByLikes()">Popularité</a>
-                  <a href="#" id="title" onClick="sortByTitle()">Titre</a>
-                  <a href="#" id="date" onClick="sortByDate()">Date</a>
+                  <a href="#" id="popular" aria-label="trier par popularite" onClick="sortByLikes()">Popularité</a>
+                  <a href="#" id="title" aria-label="trier par titre" onClick="sortByTitle()">Titre</a>
+                  <a href="#" id="date" aria-label="trier par date" onClick="sortByDate()">Date</a>
                 </div>
             </div>
         </div>     
