@@ -26,6 +26,23 @@ ul {
 body {
   font-family: "Roboto", sans-serif;
 }
+
+/* Colors*/
+/* primary red :  #901C1C; */
+/* primary orange :  #D3573C; */
+
+/* secondary color  orange:  #DB8876; */
+/* font secondary color grey : #525252;*/
+/* font secondary color black : #FAFAFA */
+/* font secondary color red: background: #901C1C; */
+
+/* button colors */
+
+/* red button background: #901C1C; */
+/* orange button background: #DB8876; */
+/* orange button FONT background: #000000; */
+
+/* Header */
 .header {
   display: flex;
   flex-wrap: wrap;
@@ -33,23 +50,25 @@ body {
   align-items: center;
   width: 80%;
   margin: auto;
-  padding: 10px;
+  padding: 20px;
 }
 
 .header__logo {
   margin-right: 20px;
 }
+
 .header__tags {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  color: #901c1c;
+  color: 901C1C;
   font-size: 12px;
   height: fit-content;
   width: 50%;
 }
+
 .tag {
   display: flex;
   flex-direction: row;
@@ -58,7 +77,6 @@ body {
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  /* identical to box height */
   text-align: center;
   color: #911c1c;
 }
@@ -71,7 +89,7 @@ body {
   justify-content: space-between;
 }
 
-.mainTitle {
+.header__title {
   color: #901c1c;
   width: 306px;
   height: 47px;
@@ -84,8 +102,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  
-
 }
 
 .profil {
@@ -113,10 +129,8 @@ body {
   font-weight: normal;
   font-size: 13px;
   line-height: 17px;
-  /* identical to box height */
   margin: 0;
   text-align: center;
-
   color: #901c1c;
 }
 
@@ -126,7 +140,6 @@ body {
   font-weight: normal;
   font-size: 10px;
   line-height: 13px;
-  /* identical to box height */
   margin: 0;
   text-align: center;
 
@@ -139,8 +152,6 @@ body {
   font-weight: normal;
   font-size: 9px;
   line-height: 12px;
-  /* identical to box height */
-
   text-align: center;
   margin: 0;
   color: #757575;
@@ -157,7 +168,7 @@ body {
   font-weight: 500;
   font-size: 12px;
   text-align: center;
-  color: #911c1c;
+  color: #901c1c;
   border: 3px;
   border-radius: 12px;
   border-style: solid;
@@ -173,11 +184,10 @@ body {
   color: white;
 }
 
-
 .clicked {
   color: black;
   background-color: #DB8876;
-  }
+}
 
 .tags__all {
   display: flex;
@@ -185,7 +195,7 @@ body {
   flex-wrap: wrap;
   align-items: center;
 }
-.topTags {
+.header__tags {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -227,6 +237,3 @@ body {
   height: 100%;
   object-fit: cover;
 }
-
-
-

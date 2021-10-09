@@ -101,9 +101,8 @@ function drawPhotographersHtml() {
 
             <div class="galerie__info">
                 <p class="galerie__title" aria-label="le title du photographie est ${photo.title}">${photo.title}</p>
-                
                 <div class="HeartLIKES">
-                    <div class="numberLikes" id="incrementText" aria-label="le nombre du likes est ${photo.likes}">${photo.likes} </div>
+                    <div class="numberLikes" aria-label="le nombre du likes est ${photo.likes}">${photo.likes} </div>
                     <button id="heart" class="galerie__likes" onclick="incrementButton(event)" aria-label="button like"><i class="fas fa-heart"></i></button>
                 </div>
             </div> 
@@ -114,40 +113,59 @@ function drawPhotographersHtml() {
   document.querySelector("#media").innerHTML = photoHtml;
 }
 
-
-//COUNTER OF LIKES - IncrimentHEART
-function incrementButton(event) {
-  console.log(event.target.parentElement.querySelector(".numberLikes"));
-  const element = event.target.parentElement.querySelector(".numberLikes");
-  console.log(event.target.querySelector(".galerie__likes"));
-
-  if (!element.classList.contains("liked")) {
-    console.log(parseInt(element.innerHTML) + 1);
-    element.innerHTML = parseInt(element.innerHTML) + 1;
-    element.classList.add("liked");
-   
-  } else {
-    element.innerHTML = parseInt(element.innerHTML) - 1;
-    element.classList.remove("liked");
-  }
-
-}
-
 // //display all LIKES DOWN RIGHT  add down  in mediaID
 function likeInfo() {
-  let totalLikes = 0;
+  // total likes
+  const totalL = document.querySelector(".totalLikes");
+  console.log(totalL);
+  let totalLikes = 0 +  totalL;
   photographerPhotos.forEach((item) => {
     totalLikes = totalLikes + item.likes;
   });
+
   let likeInfoHtml = ` <div class="galerie__infoDown"> 
                   <div class="HeartLIKES">
-                  <div class="numberLikes" aria-label="le nombre du total likes du photographer est ${totalLikes}">${totalLikes}</div>
+                  <div class="totalLikes" >${totalLikes}</div>
                   <div id="heart" class="galerie__likes"><i class="fas fa-heart"></i></div>
                   <p class="galerie__infotitle" aria-label="le prix du photographe est de ${filteredUser.price} euro par jour">${filteredUser.price}€/jour</p>
               </div> 
             `;
   document.getElementById("downright").innerHTML = likeInfoHtml;
 }
+
+
+
+
+
+//COUNTER OF LIKES - IncrimentHEART
+function incrementButton(event) {
+  console.log(event.target.parentElement.querySelector(".numberLikes"));
+  const numberLikes = event.target.parentElement.querySelector(".numberLikes");
+
+
+// total likes
+  const totalL = document.querySelector(".totalLikes");
+  console.log(totalL);
+
+
+  if (!numberLikes.classList.contains("liked")) {
+    console.log(parseInt(numberLikes.innerHTML) + 1);
+    numberLikes.innerHTML = parseInt(numberLikes.innerHTML) + 1;
+    totalL.innerHTML = parseInt(totalL.innerHTML) + 1;
+    numberLikes.classList.add("liked");
+    totalL.classList.add("liked");
+   
+  } else {
+    numberLikes.innerHTML = parseInt(numberLikes.innerHTML) - 1;
+    totalL.innerHTML = parseInt(totalL.innerHTML) - 1;
+    numberLikes.classList.remove("liked");
+    totalL.classList.remove("liked");
+  }
+
+}
+
+
+
 
 
 // DropDownmenu
