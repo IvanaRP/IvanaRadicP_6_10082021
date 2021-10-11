@@ -64,13 +64,13 @@ function drawPhotographersHtml() {
       }).join("");
       return `
       <div class = "user" id="user">
-        <a href="photographer-page.html?id=${user.id}"> <img id="profile" src="Documents/Sample Photos/Photographers ID Photos/${user.portrait}" class="profile"  alt="photo of ${user.name}" role="img"/>
-          <p class="id">${user.id}</p>
+        <a href="photographer-page.html?id=${user.id}" class="user__photoName" aria-label="photographer image ${user.id}">
+          <img id="profile" src="Documents/Sample Photos/Photographers ID Photos/${user.portrait}" class="profile" alt="photo of ${user.name}" role="img"/>
           <h2 class="name">${user.name}</h2>
        </a>
-            <p class="country" aria-label="localité de ${user.name} est ${user.city} en ${user.country}">${user.city}, ${user.country}</p>
-            <p class="tagline" aria-label="le tagline du photographe est ${user.tagline}">${user.tagline}</p>
-            <p class="price" aria-label="le prix du photographe est de ${user.price} euro par jour">${user.price}€/jour</p>
+            <p class="country">${user.city}, ${user.country}</p>
+            <p class="tagline">${user.tagline}</p>
+            <p class="price">${user.price}€/jour</p>
           <div class="tags__all" id="tags">${tagsHtml}</div> 
       </div>
       `;

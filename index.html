@@ -13,16 +13,16 @@
     <!--Header-->
     <header class="header__info" role="banner">
       <div class="header">
-        <a href="index.html"><img role=”img” class="header__logo" src="Documents/FishEyeLOGO.svg" alt="FishEye"/></a>
-        <!-- /*aria-label ”photographer_categories”*/ -->
-        <div aria-label=”photographer_categories” id="topTags" class="header__tags"></div> 
+        <a href="index.html" aria-label="lien vers page accueil"><img class="header__logo" src="Documents/FishEyeLOGO.svg" alt="FishEyepage accueil"/></a>
+        <!--Tags section -->
+        <div id="topTags" aria-label="liens vers les photographes taggés" class="header__tags"></div> 
         <div class="MainSection">
           <a href="index.html"><h1 class="header__title">Nos photographers</h1></a>
         </div>
       </div>
 
       <!--BUTTON PASSER CONTENU-->
-      <div class="buttonTopdiv" id="buttonTopdiv" aria-label=”passer_au_contenu” onclick="topFunction()">
+      <div class="buttonTopdiv" id="buttonTopdiv" aria-label="passer au contenu" onclick="topFunction()">
         <button class="buttonTop">Passer au contenu</button>
       </div>
       
@@ -33,7 +33,6 @@
 
       <!--PHOTOGRAPHERS CARD -->
       <div id="app" class="boxes"></div>
-
 
       <!--JAVASCRIPT -->
       <script type="text/javascript" src="buttonContenu.js"></script>

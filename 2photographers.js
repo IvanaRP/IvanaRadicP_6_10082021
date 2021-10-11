@@ -55,12 +55,12 @@ function drawPhotographersHtmlBox() {
       return `<div class = "filteredUser__info"> 
             <p class="id">${filteredUser.id}</p>
             <a href="photographer-page.html"><h2 class="name">${filteredUser.name}</h2></a>
-              <p class="country" aria-label="localité de ${filteredUser.name} est ${filteredUser.city} en ${filteredUser.country}">${user.city}.${filteredUser.country}</p>
-              <p class="tagline" aria-label="le tagline du photographe est ${filteredUser.tagline}">${filteredUser.tagline}</p>
-              <p class="price" aria-label="le prix du photographe est de ${filteredUser.price} euro par jour">${filteredUser.price}</p>
+              <p class="country">${user.city}.${filteredUser.country}</p>
+              <p class="tagline">${filteredUser.tagline}</p>
+              <p class="price">${filteredUser.price}</p>
               <div class="tags__all">${tagsHtml}</div>
          </div> 
-        <div class="filteredUser__btn"><button data-modal-target="#modal" id="open" class="button">Contatez-moi</button></div>
+        <div class="filteredUser__btn"><button data-modal-target="#modal" id="open" class="button" aria-label="contacter le photographe ${filteredUser.id}">Contatez-moi</button></div>
           <div class = "filteredUser__img">
             <a href="photographer-page.html?id=${filteredUser.id}"> <img id="profile" src="Documents/Sample Photos/Photographers ID Photos/${filteredUser.portrait}" class="profile"  alt=""/> </a>
           </div>  
@@ -95,14 +95,14 @@ function drawPhotographersHtml() {
       // }
       return `
         <div class="galerie__grid">
-            <a href="Documents/Sample Photos/${filteredUser.name}/${photo.image}" aria-label=”image closeup view”>
+            <a href="Documents/Sample Photos/${filteredUser.name}/${photo.image}" aria-label=”vue rapprochée de l'image>
                   <img class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}" alt="${photo.title}"> 
             </a>
 
             <div class="galerie__info">
-                <p class="galerie__title" aria-label="le title du photographie est ${photo.title}">${photo.title}</p>
+                <p class="galerie__title">${photo.title}</p>
                 <div class="HeartLIKES">
-                    <div class="numberLikes" aria-label="le nombre du likes est ${photo.likes}">${photo.likes} </div>
+                    <div class="numberLikes" >${photo.likes} </div>
                     <button id="heart" class="galerie__likes" onclick="incrementButton(event)" aria-label="button like"><i class="fas fa-heart"></i></button>
                 </div>
             </div> 
@@ -117,7 +117,7 @@ function drawPhotographersHtml() {
 function likeInfo() {
   // total likes
   const totalL = document.querySelector(".totalLikes");
-  console.log(totalL);
+  // console.log(totalL);
   let totalLikes = 0 +  totalL;
   photographerPhotos.forEach((item) => {
     totalLikes = totalLikes + item.likes;
@@ -127,14 +127,11 @@ function likeInfo() {
                   <div class="HeartLIKES">
                   <div class="totalLikes" >${totalLikes}</div>
                   <div id="heart" class="galerie__likes"><i class="fas fa-heart"></i></div>
-                  <p class="galerie__infotitle" aria-label="le prix du photographe est de ${filteredUser.price} euro par jour">${filteredUser.price}€/jour</p>
+                  <p class="galerie__infotitle">${filteredUser.price}€/jour</p>
               </div> 
             `;
   document.getElementById("downright").innerHTML = likeInfoHtml;
 }
-
-
-
 
 
 //COUNTER OF LIKES - IncrimentHEART
@@ -165,8 +162,23 @@ function incrementButton(event) {
 }
 
 
-
-
+// DropDownmenu2
+function dropDownMenu2(){
+  let dropDownMenuHtml = `<div class="dropMenu">
+            <p aria-label="trier gallerie par popularite, titre ou date">Trier par</p>
+   
+            <div class='title pointerCursor'>Select an option <i class="fa fa-angle-right"></i></div>
+                <div class='menu pointerCursor hide'>
+                    <a href="#" id="popular" aria-label="trier par popularite" onClick="sortByLikes()">Popularité</a>
+                    <a href="#" id="title" aria-label="trier par titre" onClick="sortByTitle()">Titre</a>
+                    <a href="#" id="date" aria-label="trier par date" onClick="sortByDate()">Date</a>
+              </div>
+             
+            </div>
+        </div>     
+     `;
+  document.getElementById("dropdownmenu2").innerHTML = dropDownMenuHtml;
+}
 
 // DropDownmenu
 function dropDownMenu() {
@@ -232,6 +244,7 @@ fetchData()
     openModal();
     likeInfo();
     dropDownMenu();
+    dropDownMenu2();
 
   })
   .catch((error) => {
