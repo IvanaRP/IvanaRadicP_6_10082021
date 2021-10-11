@@ -1,9 +1,12 @@
 .buttonTopdiv{
     display: none;/* Hidden by default */
-    position: fixed;
+    /* display: flex; */
+    position:fixed;
+    width: 100%;
+    height: fit-content;
     top: 2px;
-    right: auto;
-    left:41%;
+    justify-content: center;
+    align-items: center;
     z-index: 48; /* Make sure it does not overlap */
   }
   .buttonTop{

@@ -68,7 +68,7 @@ function drawPhotographersHtml() {
           <img id="profile" src="Documents/Sample Photos/Photographers ID Photos/${user.portrait}" class="profile" alt="photo of ${user.name}" role="img"/>
           <h2 class="name">${user.name}</h2>
        </a>
-            <p class="country">${user.city}, ${user.country}</p>
+            <p class="location">${user.city}, ${user.country}</p>
             <p class="tagline">${user.tagline}</p>
             <p class="price">${user.price}€/jour</p>
           <div class="tags__all" id="tags">${tagsHtml}</div> 
