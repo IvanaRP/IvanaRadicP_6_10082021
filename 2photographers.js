@@ -49,21 +49,24 @@ function drawPhotographersHtmlBox() {
     .map((user) => {
       let tagsHtml = user.tags
         .map((tag) => {
-          return `<a href="index.html?id=${tag}"><p onClick=filterByTag("${tag}") id="tags" class="tags">#${tag}</p></a>`;
+          return `<a href="index.html?${tag}"><p onClick=filterByTag("${tag}") id="tags" class="tags">#${tag}</p></a>`;
         })
         .join("");
-      return `<div class = "filteredUser__info"> 
-            <p class="id">${filteredUser.id}</p>
-            <a href="photographer-page.html"><h2 class="name">${filteredUser.name}</h2></a>
-              <p class="country">${user.city}.${filteredUser.country}</p>
-              <p class="tagline">${filteredUser.tagline}</p>
-              <p class="price">${filteredUser.price}</p>
-              <div class="tags__all">${tagsHtml}</div>
-         </div> 
-        <div class="filteredUser__btn"><button data-modal-target="#modal" id="open" class="button" aria-label="contacter le photographe ${filteredUser.id}">Contatez-moi</button></div>
-          <div class = "filteredUser__img">
-            <a href="photographer-page.html?id=${filteredUser.id}"> <img id="profile" src="Documents/Sample Photos/Photographers ID Photos/${filteredUser.portrait}" class="profile"  alt=""/> </a>
-          </div>  
+      return `
+             <div class = "filteredUser__infoButton"> 
+                  <div class = "filteredUser__info"> 
+                            <p class="id">${filteredUser.id}</p>
+                            <a href="photographer-page.html"><h2 class="filteredUser__name">${filteredUser.name}</h2></a>
+                              <p class="filteredUser__location">${user.city}, ${filteredUser.country}</p>
+                              <p class="filteredUser__tagline">${filteredUser.tagline}</p>
+                              <div class="tags__all">${tagsHtml}</div>
+                  </div> 
+                <div class="filteredUser__btn"><button data-modal-target="#modal" id="open" class="button" aria-label="contacter le photographe ${filteredUser.id}">Contatez-moi</button></div>
+             </div>
+                      <div class = "filteredUser__img">
+                        <a href="photographer-page.html?id=${filteredUser.id}"> <img id="profile" src="Documents/Sample Photos/Photographers ID Photos/${filteredUser.portrait}" class="profile"  alt=""/> </a>
+                      </div>  
+               
       `;
     })
     .join("");
@@ -80,7 +83,7 @@ function openModal() {
 
 //display all  MEDIA PHOTOS VIDEOS in inner html //make variable for MEDIAhtml VIDEO if else
 function drawPhotographersHtml() {
-  let photoHtml = sortedPhotos
+  let photoHtml = sortedPhotos 
     .map((photo) => {
       let tagsPhotoHtml = photo.tags
         .map((tag) => {
@@ -95,7 +98,7 @@ function drawPhotographersHtml() {
       // }
       return `
         <div class="galerie__grid">
-            <a href="Documents/Sample Photos/${filteredUser.name}/${photo.image}" aria-label=”vue rapprochée de l'image>
+            <a href="Documents/Sample Photos/${filteredUser.name}/${photo.image}" aria-label=”vue rapprochée de l'image" >
                   <img class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}" alt="${photo.title}"> 
             </a>
 
@@ -125,9 +128,12 @@ function likeInfo() {
 
   let likeInfoHtml = ` <div class="galerie__infoDown"> 
                   <div class="HeartLIKES">
-                  <div class="totalLikes" >${totalLikes}</div>
-                  <div id="heart" class="galerie__likes"><i class="fas fa-heart"></i></div>
-                  <p class="galerie__infotitle">${filteredUser.price}€/jour</p>
+                    <div class="totalLikes" >${totalLikes}</div>
+                    <div id="heart" class="galerie__likesblack"><i class="fas fa-heart"></i></div>
+                  </div>
+                  <div class="galerie__likesprice">
+                     <p class="galerie__infotitle">${filteredUser.price} € / jour</p>
+                  </div>
               </div> 
             `;
   document.getElementById("downright").innerHTML = likeInfoHtml;

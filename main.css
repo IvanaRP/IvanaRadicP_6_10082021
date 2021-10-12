@@ -8,7 +8,7 @@ a:active {
   text-decoration: none;
 }
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "DM Sans", sans-serif;
   margin: 0;
   background-color: white;
   width: 100%;
@@ -24,7 +24,8 @@ ul {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "DM Sans", sans-serif;
+  
 }
 
 /* Colors*/
@@ -33,7 +34,7 @@ body {
 
 /* secondary color  orange:  #DB8876; */
 /* font secondary color grey : #525252;*/
-/* font secondary color black : #FAFAFA */
+/* font secondary color black :#000000;*/
 /* font secondary color red: background: #901C1C; */
 
 /* button colors */
@@ -116,7 +117,7 @@ body {
   font-family: DM Sans;
   font-style: normal;
   font-weight: normal;
-  font-size: 30px;
+  font-size: 2em;
   line-height: 47px;
   text-align: center;
   color: #d3573c;
@@ -194,7 +195,7 @@ body {
 .tags__all {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
 }
 .header__tags {
@@ -207,9 +208,10 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 80%;
   margin: auto;
+  padding: 20px;
 }
 
 .user {
@@ -219,8 +221,8 @@ body {
   align-items: center;
   background-color: #ffffff;
   padding: 1em;
-  margin: 10px;
-  width: 23%;
+  margin: 20px;
+  width: 27%;
   height: auto;
 }
 
@@ -279,7 +281,7 @@ body {
     display: flex;
     position: absolute;
     top: 109px;
-    width: fit-content;
+    width: 100%;
     flex-direction: row;
     left: 3px;
     flex-wrap: wrap;
@@ -296,10 +298,10 @@ body {
   justify-content: center;
   position: absolute;
   top: 250px;
-  left: 20px;
+  left: 0px;
 }
 .user{
-  width: 100%; 
+  width: 80%; 
 }
 
 }
@@ -308,4 +310,11 @@ body {
 /* tablet, landscape iPad, lo-res laptops ands desktops */
 
 @media screen and (min-width: 768px) and (max-width: 1150px) {
+
+
+  .user{
+    padding: 22px;
+    width: 23%; 
+  }
+
 }

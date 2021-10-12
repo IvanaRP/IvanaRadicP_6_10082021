@@ -1,6 +1,7 @@
 .buttonTopdiv{
     display: none;/* Hidden by default */
     /* display: flex; */
+    font-family: "DM Sans";
     position:fixed;
     width: 100%;
     height: fit-content;
@@ -13,6 +14,7 @@
     border-radius: 5px;
     background-color: #d3573c;
     color: #000000;
+    font-family: "DM Sans";
     padding: 5px 10px;
     font-weight: bold;
     cursor: pointer;
