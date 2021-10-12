@@ -34,7 +34,7 @@ function fetchData() {
                       
                         <div class="modalplace">
                           <label for="firstname" class="firstname">Prenom</label>
-                          <input id="firstname" name="firstname" class="firstname" type="text" placeholder="Prenom"  minlength="2"> 
+                          <input id="firstname" name="firstname" class="firstname" type="text" placeholder="Prenom" minlength="2"> 
                           <div id="error1" class="error">Veuillez entrer 2 caractères ou plus pour le champ du prenom.</div>
                         </div>
                         <div class="modalplace">

@@ -318,116 +318,7 @@ button {
   z-index: 30;
 }
 
-/*modal*/
-.overlay {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  background-color: rgba(196, 196, 196, 0.4);
-}
 
-.modalBox {
-  display: none; /* Hidden by default */
-}
-.modal {
-  width: 300px;
-  position: fixed;
-  left: 50%;
-  top: 25%;
-  margin-left: -150px;
-  margin-top: -150px;
-  /* position: fixed;
-  top: 10%;
-  left: 20%;
-  bottom: 10%;
-  right: 20%; */
-  border-radius: 5px;
-  z-index: 50;
-  max-height: 90%;
-  max-width: 80%;
-  height: fit-content;
-  background: #db8876;
-  color: black;
-}
-
-.modalplace {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding-top: 10px;
-}
-
-.modal-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 20px;
-}
-.modal-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0 20px 20px;
-}
-
-.contactName {
-  font-family: DM Sans;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 30px;
-  line-height: 47px;
-  text-align: left;
-  color: #000000;
-  margin: 0;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  border: none;
-}
-#send {
-  margin-top: 20px;
-}
-
-.close-button {
-  font-size: 2em;
-  color: white;
-  background: none;
-  padding: 0;
-  cursor: pointer;
-}
-.firstname,
-.lastname,
-.email,
-.message {
-  font-size: 1em;
-  height: 30px;
-  border-radius: 5px;
-}
-
-.messageinput {
-  height: 100px;
-  border-radius: 5px;
-}
-
-input {
-  border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden;
-  border-bottom-style: hidden;
-}
-
-.error {
-  display: none;
-}
 
 /* dropdown proba */
 
@@ -683,7 +574,7 @@ input {
   border-radius: 5px;
 }
 
-/* Media querrie */
+/* Media Queries */
 
 /* Mobile version */
 
