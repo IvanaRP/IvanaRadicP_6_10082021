@@ -33,7 +33,7 @@ class media {
     generateVideo() {
       return `
       <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" aria-label=”vue rapprochée de l'image" >
-      <video class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" alt="${this.photo.title}">
+      <video class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" alt="${this.photo.title}" controls>
       </a>`;
     }
 
