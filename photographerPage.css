@@ -154,23 +154,33 @@ button {
 
 /*Galerie*/
 
-.photographer-page__gallery {
+.photographer-page__gallery{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: flex-start;
-  justify-content: flex-start;
   width: 80%;
   align-items: center;
   margin: auto;
-  margin-top: 50px;
-  cursor: pointer;
 }
+.galerie__grid{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  padding: 20px;
+ 
+}
+.galerie__gridimg {
+  width: 100%;
+  height: 300px;
+  border-radius: 5px;
+  object-fit: cover;
+  object-position: 50% 25%;
+}
+
 
 .galerie__info {
   display: flex;
   padding-top: 10px;
-  width: 350px;
   flex-direction: row;
   justify-content: space-between;
 }
@@ -320,7 +330,7 @@ button {
 
 /* dropdown proba */
 
-.buttonMenu {
+/* .buttonMenu {
   font-weight: bold;
   padding: 0 10px;
   color: #fafafa;
@@ -332,19 +342,19 @@ button {
   cursor: pointer;
   padding: 10px;
   margin-left: 20px;
-}
+} */
 
-.buttonMenu:hover {
+/* .buttonMenu:hover {
   background: #db8876;
   color: #000000;
 }
 .sortedRes {
   display: none;
-}
+} */
 
 /* dropdown scrool HOVER menu */
 
-.dropdownmenu {
+/* .dropdownmenu {
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -355,9 +365,9 @@ button {
   justify-content: flex-start;
   margin: auto;
   width: 80%;
-}
+} */
 
-/* Dropdown Button */
+/* Dropdown Button
 .dropbtn {
   background: #901c1c;
   color: white;
@@ -366,22 +376,22 @@ button {
   border: none;
   border-radius: 5px;
   width: 100%;
-}
+} */
 
-.dropbtn:hover,
+/* .dropbtn:hover,
 :focus {
   border-radius: 5px 5px 0 0;
-}
+} */
 
 /* The container <div> - needed to position the dropdown content */
-.dropdown {
+/* .dropdown {
   position: relative;
   display: inline-block;
   margin-left: 20px;
   /* width: 25%; */
-}
+
 /* Dropdown Content (Hidden by Default) */
-.dropdown-content {
+/* .dropdown-content {
   display: none;
   position: absolute;
   background: #901c1c;
@@ -393,45 +403,45 @@ button {
 }
 
 /* Links inside the dropdown */
-.dropdown-content a {
+/* .dropdown-content a {
   color: white;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
   /* border-radius: 0 0 5px 5px ; */
-  border-top: 1px solid white;
+  /* border-top: 1px solid white;
   margin-left: 5px;
   margin-right: 5px;
-  padding: 10px;
+  padding: 10px; */
   /* left: 10%; */
   /* width: 50%;  or 100px */
-}
+
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {
+/* .dropdown-content a:hover {
   background: #db8876;
   color: #000000;
   outline: none;
   background: #db8876;
   overflow: hidden;
-}
+} */
 
-/* Show the dropdown menu on hover */
+/* Show the dropdown menu on hover
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {
+/* .dropdown:hover .dropbtn {
   background: #db8876;
   color: #000000;
-}
+} */
 
 /* proba */
-#myId {
+/* #myId {
   font-size: 3em;
   display: none;
-}
+} */ */
 
 /* button hide show div */
 .third {
@@ -452,22 +462,22 @@ button {
 
 /* likes odvojeno */
 
-.galerieOdvojeno {
+/* .galerieOdvojeno {
   display: flex;
   width: auto;
   height: 200px;
-}
+} */
 
 /* dropdown tuto */
 
-.dropDownMenu2 {
+/* .dropDownMenu2 {
   display: flex;
   flex-direction: row;
   margin: auto;
   width: 80%;
-}
+} */
 
-.dropdown {
+/* .dropdown {
   position: relative;
   cursor: pointer;
 }
@@ -488,9 +498,9 @@ button {
   cursor: pointer;
   outline: none;
   /* border-top: 1px solid white; */
-}
+/*} */
 
-.dropdown .dropdown-toggle::after {
+/* .dropdown .dropdown-toggle::after {
   content: "";
   border-width: 6px;
   border-radius: 5px;
@@ -507,9 +517,9 @@ button {
   border-color: transparent;
   border-bottom-color: inherit;
   top: calc(50% - 3px);
-}
+} */
 
-.dropdown .dropdown-menu {
+/* .dropdown .dropdown-menu {
   position: absolute;
   left: 50%;
   top: 80%;
@@ -531,9 +541,9 @@ button {
 
 .dropdown .dropdown-menu[aria-expanded="true"] {
   visibility: visible;
-}
+} */
 
-.dropdown .dropdown-menu li {
+/* .dropdown .dropdown-menu li {
   height: 35px;
   display: block;
   align-items: center;
@@ -548,10 +558,10 @@ button {
 .dropdown .dropdown-menu li:focus {
   outline: none;
   background: #db8876;
-}
+} */
 
 /* LIGHTBOX */
-
+/* 
 .galerie__grid {
   display: flex;
   flex-direction: row;
@@ -562,15 +572,8 @@ button {
   padding-top: 20px;
   margin: 30px;
   border-radius: 5px;
-}
+} */
 
-.galerie__gridimg {
-  width: 350px;
-  height: 300px;
-  margin: 0px;
-  object-fit: cover;
-  border-radius: 5px;
-}
 
 /* Media Queries */
 
@@ -709,35 +712,26 @@ button {
 
   /*Galerie*/
 
-  .photographer-page__gallery {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: flex-start;
-    width: 100%;
-    align-items: center;
-    margin: auto;
-    margin-top: 0;
-    cursor: pointer;
-  }
-  .galerie__grid {
+  .photographer-page__gallery{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: fit-content;
     align-items: center;
-    justify-content: center;
+    margin: 0;
+  }
+  .galerie__grid{
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    padding-top: 0;
-    margin: 10px;
-    border-radius: 5px;
+    padding: 20px;
+   
   }
   .galerie__gridimg {
-    width: 335px;
-    height: 190px;
-    margin: 0px;
-    object-fit: cover;
+    width: 100%;
+    height: 200px;
     border-radius: 5px;
+    object-fit: cover;
   }
   .galerie__infoDown {
     display: none;
@@ -759,49 +753,67 @@ button {
 /* tablet, landscape iPad, lo-res laptops ands desktops */
 
 @media screen and (min-width: 768px) and (max-width: 1150px) {
+
+
+  .filteredUser__btn{
+    margin: 10px;
+    padding-top: 35px;
+  }
+  .filteredUser__name {
+    margin-top: 10px;
+  }
   /*Galerie*/
 
-  .photographer-page__gallery {
+
+  .photographer-page__gallery{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
     width: 80%;
     align-items: center;
+    justify-content: center;
     margin: auto;
-    margin-top: 0;
-    cursor: pointer;
   }
-
-  .galerie__grid {
+  .galerie__grid{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-    width: 44%;
-    padding-top: 0;
-    margin: 10px;
-    border-radius: 5px;
+    flex-direction: column;
+    width: 40%;
+    padding: 20px;
+   
   }
-
   .galerie__gridimg {
-    width: 350px;
+    width: 100%;
     height: 200px;
-    margin: 0px;
-    object-fit: cover;
     border-radius: 5px;
+    object-fit: cover;
   }
   .galerie__info {
-    width: 350px;
+    width: 100%;
   }
 }
 
-/* DROPDOWN SELECT TUTO */
+/* DROPDOWN MENU */
 
 *:focus {
   outline: none;
+}
+.dropMenu{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+ 
+}
+
+.dropdownmenu{
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: auto;
+  width: 80%;
+}
+.dropMenu__trier{
+  padding-right: 20px;
 }
 
 .containerMenu {
@@ -810,7 +822,7 @@ button {
 
 .select {
   position: relative;
-  width: 200px;
+  width: 130px;
   height: 40px;
   border-radius: 5px;
   border: none;
@@ -837,4 +849,43 @@ button {
 .select:hover {
   background: #db8876;
   color: #000000;
+}
+
+
+.select.active{
+  background: #db8876;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.options{
+  position: absolute;
+  top:40px;
+  width: 100%;
+  height: fit-content;
+  background: #901c1c;
+  color: white;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow: hidden;
+  display: none;
+}
+
+
+.options.active{
+  display: flex;
+  flex-direction: column;
+}
+
+.options .item{
+  background: #901c1c;
+  color: white;
+  width: 100%;
+  height: 30px;
+  padding:0 15px;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+.options .item.active{
+  background: #db8876;
 }
