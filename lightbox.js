@@ -1,3 +1,4 @@
+
 // LIGHTBOX
 // function lightbox() {
   
@@ -138,9 +139,10 @@
             <button class="lightbox__close">Close</button>
             <button class="lightbox__next">Next</button>
             <button class="lightbox__prev">Prev</button>
+            <p class="lightbox__title">title</p>
             <div class="lightbox__container">
             </div>
-            <p class="galerie__title">Title</p>`;
+           `;
         dom
           .querySelector(".lightbox__close")
           .addEventListener("click", this.close.bind(this));
@@ -155,4 +157,4 @@
     }
   
     Lightbox.init();
-//   }
+//  

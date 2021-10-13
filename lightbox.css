@@ -49,10 +49,15 @@
 
 .lightbox__title {
   display: flex;
-  margin: 50px;
-  margin-left: 80px;
+  position: fixed;
+  top: 65%;
+  left: 50px;
+  margin: 0;
+  margin-left: 0;
   font-size: 1em;
   color: #901c1c;
+  z-index: 51;
+  padding-top: 10px;
 }
 .lightbox button {
   opacity: 0.5;
@@ -107,25 +112,24 @@
     margin: 50px;
   }
 
-  .lightbox__container img{
+  .lightbox__container img {
     width: 300px;
     height: 250px;
     object-fit: cover;
-
   }
 
-  .lightbox__close{
-    top:30%;
+  .lightbox__close {
+    top: 30%;
     right: 20px;
-    width: 1.5em;
-    height: 1.5em;
+    width: 1.7em;
+    height: 1.7em;
   }
-  .lightbox__next{
-    width:0.5em;
+  .lightbox__next {
+    width: 0.5em;
     right: 10px;
   }
-  .lightbox__prev{
-    width:0.5em;
+  .lightbox__prev {
+    width: 0.5em;
     left: 10px;
   }
 }
@@ -134,7 +138,6 @@
 /* tablet, landscape iPad, lo-res laptops ands desktops */
 
 @media screen and (min-width: 768px) and (max-width: 1150px) {
-
   .lightbox__container {
     min-height: 90vh;
     margin: 50px;
@@ -142,17 +145,17 @@
 
   .lightbox__close {
     top: 30px;
-    right: 20px;
-    width: 3em;
-    height: 3em;
+    right: 30px;
+    width: 2em;
+    height: 2em;
   }
 
-  .lightbox__next{
-    width:3em;
+  .lightbox__next {
+    width: 3em;
     right: 10px;
   }
-  .lightbox__prev{
-    width:3em;
+  .lightbox__prev {
+    width: 3em;
     left: 10px;
   }
 

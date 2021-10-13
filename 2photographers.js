@@ -57,7 +57,7 @@ function drawPhotographersHtmlBox() {
                   <div class = "filteredUser__info"> 
                             <p class="id">${filteredUser.id}</p>
                             <a href="photographer-page.html"><h2 class="filteredUser__name">${filteredUser.name}</h2></a>
-                              <p class="filteredUser__location">${user.city}, ${filteredUser.country}</p>
+                              <p class="filteredUser__location">${filteredUser.city}, ${filteredUser.country}</p>
                               <p class="filteredUser__tagline">${filteredUser.tagline}</p>
                               <div class="tags__all">${tagsHtml}</div>
                   </div> 
@@ -90,6 +90,31 @@ function drawPhotographersHtml() {
           return `<p onClick=filterByTag("${tag}") id="tags" class="tags">#${tag}</p>`;
         })
         .join("");
+
+// FACTORY METHOD
+        //  class media {
+        //       constructor(type, link) {
+        //         this.type = type;
+        //         this.link = link;
+
+        //         if (type == "image") {
+        //           generateImg();
+        //         } else if (type == "video") {
+        //           generateVideo();
+        //         }
+
+        //         generateImg();{
+        //           return `<img id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt="${photo.title}"/>`
+        //         }
+
+        //         generateVideo();{
+        //           return `<video id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.video}"  alt="${photo.title}"/>`;
+        //         }
+              
+        //       }
+        //  }
+
+
       // let mediaHtml = ""; //If Else show img or video
       // if (photo.hasOwnProperty("video")) {
       //   mediaHtml = `<video id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.video}"  alt="${photo.title}"/>`;
@@ -170,21 +195,45 @@ function incrementButton(event) {
 
 // DropDownmenu2
 function dropDownMenu2(){
-  let dropDownMenuHtml = `<div class="dropMenu">
-            <p aria-label="trier gallerie par popularite, titre ou date">Trier par</p>
-   
-            <div class='title pointerCursor'>Select an option <i class="fa fa-angle-right"></i></div>
-                <div class='menu pointerCursor hide'>
-                    <a href="#" id="popular" aria-label="trier par popularite" onClick="sortByLikes()">Popularité</a>
-                    <a href="#" id="title" aria-label="trier par titre" onClick="sortByTitle()">Titre</a>
-                    <a href="#" id="date" aria-label="trier par date" onClick="sortByDate()">Date</a>
-              </div>
-             
-            </div>
-        </div>     
+  let dropDownMenuHtml = `
+  <div class="dropMenu2">
+  <p class="dropMenuP" aria-label="trier gallerie par popularite, titre ou date">Trier par</p>
+
+    <div class="selectdiv ">
+         <label>
+              <select class="dropdown2">
+                <option selected class="dropbtn2">Select:</option>
+                <option id="popular" aria-label="trier par popularite" onClick="sortByLikes()">Popularité</option>
+                <option id="title" aria-label="trier par titre" onClick="sortByTitle()">Titre</option>
+                <option id="date" aria-label="trier par date" onClick="sortByDate()">Date</option>
+              </select>
+        </label>
+    </div>
+
+    </div>
      `;
   document.getElementById("dropdownmenu2").innerHTML = dropDownMenuHtml;
 }
+// DropDownmenu3
+function dropDownMenu3(){
+  let dropDownMenuHtml = `
+    <div class="dropMenu2">
+      <p class="dropMenuP" aria-label="trier gallerie par popularite, titre ou date">Trier par</p>
+
+                <div class="containerMenu">
+                    <button  class="select" name="select" value = "options">Select:</button>
+                    <div class="options">
+                        <p class="item active">Popularité</p>
+                        <p class="item">Titre</p>
+                        <p class="item">Date</p>
+                    </div>
+                </div>
+
+    </div>
+     `;
+  document.getElementById("dropdownmenu3").innerHTML = dropDownMenuHtml;
+}
+
 
 // DropDownmenu
 function dropDownMenu() {
@@ -251,6 +300,7 @@ fetchData()
     likeInfo();
     dropDownMenu();
     dropDownMenu2();
+    dropDownMenu3();
 
   })
   .catch((error) => {

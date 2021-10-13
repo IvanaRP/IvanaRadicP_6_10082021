@@ -799,3 +799,20 @@ button {
     width: 350px;
   }
 }
+
+
+
+/* DROPDOWN SELECT TUTO KEVIN */
+
+*:focus{
+  outline: none;
+}
+
+.containerMenu{
+  display:flex;
+  align-items: center;
+  background: #901c1c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
