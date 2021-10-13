@@ -13,6 +13,40 @@ let filteredUser;
 let allfilteredUsers;
 let sortedPhotos;
 
+// MEDIA FACTORY
+class media {
+  constructor(photo) {
+    this.photo = photo;
+    if (photo.hasOwnProperty("video")) {
+      this.type = "video";
+    } else {
+      this.type = "image";
+    }
+  }    
+    generateImg() {
+      return `
+      <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.image}" aria-label=”vue rapprochée de l'image" >
+      <img class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${this.photo.image}" alt="${this.photo.title}">
+      </a>`;
+    }
+
+    generateVideo() {
+      return `
+      <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" aria-label=”vue rapprochée de l'image" >
+      <video class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" alt="${this.photo.title}">
+      </a>`;
+    }
+
+    getHtml(){
+      if (this.type == "image") {
+        return this.generateImg();
+      } else if (this.type == "video") {
+        return this.generateVideo();
+      }
+    }
+}
+
+
 // fetch Json data
 function fetchData() {
   return fetch("FishEyeData.json").then((response) => {
@@ -81,9 +115,11 @@ function openModal() {
   });
 }
 
-//display all  MEDIA PHOTOS VIDEOS in inner html //make variable for MEDIAhtml VIDEO if else
+
+
+//display all  MEDIA PHOTOS VIDEOS in inner html //add Media factory
 function drawPhotographersHtml() {
-  let photoHtml = sortedPhotos 
+  let photoHtml = sortedPhotos
     .map((photo) => {
       let tagsPhotoHtml = photo.tags
         .map((tag) => {
@@ -91,41 +127,13 @@ function drawPhotographersHtml() {
         })
         .join("");
 
-// FACTORY METHOD
-        //  class media {
-        //       constructor(type, link) {
-        //         this.type = type;
-        //         this.link = link;
+      let mediaFile = new media(photo);
 
-        //         if (type == "image") {
-        //           generateImg();
-        //         } else if (type == "video") {
-        //           generateVideo();
-        //         }
-
-        //         generateImg();{
-        //           return `<img id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt="${photo.title}"/>`
-        //         }
-
-        //         generateVideo();{
-        //           return `<video id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.video}"  alt="${photo.title}"/>`;
-        //         }
-              
-        //       }
-        //  }
-
-
-      // let mediaHtml = ""; //If Else show img or video
-      // if (photo.hasOwnProperty("video")) {
-      //   mediaHtml = `<video id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.video}"  alt="${photo.title}"/>`;
-      // } else {
-      //   mediaHtml = `<img id="img" class="galerie__img" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}"  alt="${photo.title}"/>`;
-      // }
       return `
         <div class="galerie__grid">
-            <a href="Documents/Sample Photos/${filteredUser.name}/${photo.image}" aria-label=”vue rapprochée de l'image" >
-                  <img class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${photo.image}" alt="${photo.title}"> 
-            </a>
+            
+                   ${mediaFile.getHtml()}
+      
 
             <div class="galerie__info">
                 <p class="galerie__title">${photo.title}</p>
@@ -146,7 +154,7 @@ function likeInfo() {
   // total likes
   const totalL = document.querySelector(".totalLikes");
   // console.log(totalL);
-  let totalLikes = 0 +  totalL;
+  let totalLikes = 0 + totalL;
   photographerPhotos.forEach((item) => {
     totalLikes = totalLikes + item.likes;
   });
@@ -171,7 +179,7 @@ function incrementButton(event) {
   const numberLikes = event.target.parentElement.querySelector(".numberLikes");
 
 
-// total likes
+  // total likes
   const totalL = document.querySelector(".totalLikes");
   console.log(totalL);
 
@@ -182,7 +190,7 @@ function incrementButton(event) {
     totalL.innerHTML = parseInt(totalL.innerHTML) + 1;
     numberLikes.classList.add("liked");
     totalL.classList.add("liked");
-   
+
   } else {
     numberLikes.innerHTML = parseInt(numberLikes.innerHTML) - 1;
     totalL.innerHTML = parseInt(totalL.innerHTML) - 1;
@@ -194,7 +202,7 @@ function incrementButton(event) {
 
 
 // DropDownmenu2
-function dropDownMenu2(){
+function dropDownMenu2() {
   let dropDownMenuHtml = `
   <div class="dropMenu2">
   <p class="dropMenuP" aria-label="trier gallerie par popularite, titre ou date">Trier par</p>
@@ -215,7 +223,7 @@ function dropDownMenu2(){
   document.getElementById("dropdownmenu2").innerHTML = dropDownMenuHtml;
 }
 // DropDownmenu3
-function dropDownMenu3(){
+function dropDownMenu3() {
   let dropDownMenuHtml = `
     <div class="dropMenu2">
       <p class="dropMenuP" aria-label="trier gallerie par popularite, titre ou date">Trier par</p>

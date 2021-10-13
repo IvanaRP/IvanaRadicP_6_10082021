@@ -318,8 +318,6 @@ button {
   z-index: 30;
 }
 
-
-
 /* dropdown proba */
 
 .buttonMenu {
@@ -762,19 +760,19 @@ button {
 
 @media screen and (min-width: 768px) and (max-width: 1150px) {
   /*Galerie*/
-  
-.photographer-page__gallery {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
-  width: 80%;
-  align-items: center;
-  margin: auto;
-  margin-top: 0;
-  cursor: pointer;
-}
+
+  .photographer-page__gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    width: 80%;
+    align-items: center;
+    margin: auto;
+    margin-top: 0;
+    cursor: pointer;
+  }
 
   .galerie__grid {
     display: flex;
@@ -800,19 +798,43 @@ button {
   }
 }
 
+/* DROPDOWN SELECT TUTO */
 
-
-/* DROPDOWN SELECT TUTO KEVIN */
-
-*:focus{
+*:focus {
   outline: none;
 }
 
-.containerMenu{
-  display:flex;
-  align-items: center;
+.containerMenu {
+  position: relative;
+}
+
+.select {
+  position: relative;
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
   background: #901c1c;
   color: white;
-  border: none;
-  border-radius: 5px;
+  text-align: left;
+  padding: 0 15px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.select::after {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.select:hover {
+  background: #db8876;
+  color: #000000;
 }

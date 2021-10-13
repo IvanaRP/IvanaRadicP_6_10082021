@@ -97,11 +97,8 @@ function changeTagColor(){
 
 
 
-
-
-
 fetchData().then((data) => {
-  photographerId = getParam("tags");
+  photographerTag = getParam("tags");
   allPhotographers = data.photographers;
   allTags = getTags(data);
   filteredPhotographers = allPhotographers;
