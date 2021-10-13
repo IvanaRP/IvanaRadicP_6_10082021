@@ -160,13 +160,15 @@ button {
   flex-wrap: wrap;
   width: 80%;
   align-items: center;
+  justify-content: flex-start;
   margin: auto;
 }
 .galerie__grid{
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 27%;
   padding: 20px;
+  margin: 25px;
  
 }
 .galerie__gridimg {
@@ -174,7 +176,7 @@ button {
   height: 300px;
   border-radius: 5px;
   object-fit: cover;
-  object-position: 50% 25%;
+  object-position: 50% 10%;
 }
 
 
@@ -779,7 +781,7 @@ button {
     flex-direction: column;
     width: 40%;
     padding: 20px;
-   
+   margin: 0;
   }
   .galerie__gridimg {
     width: 100%;
