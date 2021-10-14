@@ -799,9 +799,9 @@ button {
 
 /* DROPDOWN MENU */
 
-*:focus {
+/* *:focus {
   outline: none;
-}
+} */
 .dropMenu{
   display: flex;
   flex-direction: row;

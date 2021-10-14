@@ -113,6 +113,13 @@ function openModal() {
   document.getElementById("open").addEventListener("click", function () {
     document.querySelector(".modalBox").style.display = "flex";
   });
+
+  
+  // KEYBOARD EVENTS open modal
+  document.getElementById("open").addEventListener("keypress", function (event){
+    if (event.key === 'Enter')
+    document.querySelector(".modalBox").style.display = "flex";
+  });
 }
 
 
@@ -304,7 +311,10 @@ function sortByDate() {
 }
 
 
-fetchData()
+
+fetch("FishEyeData.json").then((response) => {
+  return response.json();
+})
   .then((data) => {
     photographerId = getParam("id");
     allfilteredUsers = data.photographers;
@@ -325,6 +335,10 @@ fetchData()
     likeInfo();
     dropDownMenu();
     dropDownToggle();
+
+
+  
+
 
   })
   .catch((error) => {
