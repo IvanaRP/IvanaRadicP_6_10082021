@@ -62,10 +62,7 @@ function fetchData() {
                   <div id="overlay" class="overlay"></div>
               `;
               
-            //   document.getElementById("open").addEventListener("click",
-            //   function() {
-            //       document.querySelector(".modalBox").style.display = "flex";
-            //   });
+      
 
               document.querySelector(".close-button").addEventListener("click",
               function() {
@@ -138,7 +135,6 @@ function fetchData() {
             }
 
             });
-
 
    
   });

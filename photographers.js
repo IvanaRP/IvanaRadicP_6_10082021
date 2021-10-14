@@ -32,7 +32,7 @@ class media {
 
     generateVideo() {
       return `
-      <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" aria-label=”vue rapprochée de l'image" >
+      <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" aria-label=”vue rapprochée de l'image">
       <video class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" alt="${this.photo.title}" controls>
       </a>`;
     }
@@ -83,7 +83,7 @@ function drawPhotographersHtmlBox() {
     .map((user) => {
       let tagsHtml = user.tags
         .map((tag) => {
-          return `<a href="index.html?${tag}"><p onClick=filterByTag("${tag}") id="tags" class="tags">#${tag}</p></a>`;
+          return `<a href="index.html?${tag}"><p onClick=filterByTag("${tag}") id="tags" class="tags" >#${tag}</p></a>`;
         })
         .join("");
       return `
@@ -95,7 +95,7 @@ function drawPhotographersHtmlBox() {
                               <p class="filteredUser__tagline">${filteredUser.tagline}</p>
                               <div class="tags__all">${tagsHtml}</div>
                   </div> 
-                <div class="filteredUser__btn"><button data-modal-target="#modal" id="open" class="button" aria-label="contacter le photographe ${filteredUser.id}">Contatez-moi</button></div>
+                <div class="filteredUser__btn" ><button data-modal-target="#modal" id="open" class="button"  aria-label="contacter le photographe ${filteredUser.id}">Contatez-moi</button></div>
              </div>
                       <div class = "filteredUser__img">
                         <a href="photographer-page.html?id=${filteredUser.id}"> <img id="profile" src="Documents/Sample Photos/Photographers ID Photos/${filteredUser.portrait}" class="profile"  alt=""/> </a>
@@ -141,7 +141,7 @@ function drawPhotographersHtml() {
                 <p class="galerie__title">${photo.title}</p>
                 <div class="HeartLIKES">
                     <div class="numberLikes" >${photo.likes} </div>
-                    <button id="heart" class="galerie__likes" onclick="incrementButton(event)" aria-label="button like"><i class="fas fa-heart"></i></button>
+                    <button id="heart" class="galerie__likes" onclick="incrementButton(event)" aria-label="button like" ><i class="fas fa-heart"></i></button>
                 </div>
             </div> 
         </div>
@@ -208,9 +208,9 @@ function dropDownMenu() {
     <div class="dropMenu">
       <p class="dropMenu__trier" aria-label="trier gallerie par popularite, titre ou date">Trier par</p>
 
-                <div class="containerMenu">
+                <div class="containerMenu"  >
                     <button  class="select" name="select" value = "options">Select:</button>
-                    <div class="options">
+                    <div class="options"  >
                         <a href="#" id="popular" class="item" aria-label="trier par popularite" onClick="sortByLikes()">Popularité</a>
                         <a href="#" id="title" class="item" aria-label="trier par titre" onClick="sortByTitle()">Titre</a>
                         <a href="#" id="date" class="item" aria-label="trier par date" onClick="sortByDate()">Date</a>

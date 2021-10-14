@@ -727,6 +727,7 @@ button {
     flex-direction: column;
     width: 100%;
     padding: 20px;
+    margin: 0;
    
   }
   .galerie__gridimg {
@@ -734,6 +735,7 @@ button {
     height: 200px;
     border-radius: 5px;
     object-fit: cover;
+    object-position: 100%;
   }
   .galerie__infoDown {
     display: none;
@@ -788,6 +790,7 @@ button {
     height: 200px;
     border-radius: 5px;
     object-fit: cover;
+    object-position: 100%;
   }
   .galerie__info {
     width: 100%;
@@ -820,6 +823,7 @@ button {
 
 .containerMenu {
   position: relative;
+  z-index: 50;
 }
 
 .select {

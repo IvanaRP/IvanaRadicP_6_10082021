@@ -10,22 +10,19 @@ let allPhotographers;
 let filteredPhotographers;
 let allTags;
 
-
-// fetch Json data 
+// fetch Json data
 function fetchData() {
-  return fetch("FishEyeData.json")
-    .then((response) => {
-      return response.json();
-    })
+  return fetch("FishEyeData.json").then((response) => {
+    return response.json();
+  });
 }
-
 
 // get Tags by map
 function getTags(data) {
   let tags = [];
-  data.photographers.map(photographer => {
-    if (photographer.hasOwnProperty('tags')) {
-      photographer.tags.map(tag => {
+  data.photographers.map((photographer) => {
+    if (photographer.hasOwnProperty("tags")) {
+      photographer.tags.map((tag) => {
         if (!tags.includes(tag)) {
           tags.push(tag);
         }
@@ -35,36 +32,48 @@ function getTags(data) {
   return tags;
 }
 
-
 // topTags for header
 function drawTagsHtml() {
-  taghtml = allTags.map((tag) => {
-    return `<div class="header__tag" id="tagclick" onClick=filterByTag("${tag}")><p id="tags" class="tags">#${tag}</p></div>`;
-  }).join("");
+  taghtml = allTags
+    .map((tag) => {
+      return `<div class="header__tag" id="tagclick"  onkeypress="keyEvents" onClick=filterByTag("${tag}")><p id="tags" class="tags"  tabindex="0">#${tag}</p></div>`;
+    })
+    .join("");
   document.querySelector("#topTags").innerHTML = taghtml;
+  keyEvents();
 }
-
 
 // filter by Tags photographer
 function filterByTag(tag) {
-  filteredPhotographers = allPhotographers.filter(photographer => {
+  filteredPhotographers = allPhotographers.filter((photographer) => {
     return photographer.tags.includes(tag);
-  })
+  });
   drawPhotographersHtml();
 }
 
-
+// // KEYBOARD EVENTS for Tag
+function keyEvents() {
+  
+  let tagsKey = document.getElementById("tags");
+  // // console.log(tagsKey);
+  tagsKey.addEventListener("keypress", function (event) {
+    if (event.key === 13)
+     alert("BLAH");
+  });
+}
 
 // display Photographers
 function drawPhotographersHtml() {
   let html = filteredPhotographers
     .map((user) => {
-      let tagsHtml = user.tags.map(tag => {
-        return `<p onClick=filterByTag("${tag}") id="tags" class="tags">#${tag}</p>`;
-      }).join("");
+      let tagsHtml = user.tags
+        .map((tag) => {
+          return `<p onClick=filterByTag("${tag}") id="tags" class="tags"  tabindex="0">#${tag}</p>`;
+        })
+        .join("");
       return `
       <div class = "user" id="user">
-        <a href="photographer-page.html?id=${user.id}" class="user__photoName" aria-label="photographer image ${user.id}">
+        <a href="photographer-page.html?id=${user.id}" class="user__photoName" aria-label="photographer image ${user.id}" tabindex="0">
           <img id="profile" src="Documents/Sample Photos/Photographers ID Photos/${user.portrait}" class="profile" alt="photo of ${user.name}" role="img"/>
           <h2 class="name">${user.name}</h2>
        </a>
@@ -79,37 +88,34 @@ function drawPhotographersHtml() {
   document.querySelector("#app").innerHTML = html;
 }
 
-
 // change color for TAGS
-function changeTagColor(){
-  let tags = document.querySelectorAll('.tags');
+function changeTagColor() {
+  let tags = document.querySelectorAll(".tags");
 
   function changeColor() {
-      for (var i = 0; i < tags.length; i++) {
-      tags[i].classList.remove('clicked');
-      }
-      this.classList.add('clicked');
+    for (var i = 0; i < tags.length; i++) {
+      tags[i].classList.remove("clicked");
+    }
+    this.classList.add("clicked");
   }
   for (var i = 0; i < tags.length; i++) {
-      tags[i].addEventListener('click',changeColor,false);
+    tags[i].addEventListener("click", changeColor, false);
   }
-}  
+}
 
+fetchData()
+  .then((data) => {
+    photographerTag = getParam("tags");
+    allPhotographers = data.photographers;
+    allTags = getTags(data);
+    filteredPhotographers = allPhotographers;
 
+    drawPhotographersHtml();
+    drawTagsHtml();
+    changeTagColor();
 
-fetchData().then((data) => {
-  photographerTag = getParam("tags");
-  allPhotographers = data.photographers;
-  allTags = getTags(data);
-  filteredPhotographers = allPhotographers;
-
-  drawPhotographersHtml();
-  drawTagsHtml();
-  changeTagColor();
-  
-})
-.catch((error) => {
-  console.log(error);
-});;
-
-
+    keyEvents();
+  })
+  .catch((error) => {
+    console.log(error);
+  });
