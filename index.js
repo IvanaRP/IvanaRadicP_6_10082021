@@ -36,11 +36,10 @@ function getTags(data) {
 function drawTagsHtml() {
   taghtml = allTags
     .map((tag) => {
-      return `<div class="header__tag tagclick"   onClick=filterByTag("${tag}")><p  class="tags"  tabindex="0">#${tag}</p></div>`;
+      return `<div class="header__tag tagclick" onClick=filterByTag("${tag}")><p  class="tags"  tabindex="0">#${tag}</p></div>`;
     })
     .join("");
   document.querySelector("#topTags").innerHTML = taghtml;
- 
 }
 
 // filter by Tags photographer
@@ -51,11 +50,19 @@ function filterByTag(tag) {
   drawPhotographersHtml();
 }
 
-
-    // if (event.key === 13)
-    //  alert("BLAH");
- 
-
+// // KEYBOARD EVENTS for Tag
+function keyboardTag() {
+  let tagsKey = document.querySelectorAll(".tags");
+  // console.log(tagsKey);
+  tagsKey.forEach((tagkey) => {
+    // console.log("toto");
+    tagkey.addEventListener("keypress", function (event) {
+      // console.log("toto");
+      if (event.key === "Enter")
+       alert("BLAH");
+    });
+  });
+}
 
 // display Photographers
 function drawPhotographersHtml() {
@@ -98,14 +105,10 @@ function changeTagColor() {
   }
 }
 
-
-
-
-
-
-fetch("FishEyeData.json").then((response) => {
-  return response.json();
-})
+fetch("FishEyeData.json")
+  .then((response) => {
+    return response.json();
+  })
   .then((data) => {
     photographerTag = getParam("tags");
     allPhotographers = data.photographers;
@@ -115,26 +118,21 @@ fetch("FishEyeData.json").then((response) => {
     drawPhotographersHtml();
     drawTagsHtml();
     changeTagColor();
+    keyboardTag();
 
+    // // KEYBOARD EVENTS for Tag
+    // let tagsKey = document.querySelectorAll(".tags");
+    // // console.log(tagsKey);
+    // tagsKey.forEach(tagkey => {
+    // // console.log("toto");
+    // tagkey.addEventListener("keypress", function (event){
+    //   // console.log("toto");
+    //   if (event.key === 'Enter')
+    //   alert("BLAH");
+    //   photographer.tags.includes(tag);
 
-
-
-// // KEYBOARD EVENTS for Tag
-  
-let tagsKey = document.querySelectorAll(".tags");
-// console.log(tagsKey);
-tagsKey.forEach(tagkey => {
-// console.log("toto");
-tagkey.addEventListener("keypress", function (event){
-  // console.log("toto");
-  if (event.key === 'Enter')
-  alert("BLAH");
-})
-})
-
-
-
-
+    // })
+    // })
   })
   .catch((error) => {
     console.log(error);
