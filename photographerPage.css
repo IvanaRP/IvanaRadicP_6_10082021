@@ -34,7 +34,7 @@
 }
 .filteredUser__name {
   font-size: 3em;
-  font-family: DM Sans;
+  font-family: "DM Sans";
   font-style: normal;
   font-weight: normal;
   line-height: 47px;
@@ -45,7 +45,7 @@
 }
 
 .filteredUser__location {
-  font-family: DM Sans;
+  font-family: "DM Sans";
   font-style: normal;
   font-weight: normal;
   font-size: 1.2em;
@@ -55,7 +55,7 @@
   color: #901c1c;
 }
 .filteredUser__tagline {
-  font-family: DM Sans;
+  font-family: "DM Sans";
   font-style: normal;
   font-weight: normal;
   font-size: 1em;
@@ -90,7 +90,7 @@
 }
 
 .profil {
-  display: flexbox;
+  display: flex;
   width: 32%;
   justify-content: center;
   background-color: #fff;
@@ -134,7 +134,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
   padding: 10px;
-  font-family: DM Sans;
+  font-family:" DM Sans";
   font-style: normal;
   font-weight: bold;
   /*z-index: 30;*/
@@ -441,7 +441,7 @@ button {
   font-size: 3em;
   display: none;
 } */
-*/
+
 
 /* button hide show div */
 .third {
@@ -617,7 +617,7 @@ button {
   }
   .filteredUser__name {
     font-size: 2em;
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     line-height: 47px;
@@ -628,7 +628,7 @@ button {
   }
 
   .filteredUser__location {
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 1.2em;
@@ -638,7 +638,7 @@ button {
     color: #901c1c;
   }
   .filteredUser__tagline {
-    font-family: DM Sans;
+    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 1em;
@@ -672,6 +672,9 @@ button {
     flex-wrap: wrap;
     align-items: center;
   }
+
+
+
   /* button contactez moi */
 
   .filteredUser__btn {
@@ -680,7 +683,7 @@ button {
     justify-content: center;
     align-items: center;
     position: fixed;
-    font-family: DM Sans;
+    font-family:" DM Sans";
     font-style: normal;
     font-weight: bold;
     right: 0;

@@ -36,7 +36,7 @@ function getTags(data) {
 function drawTagsHtml() {
   taghtml = allTags
     .map((tag) => {
-      return `<div class="header__tag tagclick" onClick=filterByTag("${tag}")><p  class="tags"  tabindex="0">#${tag}</p></div>`;
+      return `<div class="header__tag tagclick" aria-label="photographer categories"  onClick=filterByTag("${tag}")><p  class="tags"  tabindex="0">#${tag}</p></div>`;
     })
     .join("");
   document.querySelector("#topTags").innerHTML = taghtml;

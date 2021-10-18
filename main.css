@@ -64,7 +64,7 @@ body {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  color: 901c1c;
+  color: #901c1c;
   font-size: 12px;
   height: fit-content;
   width: 50%;
@@ -73,7 +73,7 @@ body {
 .tag {
   display: flex;
   flex-direction: row;
-  font-family: DM Sans;
+  font-family:" DM Sans";
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -114,7 +114,7 @@ body {
 }
 
 .name {
-  font-family: DM Sans;
+  font-family: "DM Sans";
   font-style: normal;
   font-weight: normal;
   font-size: 2em;
@@ -126,7 +126,7 @@ body {
 }
 
 .location {
-  font-family: DM Sans;
+  font-family: "DM Sans";
   font-style: normal;
   font-weight: normal;
   font-size: 13px;
@@ -137,7 +137,7 @@ body {
 }
 
 .tagline {
-  font-family: DM Sans;
+  font-family: "DM Sans";
   font-style: normal;
   font-weight: normal;
   font-size: 10px;
@@ -149,7 +149,7 @@ body {
 }
 
 .price {
-  font-family: DM Sans;
+  font-family: "DM Sans";
   font-style: normal;
   font-weight: normal;
   font-size: 9px;
@@ -166,7 +166,7 @@ body {
 }
 
 .tags {
-  font-family: DM Sans;
+  font-family: "DM Sans";
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
