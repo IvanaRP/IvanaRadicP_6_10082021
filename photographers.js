@@ -152,7 +152,10 @@ function drawPhotographersHtml() {
     })
     .join("");
   document.querySelector("#media").innerHTML = photoHtml;
+ 
 }
+
+
 
 // //display all LIKES DOWN RIGHT  add down  in mediaID
 function likeInfo() {
@@ -344,7 +347,7 @@ fetch("FishEyeData.json")
     dropDownMenu();
     dropDownToggle();
     keyboardSort();
-
+    
 
     // let sortpo = document.getElementById(".popular");
     // console.log(sortpo);

@@ -75,7 +75,7 @@ function drawPhotographersHtml() {
         .join("");
       return `
       <div class = "user" id="user">
-        <a href="photographer-page.html?id=${user.id}" class="user__photoName" aria-label="photographer image ${user.id}" tabindex="0">
+        <a href="photographer-page.html?id=${user.id}" class="user__photoName" aria-label="photographer image ${user.name}" tabindex="0">
           <img id="profile" src="Documents/Sample Photos/Photographers ID Photos/${user.portrait}" class="profile" alt="photo of ${user.name}" role="img"/>
           <h2 class="name">${user.name}</h2>
        </a>

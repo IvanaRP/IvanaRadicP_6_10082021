@@ -32,8 +32,8 @@ function fetchData() {
                       <form action"/" method="GET" id="form" class="form">
                       
                         <div class="modalplace">
-                          <label for="firstname" class="firstname">Prenom</label>
-                          <input id="firstname" name="firstname" class="firstname" type="text" placeholder="Prenom" minlength="2"> 
+                          <label for="firstname" class="firstname">Prénom</label>
+                          <input id="firstname" name="firstname" class="firstname" type="text" placeholder="Prénom" minlength="2"> 
                           <div id="error1" class="error">Veuillez entrer 2 caractères ou plus pour le champ du prenom.</div>
                         </div>
                         <div class="modalplace">
@@ -43,7 +43,7 @@ function fetchData() {
                         </div>
                         <div class="modalplace">
                           <label for="email" class="email">E-mail</label>
-                          <input id="email" name="email" type="text" class="email" placeholder="Email">
+                          <input id="email" name="email" type="text" class="email" placeholder="E-mail">
                           <div id="error3" class="error">Entrez une adresse valide. Exemple : contact@nom.com</div>
                         </div>
                         <div class="modalplace">
