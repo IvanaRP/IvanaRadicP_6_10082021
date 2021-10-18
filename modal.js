@@ -13,7 +13,7 @@ function fetchData() {
     })
     .then((data) => {
       let photographerId = getParam("id");
-      // let sortBy = getParam("sort"); //sort for dropdownmenu
+
       const filteredUsers = data.photographers.filter((user) => {
         return user.id == photographerId;
       });
@@ -26,7 +26,7 @@ function fetchData() {
       ).innerHTML = `  <div class="modal" id="modal">
                       <div class="modal-header" id="modal-header">
                         <h2 class="contactName">Contactez-moi<br>${filteredUser.name}</h2>
-                        <button class="close-button">&times;</button>
+                        <button class="close-button" id="close">&times;</button>
                       </div>
                       <div class=modal-body>
                       <form action"/" method="GET" id="form" class="form">
@@ -61,11 +61,31 @@ function fetchData() {
                   <div id="overlay" class="overlay"></div>
               `;
 
+
+      // close on click ModalBOx with x button
       document
         .querySelector(".close-button")
         .addEventListener("click", function () {
           document.querySelector(".modalBox").style.display = "none";
         });
+
+      // Keyboard Events - CLOSE MODAL ON ESCAPE KEY
+      let modalClose = document.querySelector(".modalBox");
+      window.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          modalClose.style.display = "none";
+        }
+      });
+
+      // Keyboard Events - CLOSE button X
+      let closeBtn = document.getElementById("close");
+
+      closeBtn.addEventListener("keyup", function (event) {
+        if (event.key === "Escape") {
+          modalClose.style.display = "none";
+          // alert("close X");
+        }
+      });
 
       const firstname = document.getElementById("firstname");
       const lastname = document.getElementById("lastname");
@@ -123,29 +143,12 @@ function fetchData() {
           e.preventDefault(); //stop form from submitting
           alert("Merci ! Votre réservation a été reçue.");
           error4.style.display = "none";
+          document.querySelector(".modalBox").style.display = "none";
           return true;
         }
-
-       
       });
 
-
-      //  // KEYBOARD EVENTS open modal
-      //  newFunction(); 
-     
-
-
-
-
-      //    function newFunction() {
-      //      form.addEventListener("keypress", function (event) {
-      //        if (event.key === "Enter")
-      //          event.preventDefault(); //stop form from submitting
-      //        error1.style.display = "inline-block";
-
-      //        return false;
-      //      });
-      //    }
+ 
     });
 }
 

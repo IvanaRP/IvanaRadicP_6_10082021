@@ -222,10 +222,11 @@ function dropDownMenu() {
      `;
   document.getElementById("dropdownmenu").innerHTML = dropDownMenuHtml;
   dropDownToggle();
+  keyboardSort();
 }
 
 function dropDownToggle() {
-  // select elements - make contstate
+  // select elements - make contstante
   const select = document.querySelector(".select");
   const optionBox = document.querySelector(".options");
   const options = [...document.querySelectorAll(".options .item")];
@@ -273,6 +274,8 @@ function dropDownToggle() {
 
   const setValue = () => {
     select.innerHTML = select.value = options[activeOption].innerHTML;
+
+ 
   };
 
   setValue();
@@ -302,6 +305,20 @@ function sortByDate() {
   drawPhotographersHtml();
 }
 
+// KEYBOARD events dropdown meni - sort gallery
+function keyboardSort(){
+  let sortpo = document.getElementById("popular");
+  console.log(sortpo);
+  sortpo.addEventListener("keyup", function (event) {
+  if (event.key === "Enter"){
+    // modalClose.style.display = "none";
+    alert("close X");
+  }
+});
+}
+
+
+
 fetch("FishEyeData.json")
   .then((response) => {
     return response.json();
@@ -326,7 +343,22 @@ fetch("FishEyeData.json")
     likeInfo();
     dropDownMenu();
     dropDownToggle();
+    keyboardSort();
+
+
+    // let sortpo = document.getElementById(".popular");
+    // console.log(sortpo);
+    // sortpo.addEventListener('keypress', function (event) {
+    //   if (event.key === "83") ;
+    //     alert("close X");
+     
+    // });
+ 
+
   })
   .catch((error) => {
     console.log(error);
   });
+
+
+  // keypress ne radi
