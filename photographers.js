@@ -22,30 +22,29 @@ class media {
     } else {
       this.type = "image";
     }
-  }    
-    generateImg() {
-      return `
-      <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.image}" aria-label=”vue rapprochée de l'image" >
+  }
+  generateImg() {
+    return `
+      <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.image}" aria-label=”${this.photo.title}" >
       <img class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${this.photo.image}" alt="${this.photo.title}">
       </a>`;
-    }
+  }
 
-    generateVideo() {
-      return `
-      <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" aria-label=”vue rapprochée de l'image">
+  generateVideo() {
+    return `
+      <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" aria-label=”${this.photo.title}">
       <video class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" alt="${this.photo.title}" controls>
       </a>`;
-    }
+  }
 
-    getHtml(){
-      if (this.type == "image") {
-        return this.generateImg();
-      } else if (this.type == "video") {
-        return this.generateVideo();
-      }
+  getHtml() {
+    if (this.type == "image") {
+      return this.generateImg();
+    } else if (this.type == "video") {
+      return this.generateVideo();
     }
+  }
 }
-
 
 // fetch Json data
 function fetchData() {
@@ -114,22 +113,19 @@ function openModal() {
     document.querySelector(".modalBox").style.display = "flex";
   });
 
-  
   // KEYBOARD EVENTS open modal
-  document.getElementById("open").addEventListener("keypress", function (event){
-    if (event.key === 'Enter')
-    document.querySelector(".modalBox").style.display = "flex";
-  });
+  document
+    .getElementById("open")
+    .addEventListener("keypress", function (event) {
+      if (event.key === "Enter")
+        document.querySelector(".modalBox").style.display = "flex";
+    });
 }
-
-
 
 //display all  MEDIA PHOTOS VIDEOS in inner html //add Media factory
 function drawPhotographersHtml() {
   let photoHtml = sortedPhotos
     .map((photo) => {
-
-
       // let tagsPhotoHtml = photo.tags
       //   .map((tag) => {
       //     return `<p onClick=filterByTag("${tag}") id="tags" class="tags">#${tag}</p>`;
@@ -181,17 +177,14 @@ function likeInfo() {
   document.getElementById("downright").innerHTML = likeInfoHtml;
 }
 
-
 //COUNTER OF LIKES - IncrimentHEART
 function incrementButton(event) {
   console.log(event.target.parentElement.querySelector(".numberLikes"));
   const numberLikes = event.target.parentElement.querySelector(".numberLikes");
 
-
   // total likes
   const totalL = document.querySelector(".totalLikes");
   console.log(totalL);
-
 
   if (!numberLikes.classList.contains("liked")) {
     console.log(parseInt(numberLikes.innerHTML) + 1);
@@ -199,14 +192,12 @@ function incrementButton(event) {
     totalL.innerHTML = parseInt(totalL.innerHTML) + 1;
     numberLikes.classList.add("liked");
     totalL.classList.add("liked");
-
   } else {
     numberLikes.innerHTML = parseInt(numberLikes.innerHTML) - 1;
     totalL.innerHTML = parseInt(totalL.innerHTML) - 1;
     numberLikes.classList.remove("liked");
     totalL.classList.remove("liked");
   }
-
 }
 
 // DropDownmenu3
@@ -215,11 +206,14 @@ function dropDownMenu() {
     <div class="dropMenu">
       <p class="dropMenu__trier" aria-label="trier gallerie par popularite, titre ou date">Trier par</p>
 
-                <div class="containerMenu"  >
+                <div class="containerMenu">
                     <button  class="select" name="select" value = "options">Select:</button>
-                    <div class="options"  >
+                    <div class="options">
+                        <hr>
                         <a href="#" id="popular" class="item" aria-label="trier par popularite" onClick="sortByLikes()">Popularité</a>
+                        <hr>
                         <a href="#" id="title" class="item" aria-label="trier par titre" onClick="sortByTitle()">Titre</a>
+                        <hr>
                         <a href="#" id="date" class="item" aria-label="trier par date" onClick="sortByDate()">Date</a>
                     </div>
                 </div>
@@ -230,7 +224,6 @@ function dropDownMenu() {
   dropDownToggle();
 }
 
-
 function dropDownToggle() {
   // select elements - make contstate
   const select = document.querySelector(".select");
@@ -240,20 +233,20 @@ function dropDownToggle() {
   let activeOption = 0; //default shoud be 0
 
   window.onclick = (e) => {
-    if(!e.target.className.includes("select")){
-        select.classList.remove("active");
-        optionBox.classList.remove("active");
-    }else{
-        select.classList.toggle("active");
-        optionBox.classList.toggle("active");
+    if (!e.target.className.includes("select")) {
+      select.classList.remove("active");
+      optionBox.classList.remove("active");
+    } else {
+      select.classList.toggle("active");
+      optionBox.classList.toggle("active");
     }
-  } 
+  };
 
   options.forEach((item, i) => {
     item.onmousemove = () => {
       hoverOptions(i);
-    }
-  })
+    };
+  });
 
   // hover
   const hoverOptions = (i) => {
@@ -261,30 +254,29 @@ function dropDownToggle() {
     options[i].classList.add("active");
     activeOption = i;
     setValue();
-  }
+  };
 
   // KEYBOARD EVENTS
   window.onkeydown = (e) => {
-    if(select.className.includes("active")){
+    if (select.className.includes("active")) {
       e.preventDefault();
-      if(e.key === "ArrowDown" && activeOption < options.length - 1){
-        hoverOptions(activeOption +1);
-      }else if(e.key === "ArrowUp" && activeOption > 0){
+      if (e.key === "ArrowDown" && activeOption < options.length - 1) {
+        hoverOptions(activeOption + 1);
+      } else if (e.key === "ArrowUp" && activeOption > 0) {
         hoverOptions(activeOption - 1);
-      } else if (e.key === "Enter"){
+      } else if (e.key === "Enter") {
         select.classList.remove("active");
         optionBox.classList.remove("active");
       }
     }
-  }
+  };
 
   const setValue = () => {
     select.innerHTML = select.value = options[activeOption].innerHTML;
-  }
+  };
 
   setValue();
 }
-
 
 // dropdownSort gallery
 function sortByLikes() {
@@ -310,11 +302,10 @@ function sortByDate() {
   drawPhotographersHtml();
 }
 
-
-
-fetch("FishEyeData.json").then((response) => {
-  return response.json();
-})
+fetch("FishEyeData.json")
+  .then((response) => {
+    return response.json();
+  })
   .then((data) => {
     photographerId = getParam("id");
     allfilteredUsers = data.photographers;
@@ -335,11 +326,6 @@ fetch("FishEyeData.json").then((response) => {
     likeInfo();
     dropDownMenu();
     dropDownToggle();
-
-
-  
-
-
   })
   .catch((error) => {
     console.log(error);
