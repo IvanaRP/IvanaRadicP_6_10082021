@@ -152,10 +152,7 @@ function drawPhotographersHtml() {
     })
     .join("");
   document.querySelector("#media").innerHTML = photoHtml;
- 
 }
-
-
 
 // //display all LIKES DOWN RIGHT  add down  in mediaID
 function likeInfo() {
@@ -225,7 +222,17 @@ function dropDownMenu() {
      `;
   document.getElementById("dropdownmenu").innerHTML = dropDownMenuHtml;
   dropDownToggle();
-  keyboardSort();
+  // keyboardSort();
+
+  // Keyboard Events - CLOSE button X
+  let sortP = document.getElementById("popular");
+  console.log(sortP);
+  sortP.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+      // modalClose.style.display = "none";
+      alert("close X");
+    }
+  });
 }
 
 function dropDownToggle() {
@@ -277,8 +284,6 @@ function dropDownToggle() {
 
   const setValue = () => {
     select.innerHTML = select.value = options[activeOption].innerHTML;
-
- 
   };
 
   setValue();
@@ -308,19 +313,18 @@ function sortByDate() {
   drawPhotographersHtml();
 }
 
-// KEYBOARD events dropdown meni - sort gallery
-function keyboardSort(){
-  let sortpo = document.getElementById("popular");
-  console.log(sortpo);
-  sortpo.addEventListener("keyup", function (event) {
-  if (event.key === "Enter"){
-    // modalClose.style.display = "none";
-    alert("close X");
-  }
-});
-}
-
-
+// // KEYBOARD events dropdown meni - sort gallery
+// function keyboardSort(){
+//   let sortpo = document.getElementById("popular");
+//   // console.log(sortpo);
+//   sortpo.addEventListener("keyup", function (event) {
+//   if (event.key === "Enter"){
+//     // modalClose.style.display = "none";
+//     // alert("close X");
+//     console.log(sortpo);
+//   }
+// });
+// }
 
 fetch("FishEyeData.json")
   .then((response) => {
@@ -346,22 +350,18 @@ fetch("FishEyeData.json")
     likeInfo();
     dropDownMenu();
     dropDownToggle();
-    keyboardSort();
-    
+    // keyboardSort();
 
     // let sortpo = document.getElementById(".popular");
     // console.log(sortpo);
     // sortpo.addEventListener('keypress', function (event) {
     //   if (event.key === "83") ;
     //     alert("close X");
-     
-    // });
- 
 
+    // });
   })
   .catch((error) => {
     console.log(error);
   });
 
-
-  // keypress ne radi
+// keypress ne radi
