@@ -18,11 +18,13 @@
         const links = Array.from(
           document.querySelectorAll('a[href$=".jpg"], a[href$=".mp4"]')
         );
+       
+        // console.log(title);
         const gallery = links.map((link) => link.getAttribute("href"));
         links.forEach((link) =>
           link.addEventListener("click", (e) => {
             e.preventDefault();
-            new Lightbox(e.currentTarget.getAttribute("href"), gallery);
+            new Lightbox(e.currentTarget.getAttribute("href"), gallery, e.currentTarget.getAttribute("alt"));
           })
         );
       }
@@ -33,8 +35,8 @@
        * @param {string[]} images  links to the images of the Lightbox
        */
   
-      constructor(url, images) {
-        this.element = this.buildDOM(url);
+      constructor(url, images, title) {
+        this.element = this.buildDOM(url, title);
         this.images = images;
         this.loadImage(url);
         this.onKeyUp = this.onKeyUp.bind(this);
@@ -133,15 +135,17 @@
        * @return {HTMLElement}
        */
   
-      buildDOM(url) {
+      buildDOM(url, title) {
         const dom = document.createElement("div");
         dom.classList.add("lightbox");
         dom.innerHTML = `
             <button class="lightbox__close">Close</button>
             <button class="lightbox__next">Next</button>
             <button class="lightbox__prev">Prev</button>
-            <p class="lightbox__title">title</p>
             <div class="lightbox__container">
+            </div>
+            <div class="lightbox__title">
+            <p class="lightbox__title">${title}</p>
             </div>
            `;
         dom
