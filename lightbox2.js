@@ -1,4 +1,4 @@
-
+// fix title
 
 // LIGHTBOX
 // function lightbox() {
@@ -20,10 +20,7 @@
         );
        
         // console.log(title);
-        const gallery = links.map((link) => ({
-          href : link.getAttribute("href"), title: link.getAttribute("alt")
-        }));
-      
+        const gallery = links.map((link) => link.getAttribute("href"));
         links.forEach((link) =>
           link.addEventListener("click", (e) => {
             e.preventDefault();
@@ -35,13 +32,13 @@
       /**
        *
        * @param {string} url  URL of the image
-       * @param {object[]} images  links to the images of the Lightbox
+       * @param {string[]} images  links to the images of the Lightbox
        */
   
       constructor(url, images, title) {
         this.element = this.buildDOM(url, title);
         this.images = images;
-        this.loadImage({href:url, title:title});
+        this.loadImage(url);
         this.onKeyUp = this.onKeyUp.bind(this);
         document.body.appendChild(this.element);
         disableBodyScroll(this.element);
@@ -54,8 +51,7 @@
        *
        */
   
-      loadImage(imageObject) {
-        console.log(imageObject);
+      loadImage(url) {
         this.url = null;
         const image = new Image();
         const container = this.element.querySelector(".lightbox__container");
@@ -66,10 +62,9 @@
         image.onload = () => {
           container.removeChild(loader);
           container.appendChild(image);
-          this.url = imageObject.href;
+          this.url = url;
         };
-        image.src = imageObject.href;
-        this.element.querySelector(".lightbox__title").innerHTML = imageObject.title;
+        image.src = url;
       }
   
       /**
@@ -112,13 +107,10 @@
   
       next(e) {
         e.preventDefault();
-        let i = this.images.findIndex((image) => image.href === this.url);
-        
+        let i = this.images.findIndex((image) => image === this.url);
         if (i === this.images.length - 1) {
           i = -1;
         }
-        console.log(i);
-        console.log(this.images[i + 1]);
         this.loadImage(this.images[i + 1]);
       }
   
@@ -130,7 +122,7 @@
   
       prev(e) {
         e.preventDefault();
-        let i = this.images.findIndex((image) => image.href === this.url);
+        let i = this.images.findIndex((image) => image === this.url);
         if (i === 0) {
           i = this.images.length;
         }
@@ -152,7 +144,7 @@
             <button class="lightbox__prev">Prev</button>
             <div class="lightbox__container">
             </div>
-            <div class="lightbox__title_div">
+            <div class="lightbox__title">
             <p class="lightbox__title">${title}</p>
             </div>
            `;

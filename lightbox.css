@@ -46,12 +46,16 @@
   right: 10px;
   z-index: 52;
 }
-
+.lightbox__title_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .lightbox__title {
   display: flex;
-  position: fixed;
+  /* position: fixed;
   top: 65%;
-  left: 50px;
+  left: 50px; */
   margin: 0;
   margin-left: 0;
   font-size: 1em;
@@ -163,5 +167,3 @@
     max-width: 90%;
   }
 }
-
-
