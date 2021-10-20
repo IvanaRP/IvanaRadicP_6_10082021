@@ -36,7 +36,7 @@ function getTags(data) {
 function drawTagsHtml() {
   taghtml = allTags
     .map((tag) => {
-      return `<div class="header__tag tagclick" aria-label="photographer categories"  onClick=filterByTag("${tag}")><p  class="tags"  tabindex="0">#${tag}</p></div>`;
+      return `<div class="header__tag tagclick" aria-label="photographer categories"  onClick=filterByTag("${tag}")><p id="${tag}" class="tags" tabindex="0">#${tag}</p></div>`;
     })
     .join("");
   document.querySelector("#topTags").innerHTML = taghtml;
@@ -50,7 +50,7 @@ function filterByTag(tag) {
   drawPhotographersHtml();
 }
 
-// // KEYBOARD EVENTS for Tag
+// KEYBOARD EVENTS for Tag
 function keyboardTag() {
   let tagsKey = document.querySelectorAll(".tags");
   // console.log(tagsKey);
@@ -58,8 +58,12 @@ function keyboardTag() {
     // console.log("toto");
     tagkey.addEventListener("keypress", function (event) {
       // console.log("toto");
-      if (event.key === "Enter")
-       alert("BLAH");
+      if (event.key === "Enter"){
+        event.target.click()
+      }
+    
+      
+      //  alert("SHOW FOTOGRAPHER WITH TAG");
     });
   });
 }
@@ -110,7 +114,7 @@ fetch("FishEyeData.json")
     return response.json();
   })
   .then((data) => {
-    photographerTag = getParam("tags");
+  
     allPhotographers = data.photographers;
     allTags = getTags(data);
     filteredPhotographers = allPhotographers;
@@ -119,6 +123,12 @@ fetch("FishEyeData.json")
     drawTagsHtml();
     changeTagColor();
     keyboardTag();
+
+    photographerTag = getParam("tags");
+    if (!!photographerTag){
+      filterByTag(photographerTag)
+    }
+
 
     // // KEYBOARD EVENTS for Tag
     // let tagsKey = document.querySelectorAll(".tags");

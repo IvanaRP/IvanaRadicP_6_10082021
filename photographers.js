@@ -25,14 +25,14 @@ class media {
   }
   generateImg() {
     return `
-      <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.image}" aria-label=”${this.photo.title}" >
+      <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.image}" aria-label=”${this.photo.title}" alt="${this.photo.title}" >
       <img class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${this.photo.image}" alt="${this.photo.title}">
       </a>`;
   }
 
   generateVideo() {
     return `
-      <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" aria-label=”${this.photo.title}">
+      <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" aria-label=”${this.photo.title}" alt="${this.photo.title}">
       <video class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" alt="${this.photo.title}" controls>
       </a>`;
   }
@@ -82,7 +82,7 @@ function drawPhotographersHtmlBox() {
     .map((user) => {
       let tagsHtml = user.tags
         .map((tag) => {
-          return `<a href="index.html?${tag}"><p onClick=filterByTag("${tag}") id="tags" class="tags" >#${tag}</p></a>`;
+          return `<a href="index.html?tags=${tag}"><p onClick=filterByTag("${tag}") id="tags" class="tags" >#${tag}</p></a>`;
         })
         .join("");
       return `
@@ -99,7 +99,6 @@ function drawPhotographersHtmlBox() {
                       <div class = "filteredUser__img">
                         <a href="photographer-page.html?id=${filteredUser.id}"> <img id="profile" src="Documents/Sample Photos/Photographers ID Photos/${filteredUser.portrait}" class="profile"  alt=""/> </a>
                       </div>  
-               
       `;
     })
     .join("");
@@ -137,8 +136,7 @@ function drawPhotographersHtml() {
       return `
         <div class="galerie__grid">
             
-                   ${mediaFile.getHtml()}
-      
+                   ${mediaFile.getHtml()}  
 
             <div class="galerie__info">
                 <p class="galerie__title">${photo.title}</p>
@@ -210,7 +208,7 @@ function dropDownMenu() {
                     <button  class="select" name="select" value = "options">Select:</button>
                     <div class="options">
                         <hr>
-                        <a href="#" id="popular" class="item" aria-label="trier par popularite" onClick="sortByLikes()">Popularité</a>
+                        <a href="#" id="popular" value="BULJA" class="item" aria-label="trier par popularite" onClick="sortByLikes()">Popularité</a>
                         <hr>
                         <a href="#" id="title" class="item" aria-label="trier par titre" onClick="sortByTitle()">Titre</a>
                         <hr>
@@ -224,15 +222,15 @@ function dropDownMenu() {
   dropDownToggle();
   // keyboardSort();
 
-  // Keyboard Events - CLOSE button X
-  let sortP = document.getElementById("popular");
-  console.log(sortP);
-  sortP.addEventListener("keyup", function (event) {
-    if (event.key === "Enter") {
-      // modalClose.style.display = "none";
-      alert("close X");
-    }
-  });
+  // // Keyboard Events - CLOSE button X
+  // let sortP = document.getElementById("popular");
+  // // console.log(sortP);
+  // sortP.addEventListener("keypress", function (event) {
+  //   if (event.key === "Enter") {
+  //     // modalClose.style.display = "none";
+  //     alert("close X");
+  //   }
+  // });
 }
 
 function dropDownToggle() {
@@ -278,6 +276,21 @@ function dropDownToggle() {
       } else if (e.key === "Enter") {
         select.classList.remove("active");
         optionBox.classList.remove("active");
+        // e.target.click();
+        console.log(e.target.value);
+         switch(e.target.value) {
+          case "Titre":
+            sortByTitle();
+            break;
+          case "Popularité":
+            sortByLikes();
+            break;
+            case "Date":
+            sortByDate();
+            break;
+          default:
+            // code block
+        }
       }
     }
   };
@@ -359,6 +372,17 @@ fetch("FishEyeData.json")
     //     alert("close X");
 
     // });
+  // Keyboard Events - CLOSE button X
+  // let sPop = document.getElementById("popular");
+  // console.log(sPop);
+  // sPop .addEventListener("keyup", function (event) {
+  //   if (event.key === 'Enter') 
+      
+  //     alert("close X");
+  
+  // });
+
+
   })
   .catch((error) => {
     console.log(error);
