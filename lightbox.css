@@ -136,6 +136,18 @@
     width: 0.5em;
     left: 10px;
   }
+
+.lightbox__title_div{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 70%;
+    width: 100%;
+    position: fixed;
+    z-index: 56;
+}
+
+
 }
 
 /* Tablet version */
@@ -165,5 +177,15 @@
 
   .lightbox__container img {
     max-width: 90%;
+  }
+
+  .lightbox__title_div{
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 90%;
+      width: 100%;
+      position: fixed;
+      z-index: 56;
   }
 }
