@@ -54,23 +54,81 @@
        *
        */
   
+      // loadImage(imageObject) {
+      //   // console.log(imageObject);
+      //   this.url = null;
+      //   const image = new Image();
+      //   const container = this.element.querySelector(".lightbox__container");
+      //   const loader = document.createElement("div");
+      //   loader.classList.add("lightbox__loader");
+      //   container.innerHTML = "";
+      //   container.appendChild(loader);
+      //   image.onload = () => {
+      //     container.removeChild(loader);
+      //     container.appendChild(image);
+      //     this.url = imageObject.href;
+      //   };
+      //   image.src = imageObject.href;
+      //   this.element.querySelector(".lightbox__title").innerHTML = imageObject.title;
+      // }
+
       loadImage(imageObject) {
         // console.log(imageObject);
         this.url = null;
         const image = new Image();
+        const video = document.createElement("video");
         const container = this.element.querySelector(".lightbox__container");
         const loader = document.createElement("div");
         loader.classList.add("lightbox__loader");
         container.innerHTML = "";
         container.appendChild(loader);
-        image.onload = () => {
-          container.removeChild(loader);
-          container.appendChild(image);
-          this.url = imageObject.href;
-        };
-        image.src = imageObject.href;
+        if(url.includes("jpg")){
+          image.onload = () => {
+            container.removeChild(loader);
+            container.appendChild(image);
+            this.url = imageObject.href;
+          };
+          image.src = imageObject.href;
+         
+        }
+        else if(url.includes("video")){
+          video.onload = () => {
+            container.removeChild(loader);
+            container.appendChild(video);
+            this.url = imageObject.href;
+          };
+          video.src = imageObject.href;
+        }
+      
+       
+       
         this.element.querySelector(".lightbox__title").innerHTML = imageObject.title;
       }
+      // loadImage(imageObject) {
+      //  // console.log(imageObject);
+      //   this.url = null;
+      //   const image = new Image();
+      //   const container = this.element.querySelector(".lightbox__container");
+      //   // const loader = document.createElement("div");
+      //   const video = document.createElement("video");
+      //   // loader.classList.add("lightbox__loader");
+      //   container.innerHTML = "";
+      //   // container.appendChild(loader);
+      //   image.onload = () => {
+      //     if (url.includes("jpg")) {
+      //           container.appendChild(image);
+      //           image.src = url;
+      //         } else if (url.includes('mp4')) {
+      //           container.appendChild(video);
+      //           video.src = url;
+      //         } 
+      //     this.url = imageObject.href;
+      //   };
+      //   image.src = imageObject.href;
+      //   video.src = imageObject.href;
+      //   this.element.querySelector(".lightbox__title").innerHTML = imageObject.title;
+      // }
+     
 
       // loadImage(url) {
       //   const image = new Image();
