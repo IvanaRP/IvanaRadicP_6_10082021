@@ -23,7 +23,7 @@ function fetchData() {
       //MODAL open on CONTACT ME button
       document.getElementById(
         "modalBox"
-      ).innerHTML = `  <div class="modal" id="modal">
+      ).innerHTML = `  <div class="modal" id="modal" tabindex="1">
                       <div class="modal-header" id="modal-header">
                         <h2 class="contactName">Contactez-moi<br>${filteredUser.name}</h2>
                         <button class="close-button" id="close">&times;</button>

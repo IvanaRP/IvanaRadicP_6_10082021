@@ -42,6 +42,19 @@ function drawTagsHtml() {
   document.querySelector("#topTags").innerHTML = taghtml;
 }
 
+
+function clickTag() {
+  let tagsKey = document.querySelectorAll(".tags");
+  // console.log(tagsKey);
+  tagsKey.forEach((tagkey) => {
+      if ( tagkey == document.activeElement){
+
+      }
+      console.log(tagkey);
+    });
+}
+
+
 // filter by Tags photographer
 function filterByTag(tag) {
   filteredPhotographers = allPhotographers.filter((photographer) => {
@@ -61,8 +74,6 @@ function keyboardTag() {
       if (event.key === "Enter"){
         event.target.click()
       }
-    
-      
       //  alert("SHOW FOTOGRAPHER WITH TAG");
     });
   });
@@ -123,6 +134,7 @@ fetch("FishEyeData.json")
     drawTagsHtml();
     changeTagColor();
     keyboardTag();
+    clickTag();
 
     photographerTag = getParam("tags");
     if (!!photographerTag){

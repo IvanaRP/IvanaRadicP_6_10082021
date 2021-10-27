@@ -1,4 +1,4 @@
-// fix title
+
 
 // LIGHTBOX
 // function lightbox() {
@@ -20,7 +20,10 @@
         );
        
         // console.log(title);
-        const gallery = links.map((link) => link.getAttribute("href"));
+        const gallery = links.map((link) => ({
+          href : link.getAttribute("href"), title: link.getAttribute("alt")
+        }));
+      
         links.forEach((link) =>
           link.addEventListener("click", (e) => {
             e.preventDefault();
@@ -32,13 +35,13 @@
       /**
        *
        * @param {string} url  URL of the image
-       * @param {string[]} images  links to the images of the Lightbox
+       * @param {object[]} images  links to the images of the Lightbox
        */
   
       constructor(url, images, title) {
         this.element = this.buildDOM(url, title);
         this.images = images;
-        this.loadImage(url);
+        this.loadImage({href:url, title:title});
         this.onKeyUp = this.onKeyUp.bind(this);
         document.body.appendChild(this.element);
         disableBodyScroll(this.element);
@@ -51,7 +54,8 @@
        *
        */
   
-      loadImage(url) {
+      loadImage(imageObject) {
+        // console.log(imageObject);
         this.url = null;
         const image = new Image();
         const container = this.element.querySelector(".lightbox__container");
@@ -62,10 +66,27 @@
         image.onload = () => {
           container.removeChild(loader);
           container.appendChild(image);
-          this.url = url;
+          this.url = imageObject.href;
         };
-        image.src = url;
+        image.src = imageObject.href;
+        this.element.querySelector(".lightbox__title").innerHTML = imageObject.title;
       }
+
+      // loadImage(url) {
+      //   const image = new Image();
+      //   const video = document.createElement("video");
+      //   const container = this.element.querySelector(".lightbox__container");
+      //   container.innerHTML = "";
+      //   this.url = url;
+      //   if (url.includes("jpg")) {
+      //     container.appendChild(image);
+      //     image.src = url;
+      //   } else if (url.includes('mp4')) {
+      //     container.appendChild(video);
+      //     video.src = url;
+      //   }
+      // }
+  
   
       /**
        *
@@ -107,10 +128,13 @@
   
       next(e) {
         e.preventDefault();
-        let i = this.images.findIndex((image) => image === this.url);
+        let i = this.images.findIndex((image) => image.href === this.url);
+        
         if (i === this.images.length - 1) {
           i = -1;
         }
+        console.log(i);
+        console.log(this.images[i + 1]);
         this.loadImage(this.images[i + 1]);
       }
   
@@ -122,7 +146,7 @@
   
       prev(e) {
         e.preventDefault();
-        let i = this.images.findIndex((image) => image === this.url);
+        let i = this.images.findIndex((image) => image.href === this.url);
         if (i === 0) {
           i = this.images.length;
         }
@@ -144,7 +168,7 @@
             <button class="lightbox__prev">Prev</button>
             <div class="lightbox__container">
             </div>
-            <div class="lightbox__title">
+            <div class="lightbox__title_div">
             <p class="lightbox__title">${title}</p>
             </div>
            `;
