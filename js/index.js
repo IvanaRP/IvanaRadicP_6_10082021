@@ -9,6 +9,7 @@ function getParam(tags) {
 let allPhotographers;
 let filteredPhotographers;
 let allTags;
+let selectedTag;
 
 // fetch Json data
 function fetchData() {
@@ -43,25 +44,59 @@ function drawTagsHtml() {
 }
 
 
-function clickTag() {
-  let tagsKey = document.querySelectorAll(".tags");
-  // console.log(tagsKey);
-  tagsKey.forEach((tagkey) => {
-      if ( tagkey == document.activeElement){
+// function clickTag() {
+//   let tagsKey = document.querySelectorAll(".tags");
+//   // console.log(tagsKey);
+//   tagsKey.forEach((tagkey) => {
+//       if ( tagkey == document.activeElement){
 
-      }
-      console.log(tagkey);
-    });
-}
+//       }
+//       console.log(tagkey);
+//     });
+// }
 
 
 // filter by Tags photographer
 function filterByTag(tag) {
-  filteredPhotographers = allPhotographers.filter((photographer) => {
-    return photographer.tags.includes(tag);
-  });
+ 
+
+  if(selectedTag == selectedTag) {
+    // alert("tagequal");
+   filteredPhotographers = allPhotographers.filter((photographer) => {
+        return photographer.tags.includes(tag);
+      });
+  } 
+  else if(!selectedTag == selectedTag) {
+   alert("blaaah promeni");
+   return  allPhotographers;
+  }
+
+
+  // console.log(filteredPhotographers);
+   
+
+  // selectedTag = filteredPhotographers = allPhotographers.filter((photographer) => {
+  //   return photographer.tags.includes(tag);
+  // });
+  // console.log(selectedTag);
+
   drawPhotographersHtml();
 }
+
+
+// // filter by Tags photographer
+// function filterByTag(tag) {
+
+//   if(selectedTag == tag)
+
+//   selectedTag = tag;
+//   console.log(selectedTag);
+
+//   filteredPhotographers = allPhotographers.filter((photographer) => {
+//     return photographer.tags.includes(tag);
+//   });
+//   drawPhotographersHtml();
+// }
 
 // KEYBOARD EVENTS for Tag
 function keyboardTag() {
@@ -134,7 +169,7 @@ fetch("FishEyeData.json")
     drawTagsHtml();
     changeTagColor();
     keyboardTag();
-    clickTag();
+    // clickTag();
 
     photographerTag = getParam("tags");
     if (!!photographerTag){
