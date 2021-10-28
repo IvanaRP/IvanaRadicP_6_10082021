@@ -47,14 +47,12 @@ function drawTagsHtml() {
 function filterByTag(tag) {
 console.log(tag, selectedTag);
   if(tag == selectedTag) {
-    // alert("tagequal");
+   
     filteredPhotographers = allPhotographers
-  //  filteredPhotographers = allPhotographers.filter((photographer) => {
-  //       return photographer.tags.includes(tag);
-  //     });
+ 
   } 
   else {
-  //  alert("blaaah promeni");
+
    filteredPhotographers = allPhotographers.filter((photographer) => {
           return photographer.tags.includes(tag);
         });
