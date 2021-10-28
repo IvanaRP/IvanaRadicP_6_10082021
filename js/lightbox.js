@@ -56,6 +56,8 @@ class Lightbox {
    *
    */
 
+
+  // working HERE
   //  loadImage(imageObject) {
   //   // console.log(imageObject);
   //   this.url = null;
@@ -74,6 +76,41 @@ class Lightbox {
   //   image.src = imageObject.href;
   //   this.element.querySelector(".lightbox__title").innerHTML = imageObject.title;
   // }
+
+  loadImage(imageObject) {
+    // console.log(imageObject);
+    this.url = imageObject.href;
+    const image = new Image();
+    const video = document.createElement("video");
+    const source = document.createElement('source');
+    video.appendChild(source);
+    const container = this.element.querySelector(".lightbox__container");
+    const loader = document.createElement("div");
+    loader.classList.add("lightbox__loader");
+    container.innerHTML = "";
+    container.appendChild(loader);
+    console.log(this.url);
+    if(this.url.includes("jpg")){
+      image.onload = () => {
+        container.removeChild(loader);
+        container.appendChild(image);
+        this.url = imageObject.href;
+      };
+      image.src = imageObject.href;
+    }
+    else if(this.url.includes("mp4")){
+      source.setAttribute('src', this.url);
+      
+      // video.load = () => {
+        console.log("toto");
+        container.removeChild(loader);
+        container.appendChild(video);
+        this.url = imageObject.href;
+      // };
+      video.src = imageObject.href;
+    }
+    this.element.querySelector(".lightbox__title").innerHTML = imageObject.title;
+  }
 
 
   // loadImage(imageObject) {
@@ -124,34 +161,7 @@ class Lightbox {
   //     }
   
 
-  loadImage(imageObject) {
-    // console.log(imageObject);
-    this.url = imageObject.href;
-    const image = new Image();
-    const video = document.createElement("video");
-    const container = this.element.querySelector(".lightbox__container");
-    const loader = document.createElement("div");
-    loader.classList.add("lightbox__loader");
-    container.innerHTML = "";
-    container.appendChild(loader);
-    if(this.url.includes("jpg")){
-      image.onload = () => {
-        container.removeChild(loader);
-        container.appendChild(image);
-        this.url = imageObject.href;
-      };
-      image.src = imageObject.href;
-    }
-    else if(this.url.includes("video")){
-      video.onload = () => {
-        container.removeChild(loader);
-        container.appendChild(video);
-        this.url = imageObject.href;
-      };
-      video.src = imageObject.href;
-    }
-    this.element.querySelector(".lightbox__title").innerHTML = imageObject.title;
-  }
+
   // loadImage(imageObject) {
   //  // console.log(imageObject);
   //   this.url = null;
