@@ -43,38 +43,23 @@ function drawTagsHtml() {
   document.querySelector("#topTags").innerHTML = taghtml;
 }
 
-
-// function clickTag() {
-//   let tagsKey = document.querySelectorAll(".tags");
-//   // console.log(tagsKey);
-//   tagsKey.forEach((tagkey) => {
-//       if ( tagkey == document.activeElement){
-
-//       }
-//       console.log(tagkey);
-//     });
-// }
-
-
 // filter by Tags photographer
 function filterByTag(tag) {
- 
-
-  if(selectedTag == selectedTag) {
+console.log(tag, selectedTag);
+  if(tag == selectedTag) {
     // alert("tagequal");
-   filteredPhotographers = allPhotographers.filter((photographer) => {
-        return photographer.tags.includes(tag);
-      });
+    filteredPhotographers = allPhotographers
+  //  filteredPhotographers = allPhotographers.filter((photographer) => {
+  //       return photographer.tags.includes(tag);
+  //     });
   } 
-  else if(!selectedTag == selectedTag) {
-   alert("blaaah promeni");
-   return  allPhotographers;
+  else {
+  //  alert("blaaah promeni");
+   filteredPhotographers = allPhotographers.filter((photographer) => {
+          return photographer.tags.includes(tag);
+        });
   }
-
-
-  // console.log(filteredPhotographers);
-   
-
+selectedTag = tag;
   // selectedTag = filteredPhotographers = allPhotographers.filter((photographer) => {
   //   return photographer.tags.includes(tag);
   // });
