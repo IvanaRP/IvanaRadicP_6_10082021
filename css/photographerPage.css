@@ -3,7 +3,7 @@
 .photographer__profile {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
   margin: auto;
   padding: 20px;
@@ -34,7 +34,6 @@
 }
 .filteredUser__name {
   font-size: 3em;
-  font-family: "DM Sans";
   font-style: normal;
   font-weight: normal;
   line-height: 47px;
@@ -45,7 +44,6 @@
 }
 
 .filteredUser__location {
-  font-family: "DM Sans";
   font-style: normal;
   font-weight: normal;
   font-size: 1.2em;
@@ -55,13 +53,12 @@
   color: #901c1c;
 }
 .filteredUser__tagline {
-  font-family: "DM Sans";
   font-style: normal;
   font-weight: normal;
   font-size: 1em;
   line-height: 13px;
   margin: 0;
-  text-align: center;
+  text-align: justify;
   padding-top: 10px;
   color: #525252;
 }
@@ -134,10 +131,8 @@ button {
   border-radius: 5px;
   cursor: pointer;
   padding: 10px;
-  font-family: "DM Sans";
   font-style: normal;
   font-weight: bold;
-  /*z-index: 30;*/
 }
 
 .button:hover {
@@ -388,18 +383,16 @@ button {
   }
   .filteredUser__name {
     font-size: 2em;
-    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     line-height: 47px;
-    text-align: center;
+    text-align: justify;
     color: #d3573c;
     margin: 0;
     margin-top: 20px;
   }
 
   .filteredUser__location {
-    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 1.2em;
@@ -409,13 +402,12 @@ button {
     color: #901c1c;
   }
   .filteredUser__tagline {
-    font-family: "DM Sans";
     font-style: normal;
     font-weight: normal;
     font-size: 1em;
     line-height: 13px;
     margin: 0;
-    text-align: center;
+    text-align: justify;
     padding-top: 10px;
     color: #525252;
   }
@@ -452,7 +444,6 @@ button {
     justify-content: center;
     align-items: center;
     position: fixed;
-    font-family: " DM Sans";
     font-style: normal;
     font-weight: bold;
     right: 0;
@@ -531,6 +522,7 @@ button {
   }
   .filteredUser__name {
     margin-top: 10px;
+    text-align: justify;
   }
   /*Galerie*/
 

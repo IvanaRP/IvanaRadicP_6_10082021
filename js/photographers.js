@@ -33,7 +33,7 @@ class media {
   generateVideo() {
     return `
       <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" aria-label=”${this.photo.title}" alt="${this.photo.title}">
-      <video  type="video/mp4" class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" alt="${this.photo.title}" controls>
+      <video type="video/mp4" controls class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" alt="${this.photo.title}">
       </a>`;
   }
 
