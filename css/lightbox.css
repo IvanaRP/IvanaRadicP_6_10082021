@@ -188,6 +188,9 @@
   .lightbox__container img {
     max-width: 90%;
   }
+  .lightbox__container video {
+    max-width: 90%;
+  }
 
   .lightbox__title_div{
     display: flex;

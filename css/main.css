@@ -28,20 +28,6 @@ body {
   
 }
 
-/* Colors*/
-/* primary red :  #901C1C; */
-/* primary orange :  #D3573C; */
-
-/* secondary color  orange:  #DB8876; */
-/* font secondary color grey : #525252;*/
-/* font secondary color black :#000000;*/
-/* font secondary color red: background: #901C1C; */
-
-/* button colors */
-
-/* red button background: #901C1C; */
-/* orange button background: #DB8876; */
-/* orange button FONT background: #000000; */
 
 /* Header */
 .header {
@@ -187,6 +173,10 @@ body {
   color: white;
 }
 
+.tags:active {
+  color: black;
+  background-color: #db8876;
+}
 .clicked {
   color: black;
   background-color: #db8876;
@@ -204,7 +194,7 @@ body {
   flex-wrap: wrap;
   align-items: center;
 }
-.boxes {
+.photographer__card {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -259,7 +249,7 @@ body {
     top: 40px;
   }
 
-  .boxes {
+  .photographer__card {
     display: flex;
     flex-direction: column;
   }
@@ -289,6 +279,15 @@ body {
     justify-content: center;
    
   }
+  .tags:active {
+    color: black;
+    background-color: #db8876;
+  }
+  .clicked {
+    color: black;
+    background-color: #db8876;
+  }  
+
 
   /*Profiles*/
 .photographer__section{
@@ -304,6 +303,7 @@ body {
   width: 80%; 
 }
 
+
 }
 
 /* Tablet version */
@@ -316,5 +316,7 @@ body {
     padding: 22px;
     width: 23%; 
   }
+
+ 
 
 }

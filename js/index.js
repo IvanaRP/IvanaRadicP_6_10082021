@@ -11,12 +11,12 @@ let filteredPhotographers;
 let allTags;
 let selectedTag;
 
-// fetch Json data
-function fetchData() {
-  return fetch("FishEyeData.json").then((response) => {
-    return response.json();
-  });
-}
+// // fetch Json data
+// function fetchData() {
+//   return fetch("FishEyeData.json").then((response) => {
+//     return response.json();
+//   });
+// }
 
 // get Tags by map
 function getTags(data) {
@@ -40,7 +40,7 @@ function drawTagsHtml() {
       return `<div class="header__tag tagclick" aria-label="photographer categories"  onClick=filterByTag("${tag}")><p id="${tag}" class="tags" tabindex="0">#${tag}</p></div>`;
     })
     .join("");
-  document.querySelector("#topTags").innerHTML = taghtml;
+  document.querySelector("#header__tags").innerHTML = taghtml;
 }
 
 // filter by Tags photographer
@@ -58,28 +58,11 @@ console.log(tag, selectedTag);
         });
   }
 selectedTag = tag;
-  // selectedTag = filteredPhotographers = allPhotographers.filter((photographer) => {
-  //   return photographer.tags.includes(tag);
-  // });
-  // console.log(selectedTag);
+
 
   drawPhotographersHtml();
 }
 
-
-// // filter by Tags photographer
-// function filterByTag(tag) {
-
-//   if(selectedTag == tag)
-
-//   selectedTag = tag;
-//   console.log(selectedTag);
-
-//   filteredPhotographers = allPhotographers.filter((photographer) => {
-//     return photographer.tags.includes(tag);
-//   });
-//   drawPhotographersHtml();
-// }
 
 // KEYBOARD EVENTS for Tag
 function keyboardTag() {
@@ -92,12 +75,11 @@ function keyboardTag() {
       if (event.key === "Enter"){
         event.target.click()
       }
-      //  alert("SHOW FOTOGRAPHER WITH TAG");
     });
   });
 }
 
-// display Photographers
+// display Photographers cards
 function drawPhotographersHtml() {
   let html = filteredPhotographers
     .map((user) => {
@@ -120,10 +102,10 @@ function drawPhotographersHtml() {
       `;
     })
     .join("");
-  document.querySelector("#app").innerHTML = html;
+  document.querySelector("#photographer__card").innerHTML = html;
 }
 
-// change color for TAGS
+// change color for TAGS when selected
 function changeTagColor() {
   let tags = document.querySelectorAll(".tags");
 
@@ -135,9 +117,12 @@ function changeTagColor() {
   }
   for (var i = 0; i < tags.length; i++) {
     tags[i].addEventListener("click", changeColor, false);
-  }
+  } 
 }
 
+
+
+// fetch Json data
 fetch("FishEyeData.json")
   .then((response) => {
     return response.json();
@@ -152,7 +137,7 @@ fetch("FishEyeData.json")
     drawTagsHtml();
     changeTagColor();
     keyboardTag();
-    // clickTag();
+   
 
     photographerTag = getParam("tags");
     if (!!photographerTag){
@@ -160,19 +145,6 @@ fetch("FishEyeData.json")
     }
 
 
-    // // KEYBOARD EVENTS for Tag
-    // let tagsKey = document.querySelectorAll(".tags");
-    // // console.log(tagsKey);
-    // tagsKey.forEach(tagkey => {
-    // // console.log("toto");
-    // tagkey.addEventListener("keypress", function (event){
-    //   // console.log("toto");
-    //   if (event.key === 'Enter')
-    //   alert("BLAH");
-    //   photographer.tags.includes(tag);
-
-    // })
-    // })
   })
   .catch((error) => {
     console.log(error);

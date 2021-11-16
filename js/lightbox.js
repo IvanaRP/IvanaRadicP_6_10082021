@@ -1,5 +1,5 @@
 // LIGHTBOX
-// function lightbox() {
+
 
 import { enableBodyScroll, disableBodyScroll } from "./body-scroll-lock.js"; //for scroll bar
 
@@ -57,26 +57,6 @@ class Lightbox {
    */
 
 
-  // working HERE
-  //  loadImage(imageObject) {
-  //   // console.log(imageObject);
-  //   this.url = null;
-  //   const image = new Image();
-  //    console.log(image);
-  //   const container = this.element.querySelector(".lightbox__container");
-  //   const loader = document.createElement("div");
-  //   loader.classList.add("lightbox__loader");
-  //   container.innerHTML = "";
-  //   container.appendChild(loader);
-  //   image.onload = () => {
-  //     container.removeChild(loader);
-  //     container.appendChild(image);
-  //     this.url = imageObject.href;
-  //   };
-  //   image.src = imageObject.href;
-  //   this.element.querySelector(".lightbox__title").innerHTML = imageObject.title;
-  // }
-
   loadImage(imageObject) {
     // console.log(imageObject);
     this.url = imageObject.href;
@@ -101,106 +81,20 @@ class Lightbox {
     else if(this.url.includes("mp4")){
       source.setAttribute('src', this.url);
       
-      // video.load = () => {
-        console.log("toto");
+  
+        // console.log("toto");
         container.removeChild(loader);
         container.appendChild(video);
         this.url = imageObject.href;
-      // };
+     
       video.src = imageObject.href;
     }
     this.element.querySelector(".lightbox__title").innerHTML = imageObject.title;
   }
 
 
-  // loadImage(imageObject) {
-  //   // console.log(imageObject);
-  //   this.url = null;
-  //   // console.log(this.url);
-  //   const image = new Image();
-  //    console.log(image);
-  //   //  const video = new Video();
-  //   //  console.log(video);
-  //   const container = this.element.querySelector(".lightbox__container");
-  //   const loader = document.createElement("div");
-  //   loader.classList.add("lightbox__loader");
-  //   container.innerHTML = "";
-  //   container.appendChild(loader);
-  //   image.onload = () => {
-  //     container.removeChild(loader);
-  //     container.appendChild(image);
-  //     this.url = imageObject.href;
-  //   };
-  //   image.src = imageObject.href;
-   
-    
-  //   this.element.querySelector(".lightbox__title").innerHTML = imageObject.title;
-  // }
-
-  // loadImage(imageObject) {
-  //   // console.log(imageObject);
-    
-  //   this.url = null;
-  //   if(href.indexOf('mp4')) {
-  //       console.log('url contains "mp4"');
-  //   }
-  //   const image = new Image();
-  //   const container = this.element.querySelector(".lightbox__container");
- 
-  //   const loader = document.createElement("div");
-  //   loader.classList.add("lightbox__loader");
-  //   container.innerHTML = "";
-  //   container.appendChild(loader);
-  //   image.onload = () => {
-  //         container.removeChild(loader);
-  //         container.appendChild(image);
-  //         this.url = imageObject.href;
-  //       };
-  //       image.src = imageObject.href;
-  //       this.element.querySelector(".lightbox__title").innerHTML = imageObject.title;
-  //     }
-  
 
 
-  // loadImage(imageObject) {
-  //  // console.log(imageObject);
-  //   this.url = null;
-  //   const image = new Image();
-  //   const container = this.element.querySelector(".lightbox__container");
-  //   // const loader = document.createElement("div");
-  //   const video = document.createElement("video");
-  //   // loader.classList.add("lightbox__loader");
-  //   container.innerHTML = "";
-  //   // container.appendChild(loader);
-  //   image.onload = () => {
-  //     if (url.includes("jpg")) {
-  //           container.appendChild(image);
-  //           image.src = url;
-  //         } else if (url.includes('mp4')) {
-  //           container.appendChild(video);
-  //           video.src = url;
-  //         }
-  //     this.url = imageObject.href;
-  //   };
-  //   image.src = imageObject.href;
-  //   video.src = imageObject.href;
-  //   this.element.querySelector(".lightbox__title").innerHTML = imageObject.title;
-  // }
-
-  // loadImage(url) {
-  //   const image = new Image();
-  //   const video = document.createElement("video");
-  //   const container = this.element.querySelector(".lightbox__container");
-  //   container.innerHTML = "";
-  //   this.url = url;
-  //   if (url.includes("jpg")) {
-  //     container.appendChild(image);
-  //     image.src = url;
-  //   } else if (url.includes('mp4')) {
-  //     container.appendChild(video);
-  //     video.src = url;
-  //   }
-  // }
 
   /**
    *
@@ -300,4 +194,4 @@ class Lightbox {
 }
 
 Lightbox.init();
-//
+

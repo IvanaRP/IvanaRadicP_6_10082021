@@ -46,12 +46,12 @@ class media {
   }
 }
 
-// fetch Json data
-function fetchData() {
-  return fetch("FishEyeData.json").then((response) => {
-    return response.json();
-  });
-}
+// // fetch Json data
+// function fetchData() {
+//   return fetch("FishEyeData.json").then((response) => {
+//     return response.json();
+//   });
+// }
 
 // get Tags by map
 function getTags(data) {
@@ -125,12 +125,7 @@ function openModal() {
 function drawPhotographersHtml() {
   let photoHtml = sortedPhotos
     .map((photo) => {
-      // let tagsPhotoHtml = photo.tags
-      //   .map((tag) => {
-      //     return `<p onClick=filterByTag("${tag}") id="tags" class="tags">#${tag}</p>`;
-      //   })
-      //   .join("");
-
+    
       let mediaFile = new media(photo);
 
       return `
@@ -220,17 +215,7 @@ function dropDownMenu() {
      `;
   document.getElementById("dropdownmenu").innerHTML = dropDownMenuHtml;
   dropDownToggle();
-  // keyboardSort();
 
-  // // Keyboard Events - CLOSE button X
-  // let sortP = document.getElementById("popular");
-  // // console.log(sortP);
-  // sortP.addEventListener("keypress", function (event) {
-  //   if (event.key === "Enter") {
-  //     // modalClose.style.display = "none";
-  //     alert("close X");
-  //   }
-  // });
 }
 
 function dropDownToggle() {
@@ -326,18 +311,6 @@ function sortByDate() {
   drawPhotographersHtml();
 }
 
-// // KEYBOARD events dropdown meni - sort gallery
-// function keyboardSort(){
-//   let sortpo = document.getElementById("popular");
-//   // console.log(sortpo);
-//   sortpo.addEventListener("keyup", function (event) {
-//   if (event.key === "Enter"){
-//     // modalClose.style.display = "none";
-//     // alert("close X");
-//     console.log(sortpo);
-//   }
-// });
-// }
 
 fetch("FishEyeData.json")
   .then((response) => {
@@ -363,24 +336,7 @@ fetch("FishEyeData.json")
     likeInfo();
     dropDownMenu();
     dropDownToggle();
-    // keyboardSort();
-
-    // let sortpo = document.getElementById(".popular");
-    // console.log(sortpo);
-    // sortpo.addEventListener('keypress', function (event) {
-    //   if (event.key === "83") ;
-    //     alert("close X");
-
-    // });
-  // Keyboard Events - CLOSE button X
-  // let sPop = document.getElementById("popular");
-  // console.log(sPop);
-  // sPop .addEventListener("keyup", function (event) {
-  //   if (event.key === 'Enter') 
-      
-  //     alert("close X");
-  
-  // });
+   
 
 
   })
@@ -388,4 +344,4 @@ fetch("FishEyeData.json")
     console.log(error);
   });
 
-// keypress ne radi
+

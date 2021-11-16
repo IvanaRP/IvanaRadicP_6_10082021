@@ -10,29 +10,30 @@
   </head>
 
   <body>
+
     <!--Header-->                   
     <header class="header__info">
       <div class="header">
         <a href="index.html" aria-label="lien vers page accueil"><img class="header__logo" src="Documents/FishEyeLOGO.svg" alt="FishEyepage accueil"/></a>
         <!--Tags section -->
-        <div id="topTags"  class="header__tags"></div> 
+        <div id="header__tags"  class="header__tags"></div> 
         <div class="MainSection">
           <a href="index.html"><h1 class="header__title">Nos photographes</h1></a>
         </div>
       </div>
 
       <!--BUTTON PASSER CONTENU-->
-      <div class="buttonTopdiv" id="buttonTopdiv" aria-label="passer au contenu" onclick="topFunction()">
-        <button class="buttonTop"  tabindex="0">Passer au contenu</button>
+      <div class="button__top" id="button__top" aria-label="passer au contenu" onclick="topFunction()">
+        <button class="button__topbtn"  tabindex="0">Passer au contenu</button>
       </div>
       
     </header>   
 
     <!--MAIN-->
-    <main class="photographer__section" id="main">
+    <main class="photographer__section" id="photographer__section">
 
       <!--PHOTOGRAPHERS CARD -->
-      <div id="app" class="boxes"></div>
+      <div id="photographer__card" class="photographer__card"></div>
 
       <!--JAVASCRIPT -->
       <script  src="./js/buttonContenu.js"></script>

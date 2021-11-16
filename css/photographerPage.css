@@ -96,7 +96,7 @@
   background-color: #fff;
 }
 
-.boxgrey {
+.photographer__boxgrey {
   display: flex;
   align-items: flex-start;
   margin: auto;
@@ -134,7 +134,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
   padding: 10px;
-  font-family:"DM Sans";
+  font-family: "DM Sans";
   font-style: normal;
   font-weight: bold;
   /*z-index: 30;*/
@@ -328,121 +328,6 @@ button {
   z-index: 30;
 }
 
-/* dropdown proba */
-
-/* .buttonMenu {
-  font-weight: bold;
-  padding: 0 10px;
-  color: #fafafa;
-  background: #901c1c;
-  border: none;
-  width: fit-content;
-  height: 45px;
-  border-radius: 5px;
-  cursor: pointer;
-  padding: 10px;
-  margin-left: 20px;
-} */
-
-/* .buttonMenu:hover {
-  background: #db8876;
-  color: #000000;
-}
-.sortedRes {
-  display: none;
-} */
-
-/* dropdown scrool HOVER menu */
-
-/* .dropdownmenu {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.dropMenu {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin: auto;
-  width: 80%;
-} */
-
-/* Dropdown Button
-.dropbtn {
-  background: #901c1c;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  width: 100%;
-} */
-
-/* .dropbtn:hover,
-:focus {
-  border-radius: 5px 5px 0 0;
-} */
-
-/* The container <div> - needed to position the dropdown content */
-/* .dropdown {
-  position: relative;
-  display: inline-block;
-  margin-left: 20px;
-  /* width: 25%; */
-
-/* Dropdown Content (Hidden by Default) */
-/* .dropdown-content {
-  display: none;
-  position: absolute;
-  background: #901c1c;
-  color: white;
-  border-radius: 0 0 5px 5px;
-  width: 100%;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-/* .dropdown-content a {
-  color: white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  /* border-radius: 0 0 5px 5px ; */
-/* border-top: 1px solid white;
-  margin-left: 5px;
-  margin-right: 5px;
-  padding: 10px; */
-/* left: 10%; */
-/* width: 50%;  or 100px */
-
-/* Change color of dropdown links on hover */
-/* .dropdown-content a:hover {
-  background: #db8876;
-  color: #000000;
-  outline: none;
-  background: #db8876;
-  overflow: hidden;
-} */
-
-/* Show the dropdown menu on hover
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-/* .dropdown:hover .dropbtn {
-  background: #db8876;
-  color: #000000;
-} */
-
-/* proba */
-/* #myId {
-  font-size: 3em;
-  display: none;
-} */
-
-
 /* button hide show div */
 .third {
   display: none;
@@ -460,120 +345,6 @@ button {
   height: 300px;
 }
 
-/* likes odvojeno */
-
-/* .galerieOdvojeno {
-  display: flex;
-  width: auto;
-  height: 200px;
-} */
-
-/* dropdown tuto */
-
-/* .dropDownMenu2 {
-  display: flex;
-  flex-direction: row;
-  margin: auto;
-  width: 80%;
-} */
-
-/* .dropdown {
-  position: relative;
-  cursor: pointer;
-}
-
-.dropdown .dropdown-toggle {
-  appearance: none;
-  background: #901c1c;
-  color: #fff;
-  border: 0;
-  padding: 12px 35px 12px 12px;
-  border-radius: 5px;
-  text-align: left;
-  position: relative;
-  max-width: 300px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  cursor: pointer;
-  outline: none;
-  /* border-top: 1px solid white; */
-/*} */
-
-/* .dropdown .dropdown-toggle::after {
-  content: "";
-  border-width: 6px;
-  border-radius: 5px;
-  border-style: solid;
-  border-color: transparent;
-  border-top-color: inherit;
-  position: absolute;
-  right: 12px;
-  top: calc(50% + 3px);
-  transform: translateY(-50%);
-}
-
-.dropdown .dropdown-toggle.active::after {
-  border-color: transparent;
-  border-bottom-color: inherit;
-  top: calc(50% - 3px);
-} */
-
-/* .dropdown .dropdown-menu {
-  position: absolute;
-  left: 50%;
-  top: 80%;
-  transform: translateX(-50%);
-  background: #901c1c;
-  color: white;
-  box-shadow: #db8876;
-  list-style: none;
-  padding: 5px 0;
-  margin: 0;
-  max-width: 320px;
-  width: calc(100% + 24px);
-  border-radius: 5px;
-  z-index: 10;
-  visibility: hidden;
-  overflow: auto;
-  max-height: 200px;
-}
-
-.dropdown .dropdown-menu[aria-expanded="true"] {
-  visibility: visible;
-} */
-
-/* .dropdown .dropdown-menu li {
-  height: 35px;
-  display: block;
-  align-items: center;
-  padding: 10px 12px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  border-top: 1px solid white;
-}
-
-.dropdown .dropdown-menu li:hover,
-.dropdown .dropdown-menu li:focus {
-  outline: none;
-  background: #db8876;
-} */
-
-/* LIGHTBOX */
-/* 
-.galerie__grid {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  width: 28%;
-  padding-top: 20px;
-  margin: 30px;
-  border-radius: 5px;
-} */
-
 /* Media Queries */
 
 /* Mobile version */
@@ -588,7 +359,7 @@ button {
     top: 40px;
   }
 
-  .boxgrey {
+  .photographer__boxgrey {
     background: #ffffff;
     width: 100%;
   }
@@ -673,8 +444,6 @@ button {
     align-items: center;
   }
 
-
-
   /* button contactez moi */
 
   .filteredUser__btn {
@@ -683,7 +452,7 @@ button {
     justify-content: center;
     align-items: center;
     position: fixed;
-    font-family:" DM Sans";
+    font-family: " DM Sans";
     font-style: normal;
     font-weight: bold;
     right: 0;
