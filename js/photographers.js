@@ -22,7 +22,7 @@ class media {
     } else {
       this.type = "image";
     }
-  }
+  } 
   generateImg() {
     return `
       <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.image}" aria-label=”${this.photo.alt}" alt="${this.photo.alt}" >
@@ -203,7 +203,7 @@ function dropDownMenu() {
                     <button  class="select" name="select" value = "options">Select:</button>
                     <div class="options">
                         <hr>
-                        <a href="#" id="popular" value="BULJA" class="item" aria-label="trier par popularite" onClick="sortByLikes()">Popularité</a>
+                        <a href="#" id="popular"  class="item" aria-label="trier par popularite" onClick="sortByLikes()">Popularité</a>
                         <hr>
                         <a href="#" id="title" class="item" aria-label="trier par titre" onClick="sortByTitle()">Titre</a>
                         <hr>
