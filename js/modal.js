@@ -141,7 +141,7 @@ function fetchData() {
           return false;
         } else {
           e.preventDefault(); //stop form from submitting
-          alert("Merci ! Votre réservation a été reçue.");
+          alert("Merci ! Votre message a été reçue.");
           error4.style.display = "none";
           document.querySelector(".modalBox").style.display = "none";
           return true;
