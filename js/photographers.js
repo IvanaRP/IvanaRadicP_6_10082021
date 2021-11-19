@@ -25,15 +25,15 @@ class media {
   } 
   generateImg() {
     return `
-      <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.image}" aria-label=”${this.photo.alt}" alt="${this.photo.alt}" >
-      <img class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${this.photo.image}" aria-label=”${this.photo.alt}" alt="${this.photo.alt}">
+      <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.image}" aria-label=”${this.photo.alt}" alt="${this.photo.title}" >
+      <img class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${this.photo.image}" aria-label=”${this.photo.alt}" alt="${this.photo.title}">
       </a>`;
   }
 
   generateVideo() {
     return `
-      <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" aria-label=”${this.photo.alt}" alt="${this.photo.alt}">
-      <video type="video/mp4" controls class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" alt="${this.photo.alt}" >
+      <a href="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" aria-label=”${this.photo.alt}" alt="${this.photo.title}">
+      <video type="video/mp4" controls class="galerie__gridimg" src="Documents/Sample Photos/${filteredUser.name}/${this.photo.video}" alt="${this.photo.title}" >
       </a>`;
   }
 
